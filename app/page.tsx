@@ -7,8 +7,9 @@ import ContactSection from "@/components/ContactSection";
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-white pt-24 text-black">
+    <main className="min-h-screen bg-white text-black">
       <Header />
+
       <div className="mx-auto max-w-6xl">
         <div id="home">
           <HomeHero />
@@ -17,9 +18,11 @@ export default function Home() {
         <div id="projects">
           <ProjectGrid />
         </div>
+      </div>
 
-        <QuoteSection />
+      <QuoteSection />
 
+      <div className="mx-auto max-w-6xl">
         <div id="resume">
           <ExperienceSection />
         </div>
