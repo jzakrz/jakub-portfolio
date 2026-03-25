@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { DarkBadge } from "@/components/Badge";
 
 export default function ProjectGrid() {
   return (
@@ -14,6 +15,11 @@ export default function ProjectGrid() {
           <p className="mt-4 text-white/80">
             Commercial project focused on improving onboarding and team joining.
           </p>
+
+          <div className="mt-6 flex flex-wrap gap-2">
+            <DarkBadge>Commercial Project</DarkBadge>
+            <DarkBadge>Event Platform</DarkBadge>
+          </div>
         </Link>
 
         <article className="rounded-3xl border border-black/10 bg-white p-8">

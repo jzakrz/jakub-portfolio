@@ -6,8 +6,10 @@ export default function Home() {
   return (
     <main className="min-h-screen bg-white text-black">
       <Header />
-      <HomeHero />
-      <ProjectGrid />
+      <div className="mx-auto max-w-6xl">
+        <HomeHero />
+        <ProjectGrid />
+      </div>
     </main>
   );
 }
