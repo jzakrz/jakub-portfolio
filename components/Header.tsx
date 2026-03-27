@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
 import { navItems } from "@/data/portfolio";
 
 export default function Header() {
@@ -34,9 +35,9 @@ export default function Header() {
         <div className="relative flex items-center gap-3">
           <a
             href="mailto:zakrzewski_j@yahoo.com"
-            className="rounded-full bg-black px-4 py-2 text-xs font-semibold uppercase tracking-[0.12em] text-white transition hover:-translate-y-0.5"
+            className="inline-flex items-center justify-center rounded-full bg-black px-6 py-3 text-[0.95rem] font-semibold uppercase tracking-[0.12em] text-white transition-transform hover:scale-[1.03]"
           >
-            Hire me
+            Get in touch
           </a>
 
           <button
@@ -44,7 +45,8 @@ export default function Header() {
             aria-label={isMenuOpen ? "Close menu" : "Open menu"}
             aria-expanded={isMenuOpen}
             onClick={() => setIsMenuOpen((prev) => !prev)}
-            className="flex h-[44px] w-[44px] items-center justify-center rounded-full text-black transition hover:bg-black/5"
+            className="flex h-[56px] w-[56px] items-center justify-center rounded-full text-black transition hover:bg-black/5"
+            style={{ cursor: "pointer" }}
           >
             {isMenuOpen ? (
               <svg
@@ -67,40 +69,64 @@ export default function Header() {
             )}
           </button>
 
-          {isMenuOpen && (
-            <div className="absolute right-0 top-[calc(100%+14px)] z-50 min-w-[240px] overflow-hidden rounded-[1.6rem] border border-black/10 bg-white p-3 shadow-[0_18px_40px_rgba(0,0,0,0.08)]">
-              <nav className="flex flex-col gap-1">
-                {navItems.map((item) => (
-  <a
-    key={item}
-    href={`#${item.toLowerCase()}`}
-    onClick={() => setIsMenuOpen(false)}
-    className="flex items-center justify-between rounded-[1rem] px-4 py-3 text-[1rem] font-semibold uppercase tracking-[0.06em] text-black transition-colors hover:bg-black hover:text-white"
-  >
-    <span>{item}</span>
-
-    {item === "Resume" && (
-      <svg
-        viewBox="0 0 24 24"
-        aria-hidden="true"
-        className="h-4 w-4"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
+          <AnimatePresence>
+  {isMenuOpen && (
+    <motion.div
+      initial={{ opacity: 0, y: -10, scale: 0.96 }}
+      animate={{ opacity: 1, y: 0, scale: 1 }}
+      exit={{ opacity: 0, y: -10, scale: 0.96 }}
+      transition={{ duration: 0.22, ease: "easeOut" }}
+      className="absolute right-0 top-[calc(100%+14px)] z-50 min-w-[240px] overflow-hidden rounded-[1.6rem] border border-black/10 bg-white p-3 shadow-[0_18px_40px_rgba(0,0,0,0.08)]"
+    >
+      <motion.nav
+        className="flex flex-col gap-1"
+        initial="hidden"
+        animate="visible"
+        exit="hidden"
+        variants={{
+          visible: {
+            transition: {
+              staggerChildren: 0.03,
+            },
+          },
+        }}
       >
-        <path d="M14 5h5v5" />
-        <path d="M10 14 19 5" />
-        <path d="M19 14v5h-5" />
-        <path d="M5 10V5h5" />
-      </svg>
-    )}
-  </a>
-))}
-              </nav>
-            </div>
-          )}
+        {navItems.map((item) => (
+          <motion.a
+            key={item}
+            href={`#${item.toLowerCase()}`}
+            onClick={() => setIsMenuOpen(false)}
+            variants={{
+              hidden: { opacity: 0, x: -12 },
+              visible: { opacity: 1, x: 0 },
+            }}
+            className="flex items-center justify-between rounded-[1rem] px-4 py-3 text-[1rem] font-semibold uppercase tracking-[0.06em] text-black transition-colors hover:bg-black hover:text-white"
+          >
+            <span>{item}</span>
+
+            {item === "Resume" && (
+              <svg
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+                className="h-4 w-4"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <path d="M14 5h5v5" />
+                <path d="M10 14 19 5" />
+                <path d="M19 14v5h-5" />
+                <path d="M5 10V5h5" />
+              </svg>
+            )}
+          </motion.a>
+        ))}
+      </motion.nav>
+    </motion.div>
+  )}
+</AnimatePresence>
         </div>
       </div>
     </header>

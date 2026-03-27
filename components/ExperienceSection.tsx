@@ -3,69 +3,55 @@ const experienceItems = [
     year: "2026",
     role: "Product Designer",
     company: "Net Zero Build",
-    image:
-      "https://i.postimg.cc/tJqkrvHs/netzerobuild_logo.jpg",
   },
   {
     year: "2025",
     role: "Product Designer",
     company: "New Native",
-    image:
-      "https://i.postimg.cc/mkLjdpGF/nn_logo.jpg",
   },
   {
     year: "2021",
     role: "Junior Creative Specialist",
     company: "Nextgrid",
-    image:
-      "https://i.postimg.cc/NFsDNCw9/nextgrid_logo.jpg",
   },
 ];
 
 export default function ExperienceSection() {
   return (
-    <section className="px-6 pb-16 pt-8 lg:px-10 lg:pb-24 lg:pt-14">
-      <div className="mb-8 lg:mb-10">
+    <section className="px-6 pb-14 pt-8 lg:px-10 lg:pb-20 lg:pt-12">
+      <div className="mb-8">
         <h2 className="text-[clamp(3rem,7vw,6rem)] font-black uppercase leading-[0.92] tracking-[-0.06em] text-black">
           Experience
         </h2>
       </div>
 
-      <div className="space-y-5 lg:space-y-7">
-        {experienceItems.map((item) => (
-          <div
+      <div className="overflow-hidden rounded-[2rem] border border-black/10 bg-white">
+        {experienceItems.map((item, index) => (
+          <article
             key={`${item.year}-${item.company}`}
-            className="grid grid-cols-1 gap-4 lg:grid-cols-[1fr_285px]"
+            className={`grid gap-4 px-6 py-6 lg:grid-cols-[110px_1fr] lg:gap-6 lg:px-8 lg:py-7 ${
+              index !== experienceItems.length - 1 ? "border-b border-black/10" : ""
+            }`}
           >
-            <article className="flex min-h-[250px] flex-col justify-between rounded-[2.2rem] border border-black/10 bg-white px-8 py-8 sm:px-10 sm:py-9 lg:min-h-[280px] lg:px-16 lg:py-12">
-              <p className="text-[1rem] font-semibold tracking-[-0.03em] text-black lg:text-[1.5rem]">
+            <div>
+              <p className="text-sm font-semibold uppercase tracking-[0.12em] text-black/45">
                 {item.year}
               </p>
+            </div>
 
-              <div className="my-6 lg:my-8">
-                <h3 className="text-[clamp(1.7rem,3.1vw,2.9rem)] font-bold uppercase leading-[0.94] tracking-[-0.06em] text-black">
+            <div className="min-w-0">
+              <div className="flex flex-col gap-1 lg:flex-row lg:items-baseline lg:justify-between">
+                <h3 className="text-[clamp(1.5rem,2.6vw,2.2rem)] font-bold uppercase leading-[0.95] tracking-[-0.04em] text-black">
                   {item.role}
                 </h3>
-              </div>
 
-              <div>
-                <p className="text-[1rem] font-semibold uppercase tracking-[-0.03em] text-black lg:text-[1.45rem]">
+                <p className="text-sm font-semibold uppercase tracking-[0.08em] text-black/55">
                   {item.company}
                 </p>
-                
               </div>
-            </article>
 
-            <div className="min-h-[250px] overflow-hidden rounded-[2.2rem] border border-black/10 bg-white lg:min-h-[280px]">
-              <img
-                src={item.image}
-                alt={`${item.company} preview`}
-                className="h-full w-full object-cover"
-                loading="lazy"
-                draggable={false}
-              />
             </div>
-          </div>
+          </article>
         ))}
       </div>
     </section>
