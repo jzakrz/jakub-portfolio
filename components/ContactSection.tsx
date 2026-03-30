@@ -14,7 +14,7 @@ export default function ContactSection() {
           <div className="lg:pr-4">
             <a
               href="mailto:zakrzewski_j@yahoo.com"
-              className="inline-flex min-h-[64px] items-center justify-center rounded-full bg-black px-8 text-center text-sm font-semibold uppercase tracking-[0.12em] text-white transition-transform duration-300 hover:scale-[1.03] sm:min-h-[72px] sm:px-10"
+              className="inline-flex min-h-[64px] items-center justify-center rounded-full bg-black px-8 text-center text-[0.95rem] font-semibold uppercase tracking-[0.12em] text-white transition-transform duration-300 hover:scale-[1.03] sm:min-h-[72px] sm:px-10 sm:text-base"
             >
               Get in Touch
             </a>

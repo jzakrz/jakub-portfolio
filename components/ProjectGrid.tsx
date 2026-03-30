@@ -2,7 +2,7 @@ import Link from "next/link";
 import { DarkBadge } from "@/components/Badge";
 
 const hackathonImage =
-  "https://i.postimg.cc/DfcDhyB2/hack.png";
+  "https://i.postimg.cc/fL98nMRZ/hackathon-case-study-image.png";
 
 const exerciseSnackImage =
   "https://i.postimg.cc/28Dzc634/exercise.png";
@@ -33,13 +33,13 @@ export default function ProjectGrid() {
             <img
               src={hackathonImage}
               alt="Hackathon platform preview"
-              className="h-[240px] w-full rounded-[2rem] object-cover grayscale transition duration-500 group-hover:rotate-0 group-hover:grayscale-0 lg:h-[320px] lg:rotate-[8deg]"
+              className="h-[240px] w-full rounded-[1.25rem] object-cover transition duration-500 lg:h-[320px] lg:rotate-[8deg] lg:rounded-[2rem] lg:grayscale lg:group-hover:rotate-0 lg:group-hover:grayscale-0"
             />
           </div>
 
           <div className="relative z-20 mt-8 flex flex-wrap gap-2 lg:absolute lg:bottom-8 lg:left-9">
             <DarkBadge>Commercial Project</DarkBadge>
-            <DarkBadge>Event Platform</DarkBadge>
+            <DarkBadge>B2C Platform</DarkBadge>
           </div>
         </Link>
 

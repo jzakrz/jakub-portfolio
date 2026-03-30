@@ -1,10 +1,26 @@
 "use client";
 
 import { motion, useScroll, useTransform } from "framer-motion";
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 export default function QuoteSection() {
   const quoteSectionRef = useRef<HTMLElement | null>(null);
+  const [isDesktop, setIsDesktop] = useState(false);
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia("(min-width: 1024px)");
+
+    const updateIsDesktop = () => {
+      setIsDesktop(mediaQuery.matches);
+    };
+
+    updateIsDesktop();
+    mediaQuery.addEventListener("change", updateIsDesktop);
+
+    return () => {
+      mediaQuery.removeEventListener("change", updateIsDesktop);
+    };
+  }, []);
 
   const { scrollYProgress } = useScroll({
     target: quoteSectionRef,
@@ -28,27 +44,27 @@ export default function QuoteSection() {
   return (
     <section
       ref={quoteSectionRef}
-      className="w-full px-6 py-16 lg:px-10 lg:py-24"
+      className="w-full overflow-hidden px-6 py-16 lg:px-10 lg:py-24"
     >
       <div className="flex min-h-[45vh] w-full items-center justify-center">
         <div className="flex w-full flex-col items-center text-center">
           <motion.p
-            style={{ x: lineOneX, opacity: quoteOpacity }}
-            className="whitespace-nowrap text-[clamp(3rem,7vw,6.8rem)] font-black uppercase leading-[0.9] tracking-[-0.06em] text-black will-change-transform"
+            style={isDesktop ? { x: lineOneX, opacity: quoteOpacity } : undefined}
+            className="text-[clamp(1.8rem,8vw,2.7rem)] font-black uppercase leading-[0.95] tracking-[-0.05em] text-black lg:whitespace-nowrap lg:text-[clamp(3rem,7vw,6.8rem)] lg:leading-[0.9] lg:tracking-[-0.06em] lg:will-change-transform"
           >
             Designing Clarity in
           </motion.p>
 
           <motion.p
-            style={{ x: lineTwoX, opacity: quoteOpacity }}
-            className="whitespace-nowrap text-[clamp(3rem,7vw,6.8rem)] font-black uppercase leading-[0.9] tracking-[-0.06em] text-black will-change-transform"
+            style={isDesktop ? { x: lineTwoX, opacity: quoteOpacity } : undefined}
+            className="text-[clamp(1.8rem,8vw,2.7rem)] font-black uppercase leading-[0.95] tracking-[-0.05em] text-black lg:whitespace-nowrap lg:text-[clamp(3rem,7vw,6.8rem)] lg:leading-[0.9] lg:tracking-[-0.06em] lg:will-change-transform"
           >
             Complex Digital
           </motion.p>
 
           <motion.p
-            style={{ x: lineThreeX, opacity: quoteOpacity }}
-            className="whitespace-nowrap text-[clamp(3rem,7vw,6.8rem)] font-black uppercase leading-[0.9] tracking-[-0.06em] text-black will-change-transform"
+            style={isDesktop ? { x: lineThreeX, opacity: quoteOpacity } : undefined}
+            className="text-[clamp(1.8rem,8vw,2.7rem)] font-black uppercase leading-[0.95] tracking-[-0.05em] text-black lg:whitespace-nowrap lg:text-[clamp(3rem,7vw,6.8rem)] lg:leading-[0.9] lg:tracking-[-0.06em] lg:will-change-transform"
           >
             Products.
           </motion.p>

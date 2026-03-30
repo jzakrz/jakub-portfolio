@@ -32,7 +32,7 @@ export default function HackathonPage() {
           </div>
         </header>
 
-        <section className="bg-[#3f3f3f] px-6 pb-16 pt-24 text-white lg:px-10 lg:pb-24 lg:pt-32">
+        <section className="bg-black px-6 pb-16 pt-24 text-white lg:px-10 lg:pb-24 lg:pt-32">
           <div className="mx-auto max-w-6xl">
             <div className="max-w-5xl">
               <div className="mb-6 flex flex-wrap gap-2 lg:mb-8">
@@ -61,7 +61,7 @@ export default function HackathonPage() {
             </div>
 
             <div className="mt-12 grid gap-5 lg:mt-16 lg:grid-cols-[1.15fr_0.85fr]">
-              <div className="overflow-hidden rounded-[2.4rem] border border-white/10 bg-black/50 p-8 lg:p-10">
+              <div className="overflow-hidden rounded-[2.4rem] border border-white/10 bg-[#3f3f3f] p-8 lg:p-10">
                 <div className="mb-6 flex flex-wrap gap-2">
                   <span className="rounded-full bg-white/10 px-4 py-2 text-[11px] font-medium uppercase tracking-[0.14em] text-white/80">
                     Product Design
@@ -98,7 +98,7 @@ export default function HackathonPage() {
                 </div>
               </div>
 
-              <div className="rounded-[2.4rem] border border-white/10 bg-white/5 p-8 lg:p-10">
+              <div className="rounded-[2.4rem] border border-white/10 bg-[#3f3f3f] p-8 lg:p-10">
                 <p className="text-[0.85rem] font-medium uppercase tracking-[0.16em] text-white/55">
                   Project Snapshot
                 </p>
@@ -150,72 +150,24 @@ export default function HackathonPage() {
           </div>
         </section>
 
-        <section className="px-6 py-12 lg:px-10 lg:py-16">
-          <div className="mx-auto grid max-w-6xl gap-5 lg:grid-cols-[0.7fr_1.3fr]">
-            <div className="rounded-[2.2rem] border border-black/10 bg-white p-7 lg:p-9">
-              <p className="text-[0.85rem] font-medium uppercase tracking-[0.16em] text-black/45">
-                Overview
-              </p>
-
-              <p className="mt-6 text-[1.15rem] leading-[1.45] tracking-[-0.02em] text-black/90 lg:text-[1.28rem]">
-                The redesign aimed to reduce context switching and move the most
-                important participant actions into one unified event platform.
-              </p>
-            </div>
-
-            <div className="rounded-[2.2rem] border border-black/10 bg-white p-7 lg:p-9">
-              <div className="grid gap-8 lg:grid-cols-2">
-                <div>
-                  <p className="text-[0.85rem] font-medium uppercase tracking-[0.16em] text-black/45">
-                    My Role
-                  </p>
-
-                  <p className="mt-4 text-[1.05rem] leading-[1.5] tracking-[-0.02em] text-black/88 lg:text-[1.18rem]">
-                    I was responsible for the full design process — research, IA,
-                    flow design, interface design, prototyping, user testing, and
-                    collaboration with developers. My previous hackathon
-                    organizing experience helped me better understand participant
-                    and stakeholder needs.
-                  </p>
-                </div>
-
-                <div>
-                  <p className="text-[0.85rem] font-medium uppercase tracking-[0.16em] text-black/45">
-                    Lessons Learned
-                  </p>
-
-                  <p className="mt-4 text-[1.05rem] leading-[1.5] tracking-[-0.02em] text-black/88 lg:text-[1.18rem]">
-                    Some participants did not realize they had to join a team in
-                    order to take part in the event. To solve this, I introduced a
-                    persistent banner that stayed visible until the team step was
-                    completed.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
         <section className="px-6 py-4 lg:px-10 lg:py-6">
           <div className="mx-auto grid max-w-6xl gap-5 lg:grid-cols-[1.05fr_0.95fr]">
             <div className="rounded-[2.6rem] bg-[#f1cc00] p-8 lg:p-10">
-              <p className="text-[0.85rem] font-medium uppercase tracking-[0.16em] text-black/55">
-                Key Lesson
-              </p>
+             
 
               <h2 className="mt-5 text-[clamp(2.6rem,4vw,4.5rem)] font-black uppercase leading-[0.92] tracking-[-0.06em] text-black">
-                Make the team step impossible to miss.
+                Lessons Learned
               </h2>
 
               <p className="mt-6 max-w-[720px] text-[1.05rem] leading-[1.5] tracking-[-0.02em] text-black/85 lg:text-[1.18rem]">
-                If the user skipped joining a team during onboarding, a persistent
-                banner remained visible until they joined or created one. This
-                made the requirement much clearer and reduced confusion around the
-                key event flow.
+                Some participants did not realize they had to join a team in
+                    order to take part in the event. To solve this, I introduced a
+                    persistent banner that stayed visible until the team step was
+                    completed.
               </p>
             </div>
 
-            <div className="rounded-[2.6rem] border border-black/10 bg-black p-8 text-white lg:p-10">
+            <div className="rounded-[2.6rem] border border-black/10 bg-[#3f3f3f] p-8 text-white lg:p-10">
               <p className="text-[0.85rem] font-medium uppercase tracking-[0.16em] text-white/45">
                 Why it mattered
               </p>
@@ -241,21 +193,6 @@ export default function HackathonPage() {
                   </p>
                 </div>
               </div>
-            </div>
-          </div>
-        </section>
-
-        <section className="bg-[#3f3f3f] px-6 py-14 text-white lg:px-10 lg:py-20">
-          <div className="mx-auto max-w-6xl">
-            <div className="mx-auto max-w-5xl text-center">
-              <p className="text-[0.85rem] font-medium uppercase tracking-[0.16em] text-white/45">
-                Takeaway
-              </p>
-
-              <blockquote className="mt-8 text-[clamp(3rem,6.5vw,6.4rem)] font-black leading-[0.92] tracking-[-0.06em] text-white">
-                “Most participants could complete the happy path without getting
-                lost.”
-              </blockquote>
             </div>
           </div>
         </section>
