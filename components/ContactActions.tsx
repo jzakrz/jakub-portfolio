@@ -97,23 +97,21 @@ export default function ContactActions({ email, linkedin }: ContactActionsProps)
     }
   }
 
-  const actionButtonClassName =
-    "relative inline-flex h-10 min-w-[108px] items-center justify-center gap-2 overflow-hidden rounded-full border border-black/15 px-4 text-sm text-black transition-all duration-300 hover:border-black/35 hover:bg-black/5";
+  const secondaryButtonClassName =
+    "relative inline-flex h-[44px] items-center justify-center gap-2 overflow-hidden rounded-full px-4 text-sm font-medium text-black transition-colors duration-300 hover:bg-black/5";
 
   return (
     <div className="mt-8 flex max-w-2xl flex-col gap-3">
       <div className="flex items-center justify-between gap-4 rounded-2xl border border-black/15 px-5 py-4">
         <div className="flex min-w-0 items-center gap-3">
-          <span className="inline-flex h-8 w-8 items-center justify-center rounded-full border border-black/10 text-black/80">
-            <MailIcon />
-          </span>
+          <MailIcon />
           <span className="truncate text-sm font-medium text-black sm:text-base">{email}</span>
         </div>
 
-        <div className="flex shrink-0 items-center gap-2">
+        <div className="flex shrink-0 items-center gap-1">
           <a
             href={`mailto:${email}`}
-            className={actionButtonClassName}
+            className={secondaryButtonClassName}
             aria-label="Email me"
             title="Email me"
           >
@@ -124,7 +122,7 @@ export default function ContactActions({ email, linkedin }: ContactActionsProps)
           <button
             type="button"
             onClick={handleCopyEmail}
-            className={actionButtonClassName + " cursor-pointer bg-transparent"}
+            className={secondaryButtonClassName + " min-w-[120px] cursor-pointer bg-transparent"}
             aria-live="polite"
             aria-label={isCopied ? "Link copied" : "Copy"}
             title={isCopied ? "Link copied" : "Copy"}
@@ -155,20 +153,24 @@ export default function ContactActions({ email, linkedin }: ContactActionsProps)
         </div>
       </div>
 
-      <a
-        href={linkedin}
-        target="_blank"
-        rel="noreferrer"
-        className="flex items-center justify-between rounded-2xl border border-black/15 px-5 py-4 text-sm text-black transition-colors duration-200 hover:border-black/35 sm:text-base"
-      >
-        <span className="flex items-center gap-3">
-          <span className="inline-flex h-8 w-8 items-center justify-center rounded-full border border-black/10 text-black/80">
-            <LinkedInIcon />
-          </span>
-          <span className="font-medium">LinkedIn</span>
+      <div className="flex items-center justify-between rounded-2xl border border-black/15 px-5 py-4 text-sm text-black sm:text-base">
+        <span className="flex items-center gap-3 font-medium">
+          <LinkedInIcon />
+          <span>LinkedIn</span>
         </span>
-        <ExternalLinkIcon />
-      </a>
+
+        <a
+          href={linkedin}
+          target="_blank"
+          rel="noreferrer"
+          className={secondaryButtonClassName}
+          aria-label="Open LinkedIn"
+          title="Open LinkedIn"
+        >
+          <ExternalLinkIcon />
+          <span>Open</span>
+        </a>
+      </div>
     </div>
   );
 }
