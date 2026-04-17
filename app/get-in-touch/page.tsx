@@ -4,14 +4,14 @@ import { contactInfo } from "@/data/portfolio";
 
 export default function GetInTouchPage() {
   return (
-    <main className="min-h-screen bg-[#ececec] text-[#0d2d3b]">
+    <main className="min-h-screen bg-white text-black">
       <Header />
 
       <section className="mx-auto max-w-6xl px-6 pb-16 pt-32 lg:px-10 lg:pb-20 lg:pt-36">
-        <div className="max-w-[980px]">
-          <p className="text-[clamp(2rem,4.8vw,4rem)] font-medium leading-[1.2] tracking-[-0.02em]">
+        <div className="rounded-[2rem] border border-black/10 bg-white px-8 py-10 shadow-[0_8px_30px_rgba(0,0,0,0.04)] sm:px-10 sm:py-12 lg:px-16 lg:py-16">
+          <p className="text-[clamp(1.9rem,4vw,3.3rem)] font-semibold leading-[1.15] tracking-[-0.03em] text-black">
             Designing digital products with enterprises and startups since 2013.
-            Sharing design insights to 63k readers on LinkedIn.
+            Sharing design insights with over 63k readers on LinkedIn.
           </p>
 
           <ContactActions
