@@ -1,3 +1,4 @@
+import ContactActions from "@/components/ContactActions";
 import Header from "@/components/Header";
 import { contactInfo } from "@/data/portfolio";
 
@@ -7,37 +8,24 @@ export default function GetInTouchPage() {
       <Header />
 
       <section className="mx-auto max-w-6xl px-6 pb-16 pt-32 lg:px-10 lg:pb-20 lg:pt-36">
-        <div className="rounded-[3rem] bg-[#f1cc00] px-8 py-10 sm:px-10 sm:py-12 lg:px-16 lg:py-16">
-          <p className="text-sm font-semibold uppercase tracking-[0.18em] text-black/65">
+        <div className="rounded-[2rem] border border-black/10 bg-white px-8 py-10 shadow-[0_8px_30px_rgba(0,0,0,0.04)] sm:px-10 sm:py-12 lg:px-16 lg:py-16">
+          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-black/50">
             Contact
           </p>
 
-          <h1 className="mt-4 text-[clamp(2.6rem,6vw,5rem)] font-black uppercase leading-[0.9] tracking-[-0.06em] text-black">
-            Get In Touch
+          <h1 className="mt-4 text-[clamp(2.3rem,5vw,4.4rem)] font-semibold leading-[1.02] tracking-[-0.03em] text-black">
+            Get in touch
           </h1>
 
-          <p className="mt-5 max-w-2xl text-base text-black/75 sm:text-lg">
-            I&apos;d love to hear from you. Reach out by email or connect with me on
-            LinkedIn.
+          <p className="mt-4 max-w-2xl text-base text-black/65 sm:text-lg">
+            I&apos;d love to hear from you. Reach out by email, connect on
+            LinkedIn, or copy my email address with one click.
           </p>
 
-          <div className="mt-8 grid gap-4 sm:grid-cols-2">
-            <a
-              href={`mailto:${contactInfo.email}`}
-              className="inline-flex min-h-[64px] items-center justify-center rounded-full bg-black px-8 text-center text-[0.95rem] font-semibold uppercase tracking-[0.12em] text-white transition-transform duration-300 hover:scale-[1.03]"
-            >
-              {contactInfo.email}
-            </a>
-
-            <a
-              href={contactInfo.linkedin}
-              target="_blank"
-              rel="noreferrer"
-              className="inline-flex min-h-[64px] items-center justify-center rounded-full border border-black/20 bg-white px-8 text-center text-[0.95rem] font-semibold uppercase tracking-[0.12em] text-black transition-colors duration-300 hover:bg-black hover:text-white"
-            >
-              LinkedIn Profile
-            </a>
-          </div>
+          <ContactActions
+            email={contactInfo.email}
+            linkedin={contactInfo.linkedin}
+          />
         </div>
       </section>
     </main>
