@@ -13,8 +13,8 @@ export default function GetInTouchPage() {
             Contact
           </p>
 
-          <h1 className="mt-4 text-[clamp(2.3rem,5vw,4.4rem)] font-semibold uppercase leading-[1.02] tracking-[-0.03em] text-black">
-            GET IN TOUCH
+          <h1 className="mt-4 text-[clamp(3rem,7vw,6rem)] font-black uppercase leading-[0.92] tracking-[-0.06em] text-black">
+            Get in touch
           </h1>
 
           <p className="mt-4 max-w-2xl text-base text-black/65 sm:text-lg">
