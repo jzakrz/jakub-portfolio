@@ -166,7 +166,7 @@ export default function HackathonPage() {
           </div>
         </section>
 
-        <section className="bg-[#f3f3f4] px-6 py-4 lg:px-10 lg:py-6">
+        <section className="bg-[#f8f7f5] px-6 py-4 lg:px-10 lg:py-6">
           <div className="mx-auto grid max-w-6xl gap-5 lg:grid-cols-[1.05fr_0.95fr]">
             <div className="rounded-[2.6rem] bg-[#f1cc00] p-8 lg:p-10">
              
@@ -183,27 +183,27 @@ export default function HackathonPage() {
               </p>
             </div>
 
-            <div className="rounded-[2.6rem] border border-black/10 bg-white p-8 text-black lg:p-10">
-              <p className="text-[0.85rem] font-medium uppercase tracking-[0.16em] text-black/55">
+            <div className="rounded-[2.6rem] border border-black/10 bg-[#f2f1ee] p-8 text-black lg:p-10">
+              <p className="text-[0.85rem] font-medium uppercase tracking-[0.16em] text-black/50">
                 Why it mattered
               </p>
 
               <div className="mt-8 space-y-5">
-                <div className="rounded-[1.6rem] border border-black/10 bg-[#f7f7f8] p-5">
-                  <p className="text-[0.8rem] uppercase tracking-[0.16em] text-black/55">
+                <div className="rounded-[1.6rem] border border-black/10 bg-[#ebe9e4] p-5">
+                  <p className="text-[0.8rem] uppercase tracking-[0.16em] text-black/50">
                     Before
                   </p>
-                  <p className="mt-2 text-[1.02rem] leading-[1.45] text-black/85">
+                  <p className="mt-2 text-[1.02rem] leading-[1.45] text-black/80">
                     Team participation rules were easy to overlook during
                     onboarding.
                   </p>
                 </div>
 
-                <div className="rounded-[1.6rem] border border-black/10 bg-[#f7f7f8] p-5">
-                  <p className="text-[0.8rem] uppercase tracking-[0.16em] text-black/55">
+                <div className="rounded-[1.6rem] border border-black/10 bg-[#ebe9e4] p-5">
+                  <p className="text-[0.8rem] uppercase tracking-[0.16em] text-black/50">
                     After
                   </p>
-                  <p className="mt-2 text-[1.02rem] leading-[1.45] text-black/85">
+                  <p className="mt-2 text-[1.02rem] leading-[1.45] text-black/80">
                     The banner created a continuous reminder until the user
                     completed the required team step.
                   </p>
@@ -213,7 +213,7 @@ export default function HackathonPage() {
           </div>
         </section>
 
-        <section className="px-6 py-12 lg:px-10 lg:py-16">
+        <section className="bg-[#f8f7f5] px-6 py-12 lg:px-10 lg:py-16">
           <div className="mx-auto max-w-6xl">
             <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
               <div>
