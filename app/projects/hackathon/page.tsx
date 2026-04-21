@@ -61,54 +61,54 @@ export default function HackathonPage() {
             </div>
 
             <div className="mt-12 grid gap-5 lg:mt-16 lg:grid-cols-[1.15fr_0.85fr]">
-              <div className="overflow-hidden rounded-[2.4rem] border border-white/10 bg-[#3f3f3f] p-8 lg:p-10">
+              <div className="overflow-hidden rounded-[2.4rem] border border-white/15 bg-[#1b1d24] p-8 lg:p-10">
                 <div className="mb-6 flex flex-wrap gap-2">
-                  <span className="rounded-full bg-white/10 px-4 py-2 text-[11px] font-medium uppercase tracking-[0.14em] text-white/80">
+                  <span className="rounded-full bg-white/12 px-4 py-2 text-[11px] font-medium uppercase tracking-[0.14em] text-white/90">
                     Product Design
                   </span>
-                  <span className="rounded-full bg-white/10 px-4 py-2 text-[11px] font-medium uppercase tracking-[0.14em] text-white/80">
+                  <span className="rounded-full bg-white/12 px-4 py-2 text-[11px] font-medium uppercase tracking-[0.14em] text-white/90">
                     UX
                   </span>
-                  <span className="rounded-full bg-white/10 px-4 py-2 text-[11px] font-medium uppercase tracking-[0.14em] text-white/80">
+                  <span className="rounded-full bg-white/12 px-4 py-2 text-[11px] font-medium uppercase tracking-[0.14em] text-white/90">
                     UI
                   </span>
-                  <span className="rounded-full bg-white/10 px-4 py-2 text-[11px] font-medium uppercase tracking-[0.14em] text-white/80">
+                  <span className="rounded-full bg-white/12 px-4 py-2 text-[11px] font-medium uppercase tracking-[0.14em] text-white/90">
                     Prototyping
                   </span>
-                  <span className="rounded-full bg-white/10 px-4 py-2 text-[11px] font-medium uppercase tracking-[0.14em] text-white/80">
+                  <span className="rounded-full bg-white/12 px-4 py-2 text-[11px] font-medium uppercase tracking-[0.14em] text-white/90">
                     User Testing
                   </span>
                 </div>
 
-                <div className="rounded-[1.8rem] border border-white/10 bg-[#101010] p-5 lg:p-7">
+                <div className="rounded-[1.8rem] border border-white/15 bg-[#10131b] p-5 lg:p-7">
                   <div className="mb-5 flex items-center gap-2">
                     <span className="h-3 w-3 rounded-full bg-white/30" />
                     <span className="h-3 w-3 rounded-full bg-white/30" />
                     <span className="h-3 w-3 rounded-full bg-white/30" />
                   </div>
 
-                  <div className="space-y-4 font-mono text-[1rem] text-white/90 lg:text-[1.25rem]">
+                  <div className="space-y-4 font-mono text-[1rem] text-white/95 lg:text-[1.25rem]">
                     <p>&gt; Simplify sign-up and onboarding</p>
                     <p>&gt; Bring key actions into one platform</p>
                     <p>&gt; Make joining a team easier</p>
-                    <p className="text-white/50">
+                    <p className="text-white/70">
                       Outcome: clearer flow, fewer drop-offs, less confusion
                     </p>
                   </div>
                 </div>
               </div>
 
-              <div className="rounded-[2.4rem] border border-white/10 bg-[#3f3f3f] p-8 lg:p-10">
-                <p className="text-[0.85rem] font-medium uppercase tracking-[0.16em] text-white/55">
+              <div className="rounded-[2.4rem] border border-white/15 bg-[#1b1d24] p-8 lg:p-10">
+                <p className="text-[0.85rem] font-medium uppercase tracking-[0.16em] text-white/70">
                   Project Snapshot
                 </p>
 
                 <div className="mt-8 grid gap-8">
                   <div>
-                    <p className="text-[0.85rem] font-medium uppercase tracking-[0.16em] text-white/40">
+                    <p className="text-[0.85rem] font-medium uppercase tracking-[0.16em] text-white/65">
                       My role
                     </p>
-                    <p className="mt-3 text-[1.05rem] leading-[1.45] text-white/88">
+                    <p className="mt-3 text-[1.05rem] leading-[1.45] text-white/94">
                       I was responsible for the entire design process — from
                       research and information architecture, through flow and
                       interface design, to prototyping, user testing, and
@@ -117,27 +117,27 @@ export default function HackathonPage() {
                   </div>
 
                   <div>
-                    <p className="text-[0.85rem] font-medium uppercase tracking-[0.16em] text-white/40">
+                    <p className="text-[0.85rem] font-medium uppercase tracking-[0.16em] text-white/65">
                       Tools
                     </p>
                     <div className="mt-3 flex flex-wrap gap-2">
-                      <span className="rounded-full bg-white/10 px-4 py-2 text-[11px] font-medium uppercase tracking-[0.14em] text-white/80">
+                      <span className="rounded-full bg-white/12 px-4 py-2 text-[11px] font-medium uppercase tracking-[0.14em] text-white/90">
                         Figma
                       </span>
-                      <span className="rounded-full bg-white/10 px-4 py-2 text-[11px] font-medium uppercase tracking-[0.14em] text-white/80">
+                      <span className="rounded-full bg-white/12 px-4 py-2 text-[11px] font-medium uppercase tracking-[0.14em] text-white/90">
                         FigJam
                       </span>
-                      <span className="rounded-full bg-white/10 px-4 py-2 text-[11px] font-medium uppercase tracking-[0.14em] text-white/80">
+                      <span className="rounded-full bg-white/12 px-4 py-2 text-[11px] font-medium uppercase tracking-[0.14em] text-white/90">
                         Maze
                       </span>
                     </div>
                   </div>
 
                   <div>
-                    <p className="text-[0.85rem] font-medium uppercase tracking-[0.16em] text-white/40">
+                    <p className="text-[0.85rem] font-medium uppercase tracking-[0.16em] text-white/65">
                       Outcome
                     </p>
-                    <p className="mt-3 text-[1.05rem] leading-[1.45] text-white/88">
+                    <p className="mt-3 text-[1.05rem] leading-[1.45] text-white/94">
                       Through iterative prototype testing, I was able to simplify
                       the key user flow and make it more intuitive. In the final
                       version, most participants were able to complete the happy
@@ -167,27 +167,27 @@ export default function HackathonPage() {
               </p>
             </div>
 
-            <div className="rounded-[2.6rem] border border-black/10 bg-[#3f3f3f] p-8 text-white lg:p-10">
-              <p className="text-[0.85rem] font-medium uppercase tracking-[0.16em] text-white/45">
+            <div className="rounded-[2.6rem] border border-white/15 bg-[#1b1d24] p-8 text-white lg:p-10">
+              <p className="text-[0.85rem] font-medium uppercase tracking-[0.16em] text-white/70">
                 Why it mattered
               </p>
 
               <div className="mt-8 space-y-5">
-                <div className="rounded-[1.6rem] bg-white/6 p-5">
-                  <p className="text-[0.8rem] uppercase tracking-[0.16em] text-white/45">
+                <div className="rounded-[1.6rem] border border-white/12 bg-[#242835] p-5">
+                  <p className="text-[0.8rem] uppercase tracking-[0.16em] text-[#f1cc00]/85">
                     Before
                   </p>
-                  <p className="mt-2 text-[1.02rem] leading-[1.45] text-white/88">
+                  <p className="mt-2 text-[1.02rem] leading-[1.45] text-white/94">
                     Team participation rules were easy to overlook during
                     onboarding.
                   </p>
                 </div>
 
-                <div className="rounded-[1.6rem] bg-white/6 p-5">
-                  <p className="text-[0.8rem] uppercase tracking-[0.16em] text-white/45">
+                <div className="rounded-[1.6rem] border border-white/12 bg-[#242835] p-5">
+                  <p className="text-[0.8rem] uppercase tracking-[0.16em] text-[#f1cc00]/85">
                     After
                   </p>
-                  <p className="mt-2 text-[1.02rem] leading-[1.45] text-white/88">
+                  <p className="mt-2 text-[1.02rem] leading-[1.45] text-white/94">
                     The banner created a continuous reminder until the user
                     completed the required team step.
                   </p>
