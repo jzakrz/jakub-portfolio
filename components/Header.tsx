@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { navItems } from "@/data/portfolio";
@@ -31,21 +32,21 @@ export default function Header() {
           ref={menuRef}
           className="relative flex w-full items-center justify-between py-3"
         >
-            <div className="min-w-0 pl-1">
-              <p className="text-base font-bold leading-none text-black">
-                Product Designer
-              </p>
-              <p className="mt-1 text-base font-medium leading-none text-black/45">
-                Based in Warsaw
-              </p>
-            </div>
+          <div className="min-w-0 pl-1">
+            <p className="text-base font-bold leading-none text-black">
+              Product Designer
+            </p>
+            <p className="mt-1 text-base font-medium leading-none text-black/45">
+              Based in Warsaw
+            </p>
+          </div>
           <div className="flex items-center gap-2 sm:gap-3">
-            <a
-              href="mailto:zakrzewski_j@yahoo.com"
+            <Link
+              href="/get-in-touch"
               className="hidden lg:inline-flex lg:h-14 lg:items-center lg:justify-center lg:rounded-full lg:bg-black lg:px-6 lg:text-[0.95rem] lg:font-semibold lg:uppercase lg:tracking-[0.12em] lg:text-white lg:transition-transform lg:hover:scale-[1.03]"
             >
               Get in touch
-            </a>
+            </Link>
 
             <button
               type="button"
@@ -105,7 +106,7 @@ export default function Header() {
                     {navItems.map((item) => (
                       <motion.a
                         key={item}
-                        href={`#${item.toLowerCase()}`}
+                        href={`/#${item.toLowerCase()}`}
                         onClick={() => setIsMenuOpen(false)}
                         variants={{
                           hidden: { opacity: 0, x: -12 },
