@@ -247,9 +247,6 @@ export default function HackathonPage() {
                   <p className="text-[0.82rem] font-medium uppercase tracking-[0.16em] text-black/45">
                     Event page
                   </p>
-                  <h3 className="mt-3 text-[clamp(1.8rem,3vw,2.8rem)] font-black uppercase leading-[0.94] tracking-[-0.05em] text-black">
-                    Event Page / Sign-up
-                  </h3>
                 </div>
 
                 <Image
@@ -257,7 +254,7 @@ export default function HackathonPage() {
                   alt="Hackathon event page screen with sign-up and event details."
                   width={1600}
                   height={900}
-                  className="h-full min-h-[320px] w-full bg-white object-cover object-top"
+                  className="h-[320px] w-full bg-white object-contain p-4 md:h-[420px]"
                 />
               </div>
 
@@ -266,9 +263,6 @@ export default function HackathonPage() {
                   <p className="text-[0.82rem] font-medium uppercase tracking-[0.16em] text-black/45">
                     Onboarding
                   </p>
-                  <h3 className="mt-3 text-[clamp(1.8rem,2.8vw,2.6rem)] font-black uppercase leading-[0.94] tracking-[-0.05em] text-black">
-                    Matchmaking During Onboarding
-                  </h3>
                 </div>
 
                 <Image
@@ -276,7 +270,7 @@ export default function HackathonPage() {
                   alt="Onboarding screen with matchmaking flow for hackathon participants."
                   width={1600}
                   height={900}
-                  className="h-full min-h-[320px] w-full bg-white object-cover object-top"
+                  className="h-[320px] w-full bg-white object-contain p-4 md:h-[420px]"
                 />
               </div>
 
@@ -285,9 +279,6 @@ export default function HackathonPage() {
                   <p className="text-[0.82rem] font-medium uppercase tracking-[0.16em] text-black/45">
                     User profile
                   </p>
-                  <h3 className="mt-3 text-[clamp(1.8rem,2.8vw,2.8rem)] font-black uppercase leading-[0.94] tracking-[-0.05em] text-black">
-                    Profile / Supporting Screens
-                  </h3>
                 </div>
 
                 <Image
@@ -295,7 +286,7 @@ export default function HackathonPage() {
                   alt="User profile view from the hackathon platform prototype."
                   width={1600}
                   height={900}
-                  className="h-full min-h-[300px] w-full bg-white object-cover object-top"
+                  className="h-[320px] w-full bg-white object-contain p-4 md:h-[420px]"
                 />
               </div>
             </div>
