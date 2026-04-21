@@ -1,39 +1,55 @@
 "use client";
 
+import Header from "@/components/Header";
+import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function HackathonPage() {
   const [isPrototypeOpen, setIsPrototypeOpen] = useState(false);
   const [isPrototypeLoading, setIsPrototypeLoading] = useState(false);
 
+  useEffect(() => {
+    if (!isPrototypeOpen) return;
+
+    const originalBodyOverflow = document.body.style.overflow;
+    const originalHtmlOverflow = document.documentElement.style.overflow;
+
+    document.body.style.overflow = "hidden";
+    document.documentElement.style.overflow = "hidden";
+
+    return () => {
+      document.body.style.overflow = originalBodyOverflow;
+      document.documentElement.style.overflow = originalHtmlOverflow;
+    };
+  }, [isPrototypeOpen]);
+
   return (
     <>
       <main className="min-h-screen bg-white text-black">
-        <header className="fixed left-1/2 top-4 z-50 w-[calc(100%-1.5rem)] max-w-6xl -translate-x-1/2 px-6 lg:px-10">
-          <div className="flex items-center justify-between rounded-[1.35rem] bg-white/70 px-4 py-3 backdrop-blur">
-            <Link
-              href="/"
-              className="inline-flex cursor-pointer items-center justify-center rounded-full bg-black px-5 py-2.5 text-[0.88rem] font-semibold uppercase tracking-[0.08em] text-white transition-transform hover:scale-[1.03]"
-            >
-              Back to Portfolio
-            </Link>
-
-            <button
-              type="button"
-              onClick={() => {
-                setIsPrototypeLoading(true);
-                setIsPrototypeOpen(true);
-              }}
-              className="inline-flex cursor-pointer items-center justify-center rounded-full bg-black px-5 py-2.5 text-[0.88rem] font-semibold uppercase tracking-[0.08em] text-white transition-transform hover:scale-[1.03]"
-            >
-              Open Prototype
-            </button>
-          </div>
-        </header>
+        <Header />
 
         <section className="bg-black px-6 pb-16 pt-24 text-white lg:px-10 lg:pb-24 lg:pt-32">
           <div className="mx-auto max-w-6xl">
+            <Link
+              href="/"
+              className="mb-8 inline-flex cursor-pointer items-center gap-2 rounded-full border border-white/20 bg-[#1f1f1f] px-5 py-2.5 text-[0.88rem] font-semibold uppercase tracking-[0.08em] text-white transition-colors hover:bg-[#2a2a2a] lg:mb-10"
+            >
+              <svg
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+                className="h-4 w-4 stroke-current"
+                fill="none"
+                strokeWidth="2.3"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <path d="M19 12H5" />
+                <path d="m12 19-7-7 7-7" />
+              </svg>
+              Back to Portfolio
+            </Link>
+
             <div className="max-w-5xl">
               <div className="mb-6 flex flex-wrap gap-2 lg:mb-8">
                 <span className="rounded-full bg-white/10 px-4 py-2 text-[11px] font-medium uppercase tracking-[0.14em] text-white/80">
@@ -150,7 +166,7 @@ export default function HackathonPage() {
           </div>
         </section>
 
-        <section className="px-6 py-4 lg:px-10 lg:py-6">
+        <section className="bg-[#f8f7f5] px-6 py-4 lg:px-10 lg:py-6">
           <div className="mx-auto grid max-w-6xl gap-5 lg:grid-cols-[1.05fr_0.95fr]">
             <div className="rounded-[2.6rem] bg-[#f1cc00] p-8 lg:p-10">
              
@@ -167,27 +183,27 @@ export default function HackathonPage() {
               </p>
             </div>
 
-            <div className="rounded-[2.6rem] border border-white/15 bg-[#262626] p-8 text-white lg:p-10">
-              <p className="text-[0.85rem] font-medium uppercase tracking-[0.16em] text-white/70">
+            <div className="rounded-[2.6rem] border border-black/10 bg-[#f2f1ee] p-8 text-black lg:p-10">
+              <p className="text-[0.85rem] font-medium uppercase tracking-[0.16em] text-black/50">
                 Why it mattered
               </p>
 
               <div className="mt-8 space-y-5">
-                <div className="rounded-[1.6rem] border border-white/12 bg-[#303030] p-5">
-                  <p className="text-[0.8rem] uppercase tracking-[0.16em] text-white/70">
+                <div className="rounded-[1.6rem] border border-black/10 bg-[#ebe9e4] p-5">
+                  <p className="text-[0.8rem] uppercase tracking-[0.16em] text-black/50">
                     Before
                   </p>
-                  <p className="mt-2 text-[1.02rem] leading-[1.45] text-white/94">
+                  <p className="mt-2 text-[1.02rem] leading-[1.45] text-black/80">
                     Team participation rules were easy to overlook during
                     onboarding.
                   </p>
                 </div>
 
-                <div className="rounded-[1.6rem] border border-white/12 bg-[#303030] p-5">
-                  <p className="text-[0.8rem] uppercase tracking-[0.16em] text-white/70">
+                <div className="rounded-[1.6rem] border border-black/10 bg-[#ebe9e4] p-5">
+                  <p className="text-[0.8rem] uppercase tracking-[0.16em] text-black/50">
                     After
                   </p>
-                  <p className="mt-2 text-[1.02rem] leading-[1.45] text-white/94">
+                  <p className="mt-2 text-[1.02rem] leading-[1.45] text-black/80">
                     The banner created a continuous reminder until the user
                     completed the required team step.
                   </p>
@@ -197,7 +213,7 @@ export default function HackathonPage() {
           </div>
         </section>
 
-        <section className="px-6 py-12 lg:px-10 lg:py-16">
+        <section className="bg-[#f8f7f5] px-6 py-12 lg:px-10 lg:py-16">
           <div className="mx-auto max-w-6xl">
             <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
               <div>
@@ -211,65 +227,57 @@ export default function HackathonPage() {
                 </p>
               </div>
 
-              <div className="flex flex-wrap gap-2">
-                <span className="rounded-full bg-black px-4 py-2 text-[11px] font-medium uppercase tracking-[0.14em] text-white/80">
-                  Event page
-                </span>
-                <span className="rounded-full bg-black px-4 py-2 text-[11px] font-medium uppercase tracking-[0.14em] text-white/80">
-                  Sign-up form
-                </span>
-                <span className="rounded-full bg-black px-4 py-2 text-[11px] font-medium uppercase tracking-[0.14em] text-white/80">
-                  Onboarding
-                </span>
-                <span className="rounded-full bg-black px-4 py-2 text-[11px] font-medium uppercase tracking-[0.14em] text-white/80">
-                  Matchmaking
-                </span>
-                <span className="rounded-full bg-black px-4 py-2 text-[11px] font-medium uppercase tracking-[0.14em] text-white/80">
-                  User profile
-                </span>
+              <div className="flex flex-wrap items-center gap-2">
+                <button
+                  type="button"
+                  onClick={() => {
+                    setIsPrototypeLoading(true);
+                    setIsPrototypeOpen(true);
+                  }}
+                  className="inline-flex cursor-pointer items-center justify-center rounded-full bg-black px-5 py-2.5 text-[0.88rem] font-semibold uppercase tracking-[0.08em] text-white transition-transform hover:scale-[1.03]"
+                >
+                  Open Prototype
+                </button>
               </div>
             </div>
 
-            <div className="mt-10 grid gap-5 lg:grid-cols-12">
-              <div className="rounded-[2.6rem] border border-dashed border-black/20 bg-[#fafafa] p-8 lg:col-span-7 lg:min-h-[420px] lg:p-10">
-                <p className="text-[0.85rem] font-medium uppercase tracking-[0.16em] text-black/45">
-                  Gallery Placeholder 01
-                </p>
-
-                <h3 className="mt-5 text-[clamp(2.2rem,3.5vw,3.8rem)] font-black uppercase leading-[0.94] tracking-[-0.06em] text-black">
-                  Event Page / Sign-up
-                </h3>
-
-                <p className="mt-4 max-w-[620px] text-[1rem] leading-[1.5] text-black/72 lg:text-[1.1rem]">
-                  Reserved for the images you will send later.
-                </p>
-              </div>
-
-              <div className="rounded-[2.6rem] border border-dashed border-black/20 bg-[#fafafa] p-8 lg:col-span-5 lg:min-h-[420px] lg:p-10">
-                <p className="text-[0.85rem] font-medium uppercase tracking-[0.16em] text-black/45">
-                  Gallery Placeholder 02
-                </p>
-
-                <h3 className="mt-5 text-[clamp(2rem,3vw,3.2rem)] font-black uppercase leading-[0.94] tracking-[-0.06em] text-black">
-                  Onboarding / Matchmaking
-                </h3>
-
-                <p className="mt-4 text-[1rem] leading-[1.5] text-black/72 lg:text-[1.1rem]">
-                  Reserved for onboarding, team-joining, or matchmaking visuals.
+            <div className="mt-10 space-y-10">
+              <div>
+                <Image
+                  src="https://i.postimg.cc/SQY7DLjY/Event-page.png"
+                  alt="Hackathon event page screen with sign-up and event details."
+                  width={1600}
+                  height={900}
+                  className="h-auto w-full rounded-[2rem]"
+                />
+                <p className="mt-4 px-1 text-[0.82rem] font-medium uppercase tracking-[0.16em] text-black/45">
+                  Event page
                 </p>
               </div>
 
-              <div className="rounded-[2.6rem] border border-dashed border-black/20 bg-[#fafafa] p-8 lg:col-span-12 lg:min-h-[280px] lg:p-10">
-                <p className="text-[0.85rem] font-medium uppercase tracking-[0.16em] text-black/45">
-                  Gallery Placeholder 03
+              <div>
+                <Image
+                  src="https://i.postimg.cc/ZYvFVP0W/onboarding.png"
+                  alt="Onboarding screen with matchmaking flow for hackathon participants."
+                  width={1600}
+                  height={900}
+                  className="h-auto w-full rounded-[2rem]"
+                />
+                <p className="mt-4 px-1 text-[0.82rem] font-medium uppercase tracking-[0.16em] text-black/45">
+                  Onboarding
                 </p>
+              </div>
 
-                <h3 className="mt-5 text-[clamp(2.1rem,3.2vw,3.4rem)] font-black uppercase leading-[0.94] tracking-[-0.06em] text-black">
-                  User Profile / Supporting Screens
-                </h3>
-
-                <p className="mt-4 max-w-[760px] text-[1rem] leading-[1.5] text-black/72 lg:text-[1.1rem]">
-                  Wide placeholder for the last image group.
+              <div>
+                <Image
+                  src="https://i.postimg.cc/FFkgDb1d/user-profile.png"
+                  alt="User profile view from the hackathon platform prototype."
+                  width={1600}
+                  height={900}
+                  className="h-auto w-full rounded-[2rem]"
+                />
+                <p className="mt-4 px-1 text-[0.82rem] font-medium uppercase tracking-[0.16em] text-black/45">
+                  User profile
                 </p>
               </div>
             </div>
