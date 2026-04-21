@@ -212,21 +212,6 @@ export default function HackathonPage() {
               </div>
 
               <div className="flex flex-wrap items-center gap-2">
-                <span className="rounded-full bg-black px-4 py-2 text-[11px] font-medium uppercase tracking-[0.14em] text-white/80">
-                  Event page
-                </span>
-                <span className="rounded-full bg-black px-4 py-2 text-[11px] font-medium uppercase tracking-[0.14em] text-white/80">
-                  Sign-up form
-                </span>
-                <span className="rounded-full bg-black px-4 py-2 text-[11px] font-medium uppercase tracking-[0.14em] text-white/80">
-                  Onboarding
-                </span>
-                <span className="rounded-full bg-black px-4 py-2 text-[11px] font-medium uppercase tracking-[0.14em] text-white/80">
-                  Matchmaking
-                </span>
-                <span className="rounded-full bg-black px-4 py-2 text-[11px] font-medium uppercase tracking-[0.14em] text-white/80">
-                  User profile
-                </span>
                 <button
                   type="button"
                   onClick={() => {
