@@ -248,7 +248,7 @@ export default function HackathonPage() {
                   alt="Hackathon event page screen with sign-up and event details."
                   width={1600}
                   height={900}
-                  className="h-[320px] w-full rounded-[2rem] bg-white object-contain p-4 md:h-[500px]"
+                  className="h-auto w-full rounded-[2rem]"
                 />
                 <p className="mt-4 px-1 text-[0.82rem] font-medium uppercase tracking-[0.16em] text-black/45">
                   Event page
@@ -261,7 +261,7 @@ export default function HackathonPage() {
                   alt="Onboarding screen with matchmaking flow for hackathon participants."
                   width={1600}
                   height={900}
-                  className="h-[320px] w-full rounded-[2rem] bg-white object-contain p-4 md:h-[500px]"
+                  className="h-auto w-full rounded-[2rem]"
                 />
                 <p className="mt-4 px-1 text-[0.82rem] font-medium uppercase tracking-[0.16em] text-black/45">
                   Onboarding
@@ -274,7 +274,7 @@ export default function HackathonPage() {
                   alt="User profile view from the hackathon platform prototype."
                   width={1600}
                   height={900}
-                  className="h-[320px] w-full rounded-[2rem] bg-white object-contain p-4 md:h-[500px]"
+                  className="h-auto w-full rounded-[2rem]"
                 />
                 <p className="mt-4 px-1 text-[0.82rem] font-medium uppercase tracking-[0.16em] text-black/45">
                   User profile
