@@ -61,7 +61,7 @@ export default function HackathonPage() {
             </div>
 
             <div className="mt-12 grid gap-5 lg:mt-16 lg:grid-cols-[1.15fr_0.85fr]">
-              <div className="overflow-hidden rounded-[2.4rem] border border-white/15 bg-[#1b1d24] p-8 lg:p-10">
+              <div className="overflow-hidden rounded-[2.4rem] border border-white/15 bg-[#262626] p-8 lg:p-10">
                 <div className="mb-6 flex flex-wrap gap-2">
                   <span className="rounded-full bg-white/12 px-4 py-2 text-[11px] font-medium uppercase tracking-[0.14em] text-white/90">
                     Product Design
@@ -80,7 +80,7 @@ export default function HackathonPage() {
                   </span>
                 </div>
 
-                <div className="rounded-[1.8rem] border border-white/15 bg-[#10131b] p-5 lg:p-7">
+                <div className="rounded-[1.8rem] border border-white/15 bg-[#171717] p-5 lg:p-7">
                   <div className="mb-5 flex items-center gap-2">
                     <span className="h-3 w-3 rounded-full bg-white/30" />
                     <span className="h-3 w-3 rounded-full bg-white/30" />
@@ -98,7 +98,7 @@ export default function HackathonPage() {
                 </div>
               </div>
 
-              <div className="rounded-[2.4rem] border border-white/15 bg-[#1b1d24] p-8 lg:p-10">
+              <div className="rounded-[2.4rem] border border-white/15 bg-[#262626] p-8 lg:p-10">
                 <p className="text-[0.85rem] font-medium uppercase tracking-[0.16em] text-white/70">
                   Project Snapshot
                 </p>
@@ -167,14 +167,14 @@ export default function HackathonPage() {
               </p>
             </div>
 
-            <div className="rounded-[2.6rem] border border-white/15 bg-[#1b1d24] p-8 text-white lg:p-10">
+            <div className="rounded-[2.6rem] border border-white/15 bg-[#262626] p-8 text-white lg:p-10">
               <p className="text-[0.85rem] font-medium uppercase tracking-[0.16em] text-white/70">
                 Why it mattered
               </p>
 
               <div className="mt-8 space-y-5">
-                <div className="rounded-[1.6rem] border border-white/12 bg-[#242835] p-5">
-                  <p className="text-[0.8rem] uppercase tracking-[0.16em] text-[#f1cc00]/85">
+                <div className="rounded-[1.6rem] border border-white/12 bg-[#303030] p-5">
+                  <p className="text-[0.8rem] uppercase tracking-[0.16em] text-white/70">
                     Before
                   </p>
                   <p className="mt-2 text-[1.02rem] leading-[1.45] text-white/94">
@@ -183,8 +183,8 @@ export default function HackathonPage() {
                   </p>
                 </div>
 
-                <div className="rounded-[1.6rem] border border-white/12 bg-[#242835] p-5">
-                  <p className="text-[0.8rem] uppercase tracking-[0.16em] text-[#f1cc00]/85">
+                <div className="rounded-[1.6rem] border border-white/12 bg-[#303030] p-5">
+                  <p className="text-[0.8rem] uppercase tracking-[0.16em] text-white/70">
                     After
                   </p>
                   <p className="mt-2 text-[1.02rem] leading-[1.45] text-white/94">
