@@ -1,5 +1,6 @@
 "use client";
 
+import Header from "@/components/Header";
 import Link from "next/link";
 import { useState } from "react";
 
@@ -10,30 +11,29 @@ export default function HackathonPage() {
   return (
     <>
       <main className="min-h-screen bg-white text-black">
-        <header className="fixed left-1/2 top-4 z-50 w-[calc(100%-1.5rem)] max-w-6xl -translate-x-1/2 px-6 lg:px-10">
-          <div className="flex items-center justify-between rounded-[1.35rem] bg-white/70 px-4 py-3 backdrop-blur">
-            <Link
-              href="/"
-              className="inline-flex cursor-pointer items-center justify-center rounded-full bg-black px-5 py-2.5 text-[0.88rem] font-semibold uppercase tracking-[0.08em] text-white transition-transform hover:scale-[1.03]"
-            >
-              Back to Portfolio
-            </Link>
-
-            <button
-              type="button"
-              onClick={() => {
-                setIsPrototypeLoading(true);
-                setIsPrototypeOpen(true);
-              }}
-              className="inline-flex cursor-pointer items-center justify-center rounded-full bg-black px-5 py-2.5 text-[0.88rem] font-semibold uppercase tracking-[0.08em] text-white transition-transform hover:scale-[1.03]"
-            >
-              Open Prototype
-            </button>
-          </div>
-        </header>
+        <Header />
 
         <section className="bg-black px-6 pb-16 pt-24 text-white lg:px-10 lg:pb-24 lg:pt-32">
           <div className="mx-auto max-w-6xl">
+            <Link
+              href="/"
+              className="mb-8 inline-flex cursor-pointer items-center gap-2 rounded-full border border-white/20 bg-[#1f1f1f] px-5 py-2.5 text-[0.88rem] font-semibold uppercase tracking-[0.08em] text-white transition-colors hover:bg-[#2a2a2a] lg:mb-10"
+            >
+              <svg
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+                className="h-4 w-4 stroke-current"
+                fill="none"
+                strokeWidth="2.3"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <path d="M19 12H5" />
+                <path d="m12 19-7-7 7-7" />
+              </svg>
+              Back to Portfolio
+            </Link>
+
             <div className="max-w-5xl">
               <div className="mb-6 flex flex-wrap gap-2 lg:mb-8">
                 <span className="rounded-full bg-white/10 px-4 py-2 text-[11px] font-medium uppercase tracking-[0.14em] text-white/80">
@@ -211,7 +211,7 @@ export default function HackathonPage() {
                 </p>
               </div>
 
-              <div className="flex flex-wrap gap-2">
+              <div className="flex flex-wrap items-center gap-2">
                 <span className="rounded-full bg-black px-4 py-2 text-[11px] font-medium uppercase tracking-[0.14em] text-white/80">
                   Event page
                 </span>
@@ -227,6 +227,16 @@ export default function HackathonPage() {
                 <span className="rounded-full bg-black px-4 py-2 text-[11px] font-medium uppercase tracking-[0.14em] text-white/80">
                   User profile
                 </span>
+                <button
+                  type="button"
+                  onClick={() => {
+                    setIsPrototypeLoading(true);
+                    setIsPrototypeOpen(true);
+                  }}
+                  className="inline-flex cursor-pointer items-center justify-center rounded-full bg-black px-5 py-2.5 text-[0.88rem] font-semibold uppercase tracking-[0.08em] text-white transition-transform hover:scale-[1.03]"
+                >
+                  Open Prototype
+                </button>
               </div>
             </div>
 
