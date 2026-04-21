@@ -1,6 +1,7 @@
 "use client";
 
 import Header from "@/components/Header";
+import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
@@ -241,46 +242,61 @@ export default function HackathonPage() {
             </div>
 
             <div className="mt-10 grid gap-5 lg:grid-cols-12">
-              <div className="rounded-[2.6rem] border border-dashed border-black/20 bg-[#fafafa] p-8 lg:col-span-7 lg:min-h-[420px] lg:p-10">
-                <p className="text-[0.85rem] font-medium uppercase tracking-[0.16em] text-black/45">
-                  Gallery Placeholder 01
-                </p>
+              <div className="overflow-hidden rounded-[2.6rem] border border-black/10 bg-[#fafafa] lg:col-span-7">
+                <div className="border-b border-black/10 px-6 py-5 lg:px-8">
+                  <p className="text-[0.82rem] font-medium uppercase tracking-[0.16em] text-black/45">
+                    Event page
+                  </p>
+                  <h3 className="mt-3 text-[clamp(1.8rem,3vw,2.8rem)] font-black uppercase leading-[0.94] tracking-[-0.05em] text-black">
+                    Event Page / Sign-up
+                  </h3>
+                </div>
 
-                <h3 className="mt-5 text-[clamp(2.2rem,3.5vw,3.8rem)] font-black uppercase leading-[0.94] tracking-[-0.06em] text-black">
-                  Event Page / Sign-up
-                </h3>
-
-                <p className="mt-4 max-w-[620px] text-[1rem] leading-[1.5] text-black/72 lg:text-[1.1rem]">
-                  Reserved for the images you will send later.
-                </p>
+                <Image
+                  src="https://i.postimg.cc/SQY7DLjY/Event-page.png"
+                  alt="Hackathon event page screen with sign-up and event details."
+                  width={1600}
+                  height={900}
+                  className="h-full min-h-[320px] w-full bg-white object-cover object-top"
+                />
               </div>
 
-              <div className="rounded-[2.6rem] border border-dashed border-black/20 bg-[#fafafa] p-8 lg:col-span-5 lg:min-h-[420px] lg:p-10">
-                <p className="text-[0.85rem] font-medium uppercase tracking-[0.16em] text-black/45">
-                  Gallery Placeholder 02
-                </p>
+              <div className="overflow-hidden rounded-[2.6rem] border border-black/10 bg-[#fafafa] lg:col-span-5">
+                <div className="border-b border-black/10 px-6 py-5 lg:px-8">
+                  <p className="text-[0.82rem] font-medium uppercase tracking-[0.16em] text-black/45">
+                    Onboarding
+                  </p>
+                  <h3 className="mt-3 text-[clamp(1.8rem,2.8vw,2.6rem)] font-black uppercase leading-[0.94] tracking-[-0.05em] text-black">
+                    Matchmaking During Onboarding
+                  </h3>
+                </div>
 
-                <h3 className="mt-5 text-[clamp(2rem,3vw,3.2rem)] font-black uppercase leading-[0.94] tracking-[-0.06em] text-black">
-                  Onboarding / Matchmaking
-                </h3>
-
-                <p className="mt-4 text-[1rem] leading-[1.5] text-black/72 lg:text-[1.1rem]">
-                  Reserved for onboarding, team-joining, or matchmaking visuals.
-                </p>
+                <Image
+                  src="https://i.postimg.cc/ZYvFVP0W/onboarding.png"
+                  alt="Onboarding screen with matchmaking flow for hackathon participants."
+                  width={1600}
+                  height={900}
+                  className="h-full min-h-[320px] w-full bg-white object-cover object-top"
+                />
               </div>
 
-              <div className="rounded-[2.6rem] border border-dashed border-black/20 bg-[#fafafa] p-8 lg:col-span-12 lg:min-h-[280px] lg:p-10">
-                <p className="text-[0.85rem] font-medium uppercase tracking-[0.16em] text-black/45">
-                  Gallery Placeholder 03
-                </p>
+              <div className="overflow-hidden rounded-[2.6rem] border border-black/10 bg-[#fafafa] lg:col-span-12">
+                <div className="border-b border-black/10 px-6 py-5 lg:px-8">
+                  <p className="text-[0.82rem] font-medium uppercase tracking-[0.16em] text-black/45">
+                    User profile
+                  </p>
+                  <h3 className="mt-3 text-[clamp(1.8rem,2.8vw,2.8rem)] font-black uppercase leading-[0.94] tracking-[-0.05em] text-black">
+                    Profile / Supporting Screens
+                  </h3>
+                </div>
 
-                <h3 className="mt-5 text-[clamp(2.1rem,3.2vw,3.4rem)] font-black uppercase leading-[0.94] tracking-[-0.06em] text-black">
-                  User Profile / Supporting Screens
-                </h3>
-
-                <p className="mt-4 max-w-[760px] text-[1rem] leading-[1.5] text-black/72 lg:text-[1.1rem]">
-                  Wide placeholder for the last image group.
-                </p>
+                <Image
+                  src="https://i.postimg.cc/FFkgDb1d/user-profile.png"
+                  alt="User profile view from the hackathon platform prototype."
+                  width={1600}
+                  height={900}
+                  className="h-full min-h-[300px] w-full bg-white object-cover object-top"
+                />
               </div>
             </div>
           </div>
