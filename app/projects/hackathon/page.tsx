@@ -241,53 +241,44 @@ export default function HackathonPage() {
               </div>
             </div>
 
-            <div className="mt-10 grid gap-5 lg:grid-cols-12">
-              <div className="overflow-hidden rounded-[2.6rem] border border-black/10 bg-[#fafafa] lg:col-span-7">
-                <div className="border-b border-black/10 px-6 py-5 lg:px-8">
-                  <p className="text-[0.82rem] font-medium uppercase tracking-[0.16em] text-black/45">
-                    Event page
-                  </p>
-                </div>
-
+            <div className="mt-10 space-y-10">
+              <div>
                 <Image
                   src="https://i.postimg.cc/SQY7DLjY/Event-page.png"
                   alt="Hackathon event page screen with sign-up and event details."
                   width={1600}
                   height={900}
-                  className="h-[320px] w-full bg-white object-contain p-4 md:h-[420px]"
+                  className="h-[320px] w-full rounded-[2rem] bg-white object-contain p-4 md:h-[500px]"
                 />
+                <p className="mt-4 px-1 text-[0.82rem] font-medium uppercase tracking-[0.16em] text-black/45">
+                  Event page
+                </p>
               </div>
 
-              <div className="overflow-hidden rounded-[2.6rem] border border-black/10 bg-[#fafafa] lg:col-span-5">
-                <div className="border-b border-black/10 px-6 py-5 lg:px-8">
-                  <p className="text-[0.82rem] font-medium uppercase tracking-[0.16em] text-black/45">
-                    Onboarding
-                  </p>
-                </div>
-
+              <div>
                 <Image
                   src="https://i.postimg.cc/ZYvFVP0W/onboarding.png"
                   alt="Onboarding screen with matchmaking flow for hackathon participants."
                   width={1600}
                   height={900}
-                  className="h-[320px] w-full bg-white object-contain p-4 md:h-[420px]"
+                  className="h-[320px] w-full rounded-[2rem] bg-white object-contain p-4 md:h-[500px]"
                 />
+                <p className="mt-4 px-1 text-[0.82rem] font-medium uppercase tracking-[0.16em] text-black/45">
+                  Onboarding
+                </p>
               </div>
 
-              <div className="overflow-hidden rounded-[2.6rem] border border-black/10 bg-[#fafafa] lg:col-span-12">
-                <div className="border-b border-black/10 px-6 py-5 lg:px-8">
-                  <p className="text-[0.82rem] font-medium uppercase tracking-[0.16em] text-black/45">
-                    User profile
-                  </p>
-                </div>
-
+              <div>
                 <Image
                   src="https://i.postimg.cc/FFkgDb1d/user-profile.png"
                   alt="User profile view from the hackathon platform prototype."
                   width={1600}
                   height={900}
-                  className="h-[320px] w-full bg-white object-contain p-4 md:h-[420px]"
+                  className="h-[320px] w-full rounded-[2rem] bg-white object-contain p-4 md:h-[500px]"
                 />
+                <p className="mt-4 px-1 text-[0.82rem] font-medium uppercase tracking-[0.16em] text-black/45">
+                  User profile
+                </p>
               </div>
             </div>
           </div>
