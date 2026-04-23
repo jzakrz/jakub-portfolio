@@ -43,7 +43,10 @@ export default function ProjectGrid() {
           </div>
         </Link>
 
-        <article className="group relative min-w-0 overflow-hidden rounded-[2.5rem] border border-black/10 bg-white p-7 transition-all duration-500 hover:scale-[0.985] sm:p-9 lg:col-span-5 lg:min-h-[560px]">
+        <Link
+          href="/projects/exercise-snack"
+          className="group relative min-w-0 overflow-hidden rounded-[2.5rem] border border-black/10 bg-white p-7 transition-all duration-500 hover:scale-[0.985] sm:p-9 lg:col-span-5 lg:min-h-[560px]"
+        >
           <div className="relative z-20">
             <h3 className="max-w-[85%] text-[clamp(2.2rem,4vw,4.2rem)] font-black uppercase italic leading-[0.92] tracking-[-0.06em] text-black">
               Exercise
@@ -69,7 +72,7 @@ export default function ProjectGrid() {
             <DarkBadge>Student Project</DarkBadge>
             <DarkBadge>Mobile Platform</DarkBadge>
           </div>
-        </article>
+        </Link>
       </div>
     </section>
   );
