@@ -28,3 +28,20 @@ body {
 html {
   scrollbar-gutter: stable;
 }
+
+@keyframes homeWiggle {
+  0%,
+  100% {
+    transform: rotate(0deg) scale(1);
+  }
+  30% {
+    transform: rotate(-8deg) scale(1.04);
+  }
+  60% {
+    transform: rotate(8deg) scale(1.04);
+  }
+}
+
+.group:hover .home-wiggle {
+  animation: homeWiggle 280ms ease-out 1;
+}

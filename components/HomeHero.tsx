@@ -6,6 +6,9 @@ export default function HomeHero() {
       <div className="relative flex min-h-[calc(100svh-5.5rem)] flex-col justify-center lg:min-h-[calc(100svh-7rem)]">
         <div className="relative z-20 flex flex-col justify-start pt-4 lg:pt-8">
           <div className="max-w-[980px] leading-[0.88]">
+            <p className="mb-3 text-sm font-semibold uppercase tracking-[0.2em] text-black/60 lg:mb-4">
+              Hi there, I&apos;m
+            </p>
             <h1 className="text-[clamp(2.8rem,12vw,8.2rem)] font-black uppercase tracking-[-0.06em] text-black">
               Jakub
             </h1>
