@@ -55,20 +55,14 @@ export default function Header() {
                 </p>
               </div>
 
-              <div className="pointer-events-none absolute inset-0 flex items-center opacity-0 transition-opacity duration-150 group-hover:opacity-100">
+              <div className="pointer-events-none absolute inset-0 flex items-center justify-center opacity-0 transition-opacity duration-150 group-hover:opacity-100">
                 <svg
                   aria-hidden="true"
                   viewBox="0 0 24 24"
                   className="home-wiggle h-6 w-6 text-black"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
+                  fill="currentColor"
                 >
-                  <path d="M3 10.5 12 3l9 7.5" />
-                  <path d="M5.5 9.8V21h13V9.8" />
-                  <path d="M10 21v-6h4v6" />
+                  <path d="M12 2.5 2 10.6V21a1 1 0 0 0 1 1h6.5a1 1 0 0 0 1-1v-5h3v5a1 1 0 0 0 1 1H21a1 1 0 0 0 1-1V10.6L12 2.5Z" />
                 </svg>
               </div>
             </div>
