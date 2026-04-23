@@ -32,14 +32,47 @@ export default function Header() {
           ref={menuRef}
           className="relative flex w-full items-center justify-between py-3"
         >
-          <div className="min-w-0 pl-1">
-            <p className="text-base font-bold leading-none text-black">
-              Product Designer
-            </p>
-            <p className="mt-1 text-base font-medium leading-none text-black/45">
-              Based in Warsaw
-            </p>
-          </div>
+          <Link
+            href="/"
+            aria-label="Go to home page"
+            className="group min-w-0 rounded-xl px-2 py-1 pl-1 transition-colors hover:bg-gray-100"
+          >
+            <div className="relative min-h-[2.2rem]">
+              <div className="transition-opacity duration-150 group-hover:opacity-0">
+                <p className="text-base font-bold leading-none text-black">
+                  Product Designer
+                </p>
+                <p className="mt-1 flex items-center gap-1 text-base font-medium leading-none text-black/45">
+                  <svg
+                    aria-hidden="true"
+                    viewBox="0 0 24 24"
+                    className="h-3.5 w-3.5"
+                    fill="currentColor"
+                  >
+                    <path d="M12 2a7 7 0 0 0-7 7c0 4.9 5.7 11.7 6 12a1.3 1.3 0 0 0 2 0c.3-.3 6-7.1 6-12a7 7 0 0 0-7-7Zm0 9.5A2.5 2.5 0 1 1 12 6a2.5 2.5 0 0 1 0 5.5Z" />
+                  </svg>
+                  <span>Based in Warsaw</span>
+                </p>
+              </div>
+
+              <div className="pointer-events-none absolute inset-0 flex items-center opacity-0 transition-opacity duration-150 group-hover:opacity-100">
+                <svg
+                  aria-hidden="true"
+                  viewBox="0 0 24 24"
+                  className="home-wiggle h-6 w-6 text-black"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <path d="M3 10.5 12 3l9 7.5" />
+                  <path d="M5.5 9.8V21h13V9.8" />
+                  <path d="M10 21v-6h4v6" />
+                </svg>
+              </div>
+            </div>
+          </Link>
           <div className="flex items-center gap-2 sm:gap-3">
             <Link
               href="/get-in-touch"
