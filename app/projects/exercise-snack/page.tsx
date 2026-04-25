@@ -228,7 +228,7 @@ export default function ExerciseSnackPage() {
                   alt={caption}
                   width={900}
                   height={1600}
-                  className="h-auto w-full rounded-[2rem] border border-black/10 bg-white"
+                  className="h-auto w-full rounded-xl sm:rounded-[1.5rem] lg:rounded-[2rem] border border-black/10 bg-white"
                 />
                 <p className="mt-4 px-1 text-[0.82rem] font-medium uppercase tracking-[0.16em] text-black/45">
                   {caption}
