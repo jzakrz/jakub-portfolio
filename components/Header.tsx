@@ -8,6 +8,8 @@ import { navItems } from "@/data/portfolio";
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const menuRef = useRef<HTMLDivElement | null>(null);
+  const resumeLink =
+    "https://drive.google.com/file/d/1Ay2iqbj6UkNvsO5A_UOnyfcWpH83JE8E/view?usp=sharing";
 
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
@@ -130,38 +132,47 @@ export default function Header() {
                       },
                     }}
                   >
-                    {navItems.map((item) => (
-                      <motion.a
-                        key={item}
-                        href={`/#${item.toLowerCase()}`}
-                        onClick={() => setIsMenuOpen(false)}
-                        variants={{
-                          hidden: { opacity: 0, x: -12 },
-                          visible: { opacity: 1, x: 0 },
-                        }}
-                        className="flex items-center justify-between rounded-[1rem] px-5 py-3.5 text-[1rem] font-semibold uppercase tracking-[0.06em] text-black transition-colors hover:bg-black hover:text-white"
-                      >
-                        <span>{item}</span>
+                    {navItems.map((item) => {
+                      const isResumeItem = item === "Resume";
+                      const itemHref = isResumeItem
+                        ? resumeLink
+                        : `/#${item.toLowerCase()}`;
 
-                        {item === "Resume" && (
-                          <svg
-                            viewBox="0 0 24 24"
-                            aria-hidden="true"
-                            className="h-4 w-4"
-                            fill="none"
-                            stroke="currentColor"
-                            strokeWidth="2"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                          >
-                            <path d="M14 5h5v5" />
-                            <path d="M10 14 19 5" />
-                            <path d="M19 14v5h-5" />
-                            <path d="M5 10V5h5" />
-                          </svg>
-                        )}
-                      </motion.a>
-                    ))}
+                      return (
+                        <motion.a
+                          key={item}
+                          href={itemHref}
+                          target={isResumeItem ? "_blank" : undefined}
+                          rel={isResumeItem ? "noopener noreferrer" : undefined}
+                          onClick={() => setIsMenuOpen(false)}
+                          variants={{
+                            hidden: { opacity: 0, x: -12 },
+                            visible: { opacity: 1, x: 0 },
+                          }}
+                          className="flex items-center justify-between rounded-[1rem] px-5 py-3.5 text-[1rem] font-semibold uppercase tracking-[0.06em] text-black transition-colors hover:bg-black hover:text-white"
+                        >
+                          <span>{item}</span>
+
+                          {isResumeItem && (
+                            <svg
+                              viewBox="0 0 24 24"
+                              aria-hidden="true"
+                              className="h-4 w-4"
+                              fill="none"
+                              stroke="currentColor"
+                              strokeWidth="2"
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                            >
+                              <path d="M14 5h5v5" />
+                              <path d="M10 14 19 5" />
+                              <path d="M19 14v5h-5" />
+                              <path d="M5 10V5h5" />
+                            </svg>
+                          )}
+                        </motion.a>
+                      );
+                    })}
                   </motion.nav>
                 </motion.div>
               )}
