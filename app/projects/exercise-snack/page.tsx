@@ -209,7 +209,7 @@ export default function ExerciseSnackPage() {
               <span className="inline-flex items-center justify-center rounded-full border border-black/15 bg-white px-5 py-2.5 text-[0.82rem] font-semibold uppercase tracking-[0.08em] text-black/70">
                 Figma file: available on request
               </span>
-              <span className="inline-flex items-center justify-center rounded-full bg-black px-5 py-2.5 text-[0.82rem] font-semibold uppercase tracking-[0.08em] text-white">
+              <span className="hidden items-center justify-center rounded-full bg-black px-5 py-2.5 text-[0.82rem] font-semibold uppercase tracking-[0.08em] text-white sm:inline-flex">
                 Prototype: available on request
               </span>
             </div>
@@ -228,7 +228,7 @@ export default function ExerciseSnackPage() {
                   alt={caption}
                   width={900}
                   height={1600}
-                  className="h-auto w-full rounded-[2rem] border border-black/10 bg-white"
+                  className="h-auto w-full rounded-xl sm:rounded-[1.5rem] lg:rounded-[2rem] border border-black/10 bg-white"
                 />
                 <p className="mt-4 px-1 text-[0.82rem] font-medium uppercase tracking-[0.16em] text-black/45">
                   {caption}
