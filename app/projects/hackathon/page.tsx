@@ -26,7 +26,7 @@ export default function HackathonPage() {
 
   return (
     <>
-      <main className="min-h-screen bg-white text-black">
+      <main className="min-h-screen overflow-x-clip bg-white text-black">
         <Header />
 
         <section className="bg-black px-6 pb-16 pt-24 text-white lg:px-10 lg:pb-24 lg:pt-32">
@@ -60,7 +60,7 @@ export default function HackathonPage() {
                 </span>
               </div>
 
-              <h1 className="text-[clamp(4rem,9vw,7.8rem)] font-black uppercase leading-[0.88] tracking-[-0.06em] text-white">
+              <h1 className="text-[clamp(2.4rem,12.5vw,7.8rem)] font-black uppercase leading-[0.9] tracking-[-0.04em] text-white [overflow-wrap:anywhere] sm:[overflow-wrap:normal]">
                 Hackathon Platform
                 <br />
                 Redesign.
