@@ -234,7 +234,7 @@ export default function HackathonPage() {
                     setIsPrototypeLoading(true);
                     setIsPrototypeOpen(true);
                   }}
-                  className="inline-flex cursor-pointer items-center justify-center rounded-full bg-black px-5 py-2.5 text-[0.88rem] font-semibold uppercase tracking-[0.08em] text-white transition-transform hover:scale-[1.03]"
+                  className="hidden cursor-pointer items-center justify-center rounded-full bg-black px-5 py-2.5 text-[0.88rem] font-semibold uppercase tracking-[0.08em] text-white transition-transform hover:scale-[1.03] sm:inline-flex"
                 >
                   Open Prototype
                 </button>
