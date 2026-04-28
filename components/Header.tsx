@@ -9,7 +9,7 @@ export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const menuRef = useRef<HTMLDivElement | null>(null);
   const resumeLink =
-    "https://drive.google.com/file/d/1Ay2iqbj6UkNvsO5A_UOnyfcWpH83JE8E/view?usp=sharing";
+    "https://drive.google.com/file/d/1RIoWkdQBo-7y2hP2e0RHnL-UnUd_TmLk/view?usp=sharing";
 
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
