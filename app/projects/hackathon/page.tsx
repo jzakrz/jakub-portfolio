@@ -76,7 +76,7 @@ export default function HackathonPage() {
               </p>
             </div>
 
-            <div className="mt-12 lg:mt-16">
+            <div className="mt-12 max-w-5xl lg:mt-16">
               <div className="rounded-[2.4rem] border border-white/15 bg-[#262626] p-8 lg:p-10">
                 <p className="text-[0.85rem] font-medium uppercase tracking-[0.16em] text-white/70">
                   Project Snapshot
@@ -201,7 +201,7 @@ export default function HackathonPage() {
             <div className="mt-10 space-y-10">
               <div>
                 <Image
-                  src="https://postimg.cc/cgN9JRDR"
+                  src="https://i.postimg.cc/HxrfB3Xh/Event-page.png"
                   alt="Hackathon event page screen with sign-up and event details."
                   width={1600}
                   height={900}
@@ -216,7 +216,7 @@ export default function HackathonPage() {
 
               <div>
                 <Image
-                  src="https://postimg.cc/nMZDLD4x"
+                  src="https://i.postimg.cc/ZYvFVP0W/onboarding.png"
                   alt="Onboarding screen with matchmaking flow for hackathon participants."
                   width={1600}
                   height={900}
@@ -229,7 +229,7 @@ export default function HackathonPage() {
 
               <div>
                 <Image
-                  src="https://postimg.cc/bd8tvtxp"
+                  src="https://i.postimg.cc/FFkgDb1d/user-profile.png"
                   alt="User profile view from the hackathon platform prototype."
                   width={1600}
                   height={900}
