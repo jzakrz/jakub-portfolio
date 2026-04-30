@@ -76,7 +76,7 @@ export default function HackathonPage() {
               </p>
             </div>
 
-            <div className="mt-12 max-w-4xl lg:mt-16">
+            <div className="mt-12 max-w-3xl lg:mt-16">
               <div className="rounded-[2.4rem] border border-white/15 bg-[#262626] p-8 lg:p-10">
                 <p className="text-[0.85rem] font-medium uppercase tracking-[0.16em] text-white/70">
                   Project Snapshot
