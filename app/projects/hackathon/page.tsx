@@ -77,43 +77,6 @@ export default function HackathonPage() {
             </div>
 
             <div className="mt-12 grid gap-5 lg:mt-16 lg:grid-cols-[1.15fr_0.85fr]">
-              <div className="overflow-hidden rounded-[2.4rem] border border-white/15 bg-[#262626] p-8 lg:p-10">
-                <div className="mb-6 flex flex-wrap gap-2">
-                  <span className="rounded-full bg-white/12 px-4 py-2 text-[11px] font-medium uppercase tracking-[0.14em] text-white/90">
-                    Product Design
-                  </span>
-                  <span className="rounded-full bg-white/12 px-4 py-2 text-[11px] font-medium uppercase tracking-[0.14em] text-white/90">
-                    UX
-                  </span>
-                  <span className="rounded-full bg-white/12 px-4 py-2 text-[11px] font-medium uppercase tracking-[0.14em] text-white/90">
-                    UI
-                  </span>
-                  <span className="rounded-full bg-white/12 px-4 py-2 text-[11px] font-medium uppercase tracking-[0.14em] text-white/90">
-                    Prototyping
-                  </span>
-                  <span className="rounded-full bg-white/12 px-4 py-2 text-[11px] font-medium uppercase tracking-[0.14em] text-white/90">
-                    User Testing
-                  </span>
-                </div>
-
-                <div className="rounded-[1.8rem] border border-white/15 bg-[#171717] p-5 lg:p-7">
-                  <div className="mb-5 flex items-center gap-2">
-                    <span className="h-3 w-3 rounded-full bg-white/30" />
-                    <span className="h-3 w-3 rounded-full bg-white/30" />
-                    <span className="h-3 w-3 rounded-full bg-white/30" />
-                  </div>
-
-                  <div className="space-y-4 font-mono text-[1rem] text-white/95 lg:text-[1.25rem]">
-                    <p>&gt; Simplify sign-up and onboarding</p>
-                    <p>&gt; Bring key actions into one platform</p>
-                    <p>&gt; Make joining a team easier</p>
-                    <p className="text-white/70">
-                      Outcome: clearer flow, fewer drop-offs, less confusion
-                    </p>
-                  </div>
-                </div>
-              </div>
-
               <div className="rounded-[2.4rem] border border-white/15 bg-[#262626] p-8 lg:p-10">
                 <p className="text-[0.85rem] font-medium uppercase tracking-[0.16em] text-white/70">
                   Project Snapshot
@@ -148,7 +111,15 @@ export default function HackathonPage() {
                       </span>
                     </div>
                   </div>
+                </div>
+              </div>
 
+              <div className="rounded-[2.4rem] border border-white/15 bg-[#262626] p-8 lg:p-10">
+                <p className="text-[0.85rem] font-medium uppercase tracking-[0.16em] text-white/70">
+                  Project Snapshot
+                </p>
+
+                <div className="mt-8 grid gap-8">
                   <div>
                     <p className="text-[0.85rem] font-medium uppercase tracking-[0.16em] text-white/65">
                       Outcome
@@ -160,6 +131,20 @@ export default function HackathonPage() {
                       path without getting lost.
                     </p>
                   </div>
+
+                  <div className="rounded-[1.8rem] border border-white/15 bg-[#171717] p-5 lg:p-7">
+                    <div className="mb-5 flex items-center gap-2">
+                      <span className="h-3 w-3 rounded-full bg-white/30" />
+                      <span className="h-3 w-3 rounded-full bg-white/30" />
+                      <span className="h-3 w-3 rounded-full bg-white/30" />
+                    </div>
+
+                    <div className="space-y-4 font-mono text-[1rem] text-white/95 lg:text-[1.1rem]">
+                      <p>&gt; Simplify sign-up and onboarding</p>
+                      <p>&gt; Bring key actions into one platform</p>
+                      <p>&gt; Make joining a team easier</p>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -169,37 +154,30 @@ export default function HackathonPage() {
         <section className="bg-[#f8f7f5] px-6 py-4 lg:px-10 lg:py-6">
           <div className="mx-auto grid max-w-6xl gap-5 lg:grid-cols-[1.05fr_0.95fr]">
             <div className="rounded-[2.6rem] bg-[#f1cc00] p-8 lg:p-10">
-              <div className="rounded-[1.6rem] border border-black/10 bg-[#efe2a3] p-5">
-                <p className="text-[0.8rem] uppercase tracking-[0.16em] text-black/55">
-                  Before
-                </p>
-                <p className="mt-2 text-[1.02rem] leading-[1.45] text-black/80">
-                  Team participation rules were easy to overlook during onboarding,
-                  so many participants reached the event page without joining a team.
-                </p>
-              </div>
+              <h2 className="mt-5 text-[clamp(2.6rem,4vw,4.5rem)] font-black uppercase leading-[0.92] tracking-[-0.06em] text-black">
+                Lessons Learned
+              </h2>
+
+              <p className="mt-6 max-w-[720px] text-[1.05rem] leading-[1.5] tracking-[-0.02em] text-black/85 lg:text-[1.18rem]">
+                Some participants did not realize they had to join a team in order to
+                take part in the event. To solve this, I introduced a persistent
+                banner and the ability to join or create a team directly in
+                onboarding — before the user gets full access to the event space.
+              </p>
             </div>
 
             <div className="rounded-[2.6rem] border border-black/10 bg-[#f2f1ee] p-8 text-black lg:p-10">
               <p className="text-[0.85rem] font-medium uppercase tracking-[0.16em] text-black/50">
-                Lessons Learned / Why it mattered
+                Why it mattered
               </p>
 
-              <p className="mt-5 text-[1.02rem] leading-[1.45] text-black/80">
-                We introduced a persistent banner and added the ability to join or
-                create a team directly in onboarding, before users get full access
-                to the event space. This increased team participation at the key
-                entry point.
-              </p>
-
-              <div className="mt-6">
+              <div className="mt-8">
                 <div className="rounded-[1.6rem] border border-black/10 bg-[#ebe9e4] p-5">
                   <p className="text-[0.8rem] uppercase tracking-[0.16em] text-black/50">
-                    After
+                    Before
                   </p>
                   <p className="mt-2 text-[1.02rem] leading-[1.45] text-black/80">
-                    Users now have to resolve team setup during onboarding, with clear
-                    prompts to join or create a team before entering the event area.
+                    Team participation rules were easy to overlook during onboarding.
                   </p>
                 </div>
               </div>
@@ -238,6 +216,8 @@ export default function HackathonPage() {
                   width={1600}
                   height={900}
                   className="h-auto w-full rounded-xl sm:rounded-[1.5rem] lg:rounded-[2rem]"
+                  unoptimized
+                  quality={100}
                 />
                 <p className="mt-4 px-1 text-[0.82rem] font-medium uppercase tracking-[0.16em] text-black/45">
                   Event page
