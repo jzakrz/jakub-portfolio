@@ -177,6 +177,66 @@ export default function HackathonPage() {
 
         <section className="bg-[#f8f7f5] px-6 py-12 lg:px-10 lg:py-16">
           <div className="mx-auto max-w-6xl">
+            <h2 className="text-[clamp(2.4rem,4.6vw,4.6rem)] font-black uppercase leading-[0.92] tracking-[-0.06em] text-black">
+              Pre-redesign user flow
+            </h2>
+
+            <p className="mt-5 max-w-3xl text-[1.03rem] leading-[1.55] text-black/75 lg:text-[1.1rem]">
+              Before the redesign, participants had to switch between multiple
+              tools to complete one event journey. This map shows where users
+              stayed on the platform versus where they were sent outside it.
+            </p>
+
+            <div className="mt-8 flex flex-wrap gap-3">
+              <span className="inline-flex items-center gap-2 rounded-full border border-black/10 bg-white px-4 py-2 text-[0.78rem] font-semibold uppercase tracking-[0.12em] text-black/75">
+                <span className="h-2.5 w-2.5 rounded-full bg-[#6b6b6b]" />
+                On-platform step
+              </span>
+              <span className="inline-flex items-center gap-2 rounded-full border border-[#cf4242]/30 bg-[#fff1f1] px-4 py-2 text-[0.78rem] font-semibold uppercase tracking-[0.12em] text-[#9d2020]">
+                <span className="h-2.5 w-2.5 rounded-full bg-[#d63f3f]" />
+                External tool step
+              </span>
+            </div>
+
+            <div className="mt-8 grid gap-4 lg:grid-cols-3">
+              {[
+                { label: "Event enrollment on event page", external: false },
+                { label: "Fill out Google Form", external: true },
+                { label: "Create or join team", external: false },
+                { label: "Go to Discord server (teammates)", external: true },
+                { label: "Watch opening ceremony on Twitch", external: true },
+                { label: "Submit project on platform", external: false },
+              ].map((step, index) => (
+                <div
+                  key={step.label}
+                  className={`rounded-[1.4rem] border p-5 ${
+                    step.external
+                      ? "border-[#cf4242]/35 bg-[#fff4f4]"
+                      : "border-black/10 bg-[#f1f1ef]"
+                  }`}
+                >
+                  <p
+                    className={`text-[0.74rem] font-semibold uppercase tracking-[0.14em] ${
+                      step.external ? "text-[#9d2020]/85" : "text-black/45"
+                    }`}
+                  >
+                    Step {index + 1}
+                  </p>
+                  <p
+                    className={`mt-2 text-[1rem] leading-[1.45] ${
+                      step.external ? "text-[#7d1f1f]" : "text-black/80"
+                    }`}
+                  >
+                    {step.label}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="bg-[#f8f7f5] px-6 py-12 lg:px-10 lg:py-16">
+          <div className="mx-auto max-w-6xl">
             <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
               <div>
                 <h2 className="text-[clamp(2.8rem,5vw,5rem)] font-black uppercase leading-[0.92] tracking-[-0.06em] text-black">
