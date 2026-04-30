@@ -177,34 +177,32 @@ export default function HackathonPage() {
 
         <section className="bg-[#f8f7f5] px-6 py-12 lg:px-10 lg:py-16">
           <div className="mx-auto max-w-6xl">
-            <div className="rounded-[2.2rem] border border-black/10 bg-white p-8 lg:p-10">
-              <p className="text-[0.85rem] font-medium uppercase tracking-[0.16em] text-black/50">
-                Trade-offs
-              </p>
-              <h2 className="mt-4 text-[clamp(2.2rem,4.2vw,4rem)] font-black uppercase leading-[0.94] tracking-[-0.05em] text-black">
-                What we chose for the MVP
-              </h2>
-              <div className="mt-7 grid gap-4 lg:grid-cols-2">
-                <div className="rounded-[1.4rem] border border-black/10 bg-[#f8f7f5] p-5">
-                  <p className="text-[0.78rem] font-semibold uppercase tracking-[0.14em] text-black/45">
-                    Speed to ship
-                  </p>
-                  <p className="mt-2 text-[1.02rem] leading-[1.5] text-black/80">
-                    To launch the MVP quickly, we connected the redesigned flow to
-                    the existing platform. The redesigned experience starts after
-                    the user clicks the enroll button.
-                  </p>
-                </div>
-                <div className="rounded-[1.4rem] border border-black/10 bg-[#f8f7f5] p-5">
-                  <p className="text-[0.78rem] font-semibold uppercase tracking-[0.14em] text-black/45">
-                    Development scope
-                  </p>
-                  <p className="mt-2 text-[1.02rem] leading-[1.5] text-black/80">
-                    Replacing tools like Discord and Twitch was out of scope for
-                    this MVP due to development effort, so we embedded these
-                    platforms inside the product instead.
-                  </p>
-                </div>
+            <h2 className="text-[clamp(2.2rem,4.2vw,4rem)] font-black uppercase leading-[0.94] tracking-[-0.05em] text-black">
+              Trade-offs
+            </h2>
+            <div className="mt-7 grid gap-4 lg:grid-cols-2">
+              <div className="rounded-[1.4rem] border border-black/10 bg-[#f1f1ef] p-5">
+                <p className="text-[0.78rem] font-semibold uppercase tracking-[0.14em] text-black/45">
+                  Faster launch vs full rebuild
+                </p>
+                <p className="mt-2 text-[1.02rem] leading-[1.5] text-black/80">
+                  To ship the MVP quickly, we attached the redesigned experience
+                  to the existing platform instead of rebuilding the entire event
+                  stack. The benefit was faster delivery; the trade-off is that
+                  users still begin on the legacy event page and enter the new
+                  experience after clicking enroll.
+                </p>
+              </div>
+              <div className="rounded-[1.4rem] border border-black/10 bg-[#f1f1ef] p-5">
+                <p className="text-[0.78rem] font-semibold uppercase tracking-[0.14em] text-black/45">
+                  Integrated experience vs engineering effort
+                </p>
+                <p className="mt-2 text-[1.02rem] leading-[1.5] text-black/80">
+                  Replacing Discord and Twitch would have created a more unified
+                  product, but it required too much engineering effort for this
+                  iteration. We chose to embed both tools, prioritizing feasibility
+                  and timeline over complete ownership of those interactions.
+                </p>
               </div>
             </div>
 
