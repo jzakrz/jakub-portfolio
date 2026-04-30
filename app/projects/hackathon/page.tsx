@@ -76,42 +76,44 @@ export default function HackathonPage() {
               </p>
             </div>
 
-            <div className="mt-12 grid gap-5 lg:mt-16 lg:grid-cols-[1.15fr_0.85fr]">
+            <div className="mt-12 lg:mt-16">
               <div className="rounded-[2.4rem] border border-white/15 bg-[#262626] p-8 lg:p-10">
-                <div className="mt-8 grid gap-8">
-                  <div>
-                    <p className="text-[0.85rem] font-medium uppercase tracking-[0.16em] text-white/65">
-                      My role
-                    </p>
-                    <p className="mt-3 text-[1.05rem] leading-[1.45] text-white/94">
-                      I was responsible for the entire design process — from
-                      research and information architecture, through flow and
-                      interface design, to prototyping, user testing, and
-                      collaboration with developers.
-                    </p>
-                  </div>
+                <p className="text-[0.85rem] font-medium uppercase tracking-[0.16em] text-white/70">
+                  Project Snapshot
+                </p>
 
-                  <div>
-                    <p className="text-[0.85rem] font-medium uppercase tracking-[0.16em] text-white/65">
-                      Tools
-                    </p>
-                    <div className="mt-3 flex flex-wrap gap-2">
-                      <span className="rounded-full bg-white/12 px-4 py-2 text-[11px] font-medium uppercase tracking-[0.14em] text-white/90">
-                        Figma
-                      </span>
-                      <span className="rounded-full bg-white/12 px-4 py-2 text-[11px] font-medium uppercase tracking-[0.14em] text-white/90">
-                        FigJam
-                      </span>
-                      <span className="rounded-full bg-white/12 px-4 py-2 text-[11px] font-medium uppercase tracking-[0.14em] text-white/90">
-                        Maze
-                      </span>
+                <div className="mt-8 grid gap-8 lg:grid-cols-2">
+                  <div className="space-y-8">
+                    <div>
+                      <p className="text-[0.85rem] font-medium uppercase tracking-[0.16em] text-white/65">
+                        My role
+                      </p>
+                      <p className="mt-3 text-[1.05rem] leading-[1.45] text-white/94">
+                        I was responsible for the entire design process — from
+                        research and information architecture, through flow and
+                        interface design, to prototyping, user testing, and
+                        collaboration with developers.
+                      </p>
+                    </div>
+
+                    <div>
+                      <p className="text-[0.85rem] font-medium uppercase tracking-[0.16em] text-white/65">
+                        Tools
+                      </p>
+                      <div className="mt-3 flex flex-wrap gap-2">
+                        <span className="rounded-full bg-white/12 px-4 py-2 text-[11px] font-medium uppercase tracking-[0.14em] text-white/90">
+                          Figma
+                        </span>
+                        <span className="rounded-full bg-white/12 px-4 py-2 text-[11px] font-medium uppercase tracking-[0.14em] text-white/90">
+                          FigJam
+                        </span>
+                        <span className="rounded-full bg-white/12 px-4 py-2 text-[11px] font-medium uppercase tracking-[0.14em] text-white/90">
+                          Maze
+                        </span>
+                      </div>
                     </div>
                   </div>
-                </div>
-              </div>
 
-              <div className="rounded-[2.4rem] border border-white/15 bg-[#262626] p-8 lg:p-10">
-                <div className="grid gap-8">
                   <div>
                     <p className="text-[0.85rem] font-medium uppercase tracking-[0.16em] text-white/65">
                       Outcome
