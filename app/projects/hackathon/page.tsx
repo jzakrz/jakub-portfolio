@@ -76,76 +76,41 @@ export default function HackathonPage() {
               </p>
             </div>
 
-            <div className="mt-12 grid gap-5 lg:mt-16 lg:grid-cols-[1.15fr_0.85fr]">
-              <div className="overflow-hidden rounded-[2.4rem] border border-white/15 bg-[#262626] p-8 lg:p-10">
-                <div className="mb-6 flex flex-wrap gap-2">
-                  <span className="rounded-full bg-white/12 px-4 py-2 text-[11px] font-medium uppercase tracking-[0.14em] text-white/90">
-                    Product Design
-                  </span>
-                  <span className="rounded-full bg-white/12 px-4 py-2 text-[11px] font-medium uppercase tracking-[0.14em] text-white/90">
-                    UX
-                  </span>
-                  <span className="rounded-full bg-white/12 px-4 py-2 text-[11px] font-medium uppercase tracking-[0.14em] text-white/90">
-                    UI
-                  </span>
-                  <span className="rounded-full bg-white/12 px-4 py-2 text-[11px] font-medium uppercase tracking-[0.14em] text-white/90">
-                    Prototyping
-                  </span>
-                  <span className="rounded-full bg-white/12 px-4 py-2 text-[11px] font-medium uppercase tracking-[0.14em] text-white/90">
-                    User Testing
-                  </span>
-                </div>
-
-                <div className="rounded-[1.8rem] border border-white/15 bg-[#171717] p-5 lg:p-7">
-                  <div className="mb-5 flex items-center gap-2">
-                    <span className="h-3 w-3 rounded-full bg-white/30" />
-                    <span className="h-3 w-3 rounded-full bg-white/30" />
-                    <span className="h-3 w-3 rounded-full bg-white/30" />
-                  </div>
-
-                  <div className="space-y-4 font-mono text-[1rem] text-white/95 lg:text-[1.25rem]">
-                    <p>&gt; Simplify sign-up and onboarding</p>
-                    <p>&gt; Bring key actions into one platform</p>
-                    <p>&gt; Make joining a team easier</p>
-                    <p className="text-white/70">
-                      Outcome: clearer flow, fewer drop-offs, less confusion
-                    </p>
-                  </div>
-                </div>
-              </div>
-
+            <div className="mt-12 w-full lg:mt-16 lg:max-w-[52.5%]">
               <div className="rounded-[2.4rem] border border-white/15 bg-[#262626] p-8 lg:p-10">
                 <p className="text-[0.85rem] font-medium uppercase tracking-[0.16em] text-white/70">
                   Project Snapshot
                 </p>
 
-                <div className="mt-8 grid gap-8">
-                  <div>
-                    <p className="text-[0.85rem] font-medium uppercase tracking-[0.16em] text-white/65">
-                      My role
-                    </p>
-                    <p className="mt-3 text-[1.05rem] leading-[1.45] text-white/94">
-                      I was responsible for the entire design process — from
-                      research and information architecture, through flow and
-                      interface design, to prototyping, user testing, and
-                      collaboration with developers.
-                    </p>
-                  </div>
+                <div className="mt-8 grid max-w-3xl gap-8">
+                  <div className="space-y-8">
+                    <div>
+                      <p className="text-[0.85rem] font-medium uppercase tracking-[0.16em] text-white/65">
+                        My role
+                      </p>
+                      <p className="mt-3 text-[1.05rem] leading-[1.45] text-white/94">
+                        I was responsible for the entire design process — from
+                        research and information architecture, through flow and
+                        interface design, to prototyping, user testing, and
+                        collaboration with developers.
+                      </p>
+                    </div>
 
-                  <div>
-                    <p className="text-[0.85rem] font-medium uppercase tracking-[0.16em] text-white/65">
-                      Tools
-                    </p>
-                    <div className="mt-3 flex flex-wrap gap-2">
-                      <span className="rounded-full bg-white/12 px-4 py-2 text-[11px] font-medium uppercase tracking-[0.14em] text-white/90">
-                        Figma
-                      </span>
-                      <span className="rounded-full bg-white/12 px-4 py-2 text-[11px] font-medium uppercase tracking-[0.14em] text-white/90">
-                        FigJam
-                      </span>
-                      <span className="rounded-full bg-white/12 px-4 py-2 text-[11px] font-medium uppercase tracking-[0.14em] text-white/90">
-                        Maze
-                      </span>
+                    <div>
+                      <p className="text-[0.85rem] font-medium uppercase tracking-[0.16em] text-white/65">
+                        Tools
+                      </p>
+                      <div className="mt-3 flex flex-wrap gap-2">
+                        <span className="rounded-full bg-white/12 px-4 py-2 text-[11px] font-medium uppercase tracking-[0.14em] text-white/90">
+                          Figma
+                        </span>
+                        <span className="rounded-full bg-white/12 px-4 py-2 text-[11px] font-medium uppercase tracking-[0.14em] text-white/90">
+                          FigJam
+                        </span>
+                        <span className="rounded-full bg-white/12 px-4 py-2 text-[11px] font-medium uppercase tracking-[0.14em] text-white/90">
+                          Maze
+                        </span>
+                      </div>
                     </div>
                   </div>
 
@@ -169,17 +134,15 @@ export default function HackathonPage() {
         <section className="bg-[#f8f7f5] px-6 py-4 lg:px-10 lg:py-6">
           <div className="mx-auto grid max-w-6xl gap-5 lg:grid-cols-[1.05fr_0.95fr]">
             <div className="rounded-[2.6rem] bg-[#f1cc00] p-8 lg:p-10">
-             
-
               <h2 className="mt-5 text-[clamp(2.6rem,4vw,4.5rem)] font-black uppercase leading-[0.92] tracking-[-0.06em] text-black">
                 Lessons Learned
               </h2>
 
               <p className="mt-6 max-w-[720px] text-[1.05rem] leading-[1.5] tracking-[-0.02em] text-black/85 lg:text-[1.18rem]">
-                Some participants did not realize they had to join a team in
-                    order to take part in the event. To solve this, I introduced a
-                    persistent banner that stayed visible until the team step was
-                    completed.
+                Some participants did not realize they had to join a team in order to
+                take part in the event. To solve this, I introduced a persistent
+                banner and the ability to join or create a team directly in
+                onboarding — before the user gets full access to the event space.
               </p>
             </div>
 
@@ -188,24 +151,23 @@ export default function HackathonPage() {
                 Why it mattered
               </p>
 
-              <div className="mt-8 space-y-5">
+              <div className="mt-8">
                 <div className="rounded-[1.6rem] border border-black/10 bg-[#ebe9e4] p-5">
                   <p className="text-[0.8rem] uppercase tracking-[0.16em] text-black/50">
                     Before
                   </p>
                   <p className="mt-2 text-[1.02rem] leading-[1.45] text-black/80">
-                    Team participation rules were easy to overlook during
-                    onboarding.
+                    Team participation rules were easy to overlook during onboarding.
                   </p>
                 </div>
 
-                <div className="rounded-[1.6rem] border border-black/10 bg-[#ebe9e4] p-5">
+                <div className="mt-5 rounded-[1.6rem] border border-black/10 bg-[#ebe9e4] p-5">
                   <p className="text-[0.8rem] uppercase tracking-[0.16em] text-black/50">
                     After
                   </p>
                   <p className="mt-2 text-[1.02rem] leading-[1.45] text-black/80">
-                    The banner created a continuous reminder until the user
-                    completed the required team step.
+                    Team prompts now appear during onboarding, so users join or create
+                    a team before getting full access to the event space.
                   </p>
                 </div>
               </div>
@@ -218,13 +180,8 @@ export default function HackathonPage() {
             <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
               <div>
                 <h2 className="text-[clamp(2.8rem,5vw,5rem)] font-black uppercase leading-[0.92] tracking-[-0.06em] text-black">
-                  Screen Scope
+                  Selected Screens
                 </h2>
-
-                <p className="mt-4 max-w-3xl text-[1.08rem] leading-[1.45] tracking-[-0.02em] text-black/80 lg:text-[1.18rem]">
-                  Selected screens showing the key user flow — from entering the
-                  event page, through sign-up and onboarding, to joining a team.
-                </p>
               </div>
 
               <div className="flex flex-wrap items-center gap-2">
@@ -244,11 +201,13 @@ export default function HackathonPage() {
             <div className="mt-10 space-y-10">
               <div>
                 <Image
-                  src="https://i.postimg.cc/SQY7DLjY/Event-page.png"
+                  src="https://i.postimg.cc/y65CDD27/Event-page.png"
                   alt="Hackathon event page screen with sign-up and event details."
                   width={1600}
                   height={900}
                   className="h-auto w-full rounded-xl sm:rounded-[1.5rem] lg:rounded-[2rem]"
+                  unoptimized
+                  quality={100}
                 />
                 <p className="mt-4 px-1 text-[0.82rem] font-medium uppercase tracking-[0.16em] text-black/45">
                   Event page
