@@ -201,7 +201,7 @@ export default function HackathonPage() {
             <div className="mt-10 space-y-10">
               <div>
                 <Image
-                  src="https://i.postimg.cc/HxrfB3Xh/Event-page.png"
+                  src="https://i.postimg.cc/y65CDD27/Event-page.png"
                   alt="Hackathon event page screen with sign-up and event details."
                   width={1600}
                   height={900}
