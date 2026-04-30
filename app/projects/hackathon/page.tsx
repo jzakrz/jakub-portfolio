@@ -177,7 +177,36 @@ export default function HackathonPage() {
 
         <section className="bg-[#f8f7f5] px-6 py-12 lg:px-10 lg:py-16">
           <div className="mx-auto max-w-6xl">
-            <h2 className="text-[clamp(2.4rem,4.6vw,4.6rem)] font-black uppercase leading-[0.92] tracking-[-0.06em] text-black">
+            <h2 className="text-[clamp(2.2rem,4.2vw,4rem)] font-black uppercase leading-[0.94] tracking-[-0.05em] text-black">
+              Trade-offs
+            </h2>
+            <div className="mt-7 grid gap-4 lg:grid-cols-2">
+              <div className="rounded-[1.4rem] border border-black/10 bg-[#f1f1ef] p-5">
+                <p className="text-[0.78rem] font-semibold uppercase tracking-[0.14em] text-black/45">
+                  Faster launch vs full rebuild
+                </p>
+                <p className="mt-2 text-[1.02rem] leading-[1.5] text-black/80">
+                  To ship the MVP quickly, we attached the redesigned experience
+                  to the existing platform instead of rebuilding the entire event
+                  stack. The benefit was faster delivery; the trade-off is that
+                  users still begin on the legacy event page and enter the new
+                  experience after clicking enroll.
+                </p>
+              </div>
+              <div className="rounded-[1.4rem] border border-black/10 bg-[#f1f1ef] p-5">
+                <p className="text-[0.78rem] font-semibold uppercase tracking-[0.14em] text-black/45">
+                  Integrated experience vs engineering effort
+                </p>
+                <p className="mt-2 text-[1.02rem] leading-[1.5] text-black/80">
+                  Replacing Discord and Twitch would have created a more unified
+                  product, but it required too much engineering effort for this
+                  iteration. We chose to embed both tools, prioritizing feasibility
+                  and timeline over complete ownership of those interactions.
+                </p>
+              </div>
+            </div>
+
+            <h2 className="mt-12 text-[clamp(2.4rem,4.6vw,4.6rem)] font-black uppercase leading-[0.92] tracking-[-0.06em] text-black">
               Pre-redesign user flow
             </h2>
 
