@@ -3,12 +3,29 @@
 import Header from "@/components/Header";
 import Image from "next/image";
 import Link from "next/link";
-
-const exerciseSnackScreen = "https://i.postimg.cc/28Dzc634/exercise.png";
+import { useEffect, useState } from "react";
 
 export default function ExerciseSnackPage() {
+  const [isPrototypeOpen, setIsPrototypeOpen] = useState(false);
+
+  useEffect(() => {
+    if (!isPrototypeOpen) return;
+
+    const originalBodyOverflow = document.body.style.overflow;
+    const originalHtmlOverflow = document.documentElement.style.overflow;
+
+    document.body.style.overflow = "hidden";
+    document.documentElement.style.overflow = "hidden";
+
+    return () => {
+      document.body.style.overflow = originalBodyOverflow;
+      document.documentElement.style.overflow = originalHtmlOverflow;
+    };
+  }, [isPrototypeOpen]);
+
   return (
-    <main className="min-h-screen bg-white text-black">
+    <>
+      <main className="min-h-screen overflow-x-clip bg-white text-black">
       <Header />
 
       <section className="bg-black px-6 pb-16 pt-24 text-white lg:px-10 lg:pb-24 lg:pt-32">
@@ -44,8 +61,6 @@ export default function ExerciseSnackPage() {
 
             <h1 className="text-[clamp(3.6rem,9vw,7.2rem)] font-black uppercase leading-[0.88] tracking-[-0.06em] text-white">
               Exercise Snack
-              <br />
-              Active Breaks.
             </h1>
 
             <p className="mt-8 max-w-4xl text-[1.1rem] leading-[1.4] text-white/85 lg:mt-10 lg:text-[1.4rem]">
@@ -57,43 +72,7 @@ export default function ExerciseSnackPage() {
             </p>
           </div>
 
-          <div className="mt-12 grid gap-5 lg:mt-16 lg:grid-cols-[1.15fr_0.85fr]">
-            <div className="overflow-hidden rounded-[2.4rem] border border-white/15 bg-[#262626] p-8 lg:p-10">
-              <div className="mb-6 flex flex-wrap gap-2">
-                {[
-                  "Product Design",
-                  "UX",
-                  "UI",
-                  "Prototyping",
-                  "User Testing",
-                ].map((item) => (
-                  <span
-                    key={item}
-                    className="rounded-full bg-white/12 px-4 py-2 text-[11px] font-medium uppercase tracking-[0.14em] text-white/90"
-                  >
-                    {item}
-                  </span>
-                ))}
-              </div>
-
-              <div className="rounded-[1.8rem] border border-white/15 bg-[#171717] p-5 lg:p-7">
-                <div className="mb-5 flex items-center gap-2">
-                  <span className="h-3 w-3 rounded-full bg-white/30" />
-                  <span className="h-3 w-3 rounded-full bg-white/30" />
-                  <span className="h-3 w-3 rounded-full bg-white/30" />
-                </div>
-
-                <div className="space-y-4 font-mono text-[1rem] text-white/95 lg:text-[1.25rem]">
-                  <p>&gt; Build a lightweight active-break routine</p>
-                  <p>&gt; Make exercise sessions easy to customize</p>
-                  <p>&gt; Use gamification to support regularity</p>
-                  <p className="text-white/70">
-                    Outcome: clearer workout flow and stronger habit support
-                  </p>
-                </div>
-              </div>
-            </div>
-
+          <div className="mt-12 lg:mt-16 lg:w-[52.5%]">
             <div className="rounded-[2.4rem] border border-white/15 bg-[#262626] p-8 lg:p-10">
               <p className="text-[0.85rem] font-medium uppercase tracking-[0.16em] text-white/70">
                 Project Snapshot
@@ -149,7 +128,7 @@ export default function ExerciseSnackPage() {
         <div className="mx-auto grid max-w-6xl gap-5 lg:grid-cols-[1.05fr_0.95fr]">
           <div className="rounded-[2.6rem] bg-[#f1cc00] p-8 lg:p-10">
             <h2 className="mt-5 text-[clamp(2.6rem,4vw,4.5rem)] font-black uppercase leading-[0.92] tracking-[-0.06em] text-black">
-              Insights from Testing
+              Lessons Learned
             </h2>
 
             <p className="mt-6 max-w-[720px] text-[1.05rem] leading-[1.5] tracking-[-0.02em] text-black/85 lg:text-[1.18rem]">
@@ -197,41 +176,60 @@ export default function ExerciseSnackPage() {
               <h2 className="text-[clamp(2.8rem,5vw,5rem)] font-black uppercase leading-[0.92] tracking-[-0.06em] text-black">
                 Selected Screens
               </h2>
-
-              <p className="mt-4 max-w-3xl text-[1.08rem] leading-[1.45] tracking-[-0.02em] text-black/80 lg:text-[1.18rem]">
-                Core moments of the product flow: personalized exercise set,
-                clear session guidance, workout editing with AI/manual options,
-                and a summary supporting regular use.
-              </p>
             </div>
 
             <div className="flex flex-wrap items-center gap-2">
-              <span className="inline-flex items-center justify-center rounded-full border border-black/15 bg-white px-5 py-2.5 text-[0.82rem] font-semibold uppercase tracking-[0.08em] text-black/70">
-                Figma file: available on request
-              </span>
-              <span className="hidden items-center justify-center rounded-full bg-black px-5 py-2.5 text-[0.82rem] font-semibold uppercase tracking-[0.08em] text-white sm:inline-flex">
-                Prototype: available on request
-              </span>
+              <button
+                type="button"
+                onClick={() => setIsPrototypeOpen(true)}
+                className="hidden cursor-pointer items-center justify-center rounded-full bg-black px-5 py-2.5 text-[0.88rem] font-semibold uppercase tracking-[0.08em] text-white transition-transform hover:scale-[1.03] sm:inline-flex"
+              >
+                Open Prototype
+              </button>
             </div>
           </div>
 
-          <div className="mt-10 grid gap-8 lg:grid-cols-2">
+          <div className="mt-10 grid gap-8 sm:grid-cols-2 xl:grid-cols-3">
             {[
-              "A proposed exercise set tailored to the user",
-              "A simple and clear workout session flow",
-              "Workout editing with manual controls or AI support",
-              "Summary and features supporting regularity",
-            ].map((caption) => (
-              <div key={caption}>
-                <Image
-                  src={exerciseSnackScreen}
-                  alt={caption}
-                  width={900}
-                  height={1600}
-                  className="h-auto w-full rounded-xl sm:rounded-[1.5rem] lg:rounded-[2rem] border border-black/10 bg-white"
-                />
-                <p className="mt-4 px-1 text-[0.82rem] font-medium uppercase tracking-[0.16em] text-black/45">
-                  {caption}
+              {
+                caption: "A proposed exercise set tailored to the user",
+                src: "https://i.postimg.cc/brJzhYqc/Pre-workout-screen.png",
+              },
+              {
+                caption: "A simple and clear workout session flow",
+                src: "https://i.postimg.cc/x8C02j9r/Cwiczenie-nr-1-Intro.png",
+              },
+              {
+                caption: "Workout editing with manual controls",
+                src: "https://i.postimg.cc/vTWCkp60/EDYCJA-GODZINY-PRZERWY.png",
+              },
+              {
+                caption: "Chatbot guidance for workout changes",
+                src: "https://i.postimg.cc/RhFMBC42/Chatbot-prototype.png",
+              },
+              {
+                caption: "After-session summary",
+                src: "https://i.postimg.cc/x8C02jnF/After-session.png",
+              },
+              {
+                caption: "Statistics supporting long-term consistency",
+                src: "https://i.postimg.cc/kG4nmMq1/Stats.png",
+              },
+            ].map((screen) => (
+              <div key={screen.caption} className="mx-auto w-full max-w-[290px]">
+                <div className="rounded-[2.1rem] border border-black/15 bg-[#1c1c1c] p-2.5 shadow-[0_18px_34px_rgba(0,0,0,0.12)]">
+                  <div className="rounded-[1.6rem] bg-black p-1.5">
+                    <Image
+                      src={screen.src}
+                      alt={screen.caption}
+                      width={430}
+                      height={932}
+                      className="h-auto w-full rounded-[1.2rem] border border-white/10 bg-white"
+                    />
+                  </div>
+                </div>
+                <p className="mt-4 px-1 text-center text-[0.76rem] font-medium uppercase tracking-[0.16em] text-black/45">
+                  {screen.caption}
                 </p>
               </div>
             ))}
@@ -239,5 +237,47 @@ export default function ExerciseSnackPage() {
         </div>
       </section>
     </main>
+
+      {isPrototypeOpen && (
+        <div
+          className="fixed inset-0 z-[100] flex items-center justify-center bg-black/70 p-2"
+          onClick={() => setIsPrototypeOpen(false)}
+        >
+          <div
+            className="relative mx-auto w-full max-w-[1320px]"
+            onClick={(event) => event.stopPropagation()}
+          >
+            <button
+              type="button"
+              onClick={() => setIsPrototypeOpen(false)}
+              aria-label="Close prototype modal"
+              className="absolute -right-2 -top-2 z-20 flex h-10 w-10 items-center justify-center rounded-full bg-white text-black shadow-[0_10px_30px_rgba(0,0,0,0.2)] transition hover:scale-95"
+            >
+              <svg
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+                className="h-5 w-5 stroke-current"
+                fill="none"
+                strokeWidth="2.2"
+                strokeLinecap="round"
+              >
+                <path d="M6 6l12 12" />
+                <path d="M18 6 6 18" />
+              </svg>
+            </button>
+
+            <div className="overflow-hidden rounded-[1.8rem] border border-black/10 bg-white shadow-[0_35px_90px_rgba(0,0,0,0.18)]">
+              <iframe
+                style={{ border: "1px solid rgba(0, 0, 0, 0.1)" }}
+                width="100%"
+                height="720"
+                src="https://embed.figma.com/proto/x0n44iyTYL4Yj1dFpHNB4h/Exercise-Snack--Student-Project-?node-id=1491-21114&p=f&viewport=-4411%2C-42%2C0.13&scaling=scale-down&content-scaling=fixed&starting-point-node-id=1491%3A21356&page-id=5%3A2&embed-host=share"
+                allowFullScreen
+              />
+            </div>
+          </div>
+        </div>
+      )}
+    </>
   );
 }
