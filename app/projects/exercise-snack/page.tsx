@@ -3,11 +3,29 @@
 import Header from "@/components/Header";
 import Image from "next/image";
 import Link from "next/link";
-
+import { useEffect, useState } from "react";
 
 export default function ExerciseSnackPage() {
+  const [isPrototypeOpen, setIsPrototypeOpen] = useState(false);
+
+  useEffect(() => {
+    if (!isPrototypeOpen) return;
+
+    const originalBodyOverflow = document.body.style.overflow;
+    const originalHtmlOverflow = document.documentElement.style.overflow;
+
+    document.body.style.overflow = "hidden";
+    document.documentElement.style.overflow = "hidden";
+
+    return () => {
+      document.body.style.overflow = originalBodyOverflow;
+      document.documentElement.style.overflow = originalHtmlOverflow;
+    };
+  }, [isPrototypeOpen]);
+
   return (
-    <main className="min-h-screen bg-white text-black">
+    <>
+      <main className="min-h-screen overflow-x-clip bg-white text-black">
       <Header />
 
       <section className="bg-black px-6 pb-16 pt-24 text-white lg:px-10 lg:pb-24 lg:pt-32">
@@ -161,13 +179,17 @@ export default function ExerciseSnackPage() {
             </div>
 
             <div className="flex flex-wrap items-center gap-2">
-              <span className="inline-flex items-center justify-center rounded-full bg-black px-5 py-2.5 text-[0.82rem] font-semibold uppercase tracking-[0.08em] text-white">
-                Prototype: available on request
-              </span>
+              <button
+                type="button"
+                onClick={() => setIsPrototypeOpen(true)}
+                className="hidden cursor-pointer items-center justify-center rounded-full bg-black px-5 py-2.5 text-[0.88rem] font-semibold uppercase tracking-[0.08em] text-white transition-transform hover:scale-[1.03] sm:inline-flex"
+              >
+                Open Prototype
+              </button>
             </div>
           </div>
 
-          <div className="mt-10 grid gap-8 lg:grid-cols-2">
+          <div className="mt-10 grid gap-8 sm:grid-cols-2 xl:grid-cols-3">
             {[
               {
                 caption: "A proposed exercise set tailored to the user",
@@ -194,15 +216,19 @@ export default function ExerciseSnackPage() {
                 src: "https://i.postimg.cc/kG4nmMq1/Stats.png",
               },
             ].map((screen) => (
-              <div key={screen.caption}>
-                <Image
-                  src={screen.src}
-                  alt={screen.caption}
-                  width={900}
-                  height={1600}
-                  className="h-auto w-full rounded-xl border border-black/10 bg-white sm:rounded-[1.5rem] lg:rounded-[2rem]"
-                />
-                <p className="mt-4 px-1 text-[0.82rem] font-medium uppercase tracking-[0.16em] text-black/45">
+              <div key={screen.caption} className="mx-auto w-full max-w-[290px]">
+                <div className="rounded-[2.1rem] border border-black/15 bg-[#1c1c1c] p-2.5 shadow-[0_18px_34px_rgba(0,0,0,0.12)]">
+                  <div className="rounded-[1.6rem] bg-black p-1.5">
+                    <Image
+                      src={screen.src}
+                      alt={screen.caption}
+                      width={430}
+                      height={932}
+                      className="h-auto w-full rounded-[1.2rem] border border-white/10 bg-white"
+                    />
+                  </div>
+                </div>
+                <p className="mt-4 px-1 text-center text-[0.76rem] font-medium uppercase tracking-[0.16em] text-black/45">
                   {screen.caption}
                 </p>
               </div>
@@ -211,5 +237,47 @@ export default function ExerciseSnackPage() {
         </div>
       </section>
     </main>
+
+      {isPrototypeOpen && (
+        <div
+          className="fixed inset-0 z-[100] flex items-center justify-center bg-black/70 p-2"
+          onClick={() => setIsPrototypeOpen(false)}
+        >
+          <div
+            className="relative mx-auto w-full max-w-[1320px]"
+            onClick={(event) => event.stopPropagation()}
+          >
+            <button
+              type="button"
+              onClick={() => setIsPrototypeOpen(false)}
+              aria-label="Close prototype modal"
+              className="absolute -right-2 -top-2 z-20 flex h-10 w-10 items-center justify-center rounded-full bg-white text-black shadow-[0_10px_30px_rgba(0,0,0,0.2)] transition hover:scale-95"
+            >
+              <svg
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+                className="h-5 w-5 stroke-current"
+                fill="none"
+                strokeWidth="2.2"
+                strokeLinecap="round"
+              >
+                <path d="M6 6l12 12" />
+                <path d="M18 6 6 18" />
+              </svg>
+            </button>
+
+            <div className="overflow-hidden rounded-[1.8rem] border border-black/10 bg-white shadow-[0_35px_90px_rgba(0,0,0,0.18)]">
+              <iframe
+                style={{ border: "1px solid rgba(0, 0, 0, 0.1)" }}
+                width="100%"
+                height="720"
+                src="https://embed.figma.com/proto/x0n44iyTYL4Yj1dFpHNB4h/Exercise-Snack--Student-Project-?node-id=1491-21114&p=f&viewport=-4411%2C-42%2C0.13&scaling=scale-down&content-scaling=fixed&starting-point-node-id=1491%3A21356&page-id=5%3A2&embed-host=share"
+                allowFullScreen
+              />
+            </div>
+          </div>
+        </div>
+      )}
+    </>
   );
 }
