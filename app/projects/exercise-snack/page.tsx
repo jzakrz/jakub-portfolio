@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 
 export default function ExerciseSnackPage() {
   const [isPrototypeOpen, setIsPrototypeOpen] = useState(false);
+  const [isPrototypeLoading, setIsPrototypeLoading] = useState(false);
 
   useEffect(() => {
     if (!isPrototypeOpen) return;
@@ -181,7 +182,10 @@ export default function ExerciseSnackPage() {
             <div className="flex flex-wrap items-center gap-2">
               <button
                 type="button"
-                onClick={() => setIsPrototypeOpen(true)}
+                onClick={() => {
+                  setIsPrototypeLoading(true);
+                  setIsPrototypeOpen(true);
+                }}
                 className="hidden cursor-pointer items-center justify-center rounded-full bg-black px-5 py-2.5 text-[0.88rem] font-semibold uppercase tracking-[0.08em] text-white transition-transform hover:scale-[1.03] sm:inline-flex"
               >
                 Open Prototype
@@ -266,18 +270,104 @@ export default function ExerciseSnackPage() {
               </svg>
             </button>
 
-            <div className="overflow-hidden rounded-[1.8rem] border border-black/10 bg-white shadow-[0_35px_90px_rgba(0,0,0,0.18)]">
-              <iframe
-                style={{ border: "1px solid rgba(0, 0, 0, 0.1)" }}
-                width="100%"
-                height="720"
-                src="https://embed.figma.com/proto/x0n44iyTYL4Yj1dFpHNB4h/Exercise-Snack--Student-Project-?node-id=1491-21114&p=f&viewport=-4411%2C-42%2C0.13&scaling=scale-down&content-scaling=fixed&starting-point-node-id=1491%3A21356&page-id=5%3A2&embed-host=share"
-                allowFullScreen
-              />
+            <div className="overflow-hidden rounded-[1.8rem] border border-black/10 bg-[#f6f6f7] shadow-[0_35px_90px_rgba(0,0,0,0.18)]">
+              <div className="border-b border-black/10 bg-[#ececef] px-5 py-4">
+                <div className="flex items-center justify-between gap-4">
+                  <div className="flex items-center gap-2">
+                    <span className="h-3 w-3 rounded-full bg-[#ff5f57]" />
+                    <span className="h-3 w-3 rounded-full bg-[#febc2e]" />
+                    <span className="h-3 w-3 rounded-full bg-[#28c840]" />
+                  </div>
+
+                  <div className="flex-1">
+                    <div className="mx-auto flex h-10 max-w-[520px] items-center rounded-full border border-black/10 bg-white px-4 text-sm text-black/45">
+                      exercise-snack-prototype.fig
+                    </div>
+                  </div>
+
+                  <div className="w-[72px]" />
+                </div>
+              </div>
+
+              <div className="bg-white p-3">
+                <div className="relative overflow-hidden rounded-[1rem] border border-black/10 bg-white">
+                  {isPrototypeLoading && (
+                    <div className="pointer-events-none absolute inset-0 z-10">
+                      <div className="absolute left-1/2 top-6 flex -translate-x-1/2 flex-col items-center gap-3">
+                        <div className="flex h-12 w-12 animate-bounce items-center justify-center rounded-full border border-black/10 bg-white shadow-[0_10px_30px_rgba(0,0,0,0.08)]">
+                          <svg
+                            viewBox="0 0 24 24"
+                            aria-hidden="true"
+                            className="h-5 w-5 stroke-current text-black"
+                            fill="none"
+                            strokeWidth="2.2"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                          >
+                            <path d="M12 19V5" />
+                            <path d="M6 11l6-6 6 6" />
+                          </svg>
+                        </div>
+
+                        <div className="figma-loader">Loading</div>
+                      </div>
+                    </div>
+                  )}
+
+                  <iframe
+                    style={{ border: "none" }}
+                    width="100%"
+                    height="900"
+                    src="https://embed.figma.com/proto/x0n44iyTYL4Yj1dFpHNB4h/Exercise-Snack--Student-Project-?node-id=1491-21114&p=f&viewport=-4411%2C-42%2C0.13&scaling=scale-down&content-scaling=fixed&starting-point-node-id=1491%3A21356&page-id=5%3A2&embed-host=share"
+                    allowFullScreen
+                    onLoad={() => {
+                      setTimeout(() => {
+                        setIsPrototypeLoading(false);
+                      }, 4000);
+                    }}
+                  />
+                </div>
+              </div>
             </div>
           </div>
         </div>
       )}
+      <style jsx>{`
+        .figma-loader {
+          width: fit-content;
+          font-size: 40px;
+          line-height: 1.5;
+          font-family: system-ui, sans-serif;
+          font-weight: 700;
+          text-transform: uppercase;
+          color: transparent;
+          -webkit-text-stroke: 1px #000;
+          background:
+            radial-gradient(
+                1.13em at 50% 1.6em,
+                #000 99%,
+                transparent 101%
+              )
+              calc(50% - 1.6em) 0 / 3.2em 100% text,
+            radial-gradient(
+                1.13em at 50% -0.8em,
+                transparent 99%,
+                #000 101%
+              )
+              50% 0.8em / 3.2em 100% repeat-x text;
+          -webkit-background-clip: text;
+          background-clip: text;
+          animation: figmaLoaderWave 2s linear infinite;
+        }
+
+        @keyframes figmaLoaderWave {
+          to {
+            background-position:
+              calc(50% + 1.6em) 0,
+              calc(50% + 3.2em) 0.8em;
+          }
+        }
+      `}</style>
     </>
   );
 }
