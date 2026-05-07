@@ -331,6 +331,69 @@ export default function HackathonPage() {
             </div>
           </div>
         </section>
+
+        <section className="bg-[#f8f7f5] px-6 pb-16 pt-2 lg:px-10 lg:pb-24 lg:pt-4">
+          <div className="mx-auto max-w-6xl">
+            <Link
+              href="/projects/exercise-snack"
+              className="group block overflow-hidden rounded-[2.6rem] border border-black/10 bg-black p-6 text-white transition-transform hover:-translate-y-1 lg:p-8"
+            >
+              <div className="grid gap-8 lg:grid-cols-[1fr_0.72fr] lg:items-end">
+                <div>
+                  <p className="text-[0.78rem] font-semibold uppercase tracking-[0.18em] text-white/55">
+                    Next project
+                  </p>
+
+                  <div className="mt-5 flex flex-wrap gap-2">
+                    <span className="rounded-full bg-white/10 px-4 py-2 text-[11px] font-medium uppercase tracking-[0.14em] text-white/80">
+                      Student Project
+                    </span>
+                    <span className="rounded-full bg-white/10 px-4 py-2 text-[11px] font-medium uppercase tracking-[0.14em] text-white/80">
+                      Mobile App
+                    </span>
+                  </div>
+
+                  <h2 className="mt-6 text-[clamp(2.8rem,7vw,6rem)] font-black uppercase leading-[0.88] tracking-[-0.06em] text-white">
+                    Exercise Snack
+                  </h2>
+
+                  <p className="mt-6 max-w-3xl text-[1.02rem] leading-[1.45] text-white/75 lg:text-[1.18rem]">
+                    See how short, structured activity breaks became a gamified
+                    mobile experience for people with sedentary workdays.
+                  </p>
+                </div>
+
+                <div className="rounded-[2rem] bg-[#f1cc00] p-5 text-black lg:p-6">
+                  <div className="flex items-center justify-between gap-5">
+                    <div>
+                      <p className="text-[0.78rem] font-semibold uppercase tracking-[0.16em] text-black/55">
+                        Open case study
+                      </p>
+                      <p className="mt-3 text-[1.05rem] font-semibold leading-[1.25] tracking-[-0.03em] text-black lg:text-[1.35rem]">
+                        Continue to the workout flow and prototype screens.
+                      </p>
+                    </div>
+
+                    <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-black text-white transition-transform group-hover:translate-x-1 group-hover:-translate-y-1">
+                      <svg
+                        viewBox="0 0 24 24"
+                        aria-hidden="true"
+                        className="h-5 w-5 stroke-current"
+                        fill="none"
+                        strokeWidth="2.3"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      >
+                        <path d="M5 19 19 5" />
+                        <path d="M9 5h10v10" />
+                      </svg>
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </Link>
+          </div>
+        </section>
       </main>
 
       {isPrototypeOpen && (
