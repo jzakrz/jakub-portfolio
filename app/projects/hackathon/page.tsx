@@ -332,41 +332,44 @@ export default function HackathonPage() {
           </div>
         </section>
 
-        <section className="bg-[#f8f7f5] px-6 pb-16 pt-2 lg:px-10 lg:pb-24 lg:pt-4">
-          <div className="mx-auto max-w-6xl">
+        <section className="bg-[#f8f7f5] px-6 pb-16 pt-8 lg:px-10 lg:pb-24 lg:pt-12">
+          <div className="mx-auto max-w-6xl border-t border-black/10 pt-8 lg:pt-10">
             <Link
               href="/projects/exercise-snack"
-              className="group block max-w-[360px] rounded-[1.8rem] border border-black/10 bg-[#191614] p-7 text-white shadow-[0_18px_45px_rgba(0,0,0,0.08)] transition-transform hover:-translate-y-1 sm:p-8"
+              className="group grid gap-6 rounded-[1.6rem] p-1 text-black transition-colors hover:bg-black/[0.03] sm:grid-cols-[0.42fr_1fr_auto] sm:items-center sm:p-5"
             >
-              <div className="flex items-center justify-between gap-5">
-                <div className="flex min-w-0 items-center gap-3">
-                  <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-[#f1cc00] text-[0.68rem] font-black uppercase tracking-[-0.04em] text-black">
-                    Es
-                  </span>
-                  <div className="flex min-w-0 items-center gap-2 text-[0.9rem] font-semibold text-white/90">
-                    <span className="truncate">Exercise Snack</span>
-                    <span className="h-1 w-1 shrink-0 rounded-full bg-white/25" />
-                    <span className="shrink-0 text-white/45">Next</span>
-                  </div>
-                </div>
-
-                <svg
-                  viewBox="0 0 24 24"
-                  aria-hidden="true"
-                  className="h-5 w-5 shrink-0 stroke-current text-white transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
-                  fill="none"
-                  strokeWidth="2.3"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                >
-                  <path d="M5 19 19 5" />
-                  <path d="M9 5h10v10" />
-                </svg>
+              <div className="flex items-center gap-3 text-[0.78rem] font-semibold uppercase tracking-[0.16em] text-black/45">
+                <span className="h-2 w-8 rounded-full bg-[#f1cc00] transition-all group-hover:w-12" />
+                Next Project
               </div>
 
-              <h2 className="mt-7 max-w-[280px] text-[1.45rem] font-black leading-[1.08] tracking-[-0.055em] text-white sm:text-[1.6rem]">
-                Designing healthier breaks for sedentary workdays
-              </h2>
+              <div>
+                <h2 className="text-[clamp(2rem,4vw,3.8rem)] font-black uppercase leading-[0.9] tracking-[-0.06em] text-black">
+                  Exercise Snack
+                </h2>
+                <p className="mt-3 max-w-xl text-[1rem] leading-[1.45] text-black/55 lg:text-[1.08rem]">
+                  A mobile concept for building healthier movement habits during
+                  sedentary workdays.
+                </p>
+              </div>
+
+              <div className="flex items-center gap-3 text-[0.85rem] font-semibold uppercase tracking-[0.12em] text-black/65 transition-colors group-hover:text-black sm:justify-end">
+                View case study
+                <span className="flex h-11 w-11 items-center justify-center rounded-full border border-black/15 transition-transform group-hover:translate-x-1">
+                  <svg
+                    viewBox="0 0 24 24"
+                    aria-hidden="true"
+                    className="h-4 w-4 stroke-current"
+                    fill="none"
+                    strokeWidth="2.3"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <path d="M5 12h14" />
+                    <path d="m13 5 7 7-7 7" />
+                  </svg>
+                </span>
+              </div>
             </Link>
           </div>
         </section>
