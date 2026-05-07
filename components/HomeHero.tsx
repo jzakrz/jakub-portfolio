@@ -19,9 +19,12 @@ export default function HomeHero() {
           </div>
 
           <p className="mt-8 max-w-xl text-[1.1rem] leading-[1.45] text-black/75 lg:mt-10 lg:text-[1.35rem]">
-            I&apos;m a Product Designer focused on turning complex ideas into
-            clear, scalable digital products. I work best in fast-moving
-            environments.
+            I&apos;m a Product Designer with 3+ years of experience, designing
+            complex digital products. Strong in translating business
+            requirements, technical constraints, and stakeholder needs into
+            user-friendly, production-ready solutions. Experienced in end-to-end
+            design, user research, usability testing, Figma component systems,
+            and close collaboration with product and engineering teams.
           </p>
 
           <div className="mt-8 h-[280px] w-full overflow-hidden rounded-[2.5rem] bg-[#f1cc00] sm:h-[320px] md:hidden">
