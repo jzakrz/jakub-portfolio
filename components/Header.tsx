@@ -134,9 +134,12 @@ export default function Header() {
                   >
                     {navItems.map((item) => {
                       const isResumeItem = item === "Resume";
+                      const isContactItem = item === "Contact";
                       const itemHref = isResumeItem
                         ? resumeLink
-                        : `/#${item.toLowerCase()}`;
+                        : isContactItem
+                          ? "/get-in-touch"
+                          : `/#${item.toLowerCase()}`;
 
                       return (
                         <motion.a
