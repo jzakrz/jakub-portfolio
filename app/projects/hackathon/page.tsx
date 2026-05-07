@@ -336,13 +336,8 @@ export default function HackathonPage() {
           <div className="mx-auto max-w-6xl border-t border-black/10 pt-8 lg:pt-10">
             <Link
               href="/projects/exercise-snack"
-              className="group grid gap-6 rounded-[1.6rem] p-1 text-black transition-colors hover:bg-black/[0.03] sm:grid-cols-[0.42fr_1fr_auto] sm:items-center sm:p-5"
+              className="group grid gap-6 rounded-[1.6rem] p-1 text-black transition-colors hover:bg-black/[0.03] sm:grid-cols-[minmax(0,1fr)_auto] sm:items-center sm:p-5"
             >
-              <div className="flex items-center gap-3 text-[0.78rem] font-semibold uppercase tracking-[0.16em] text-black/45">
-                <span className="h-2 w-8 rounded-full bg-[#f1cc00] transition-all group-hover:w-12" />
-                Next Project
-              </div>
-
               <div>
                 <h2 className="text-[clamp(2rem,4vw,3.8rem)] font-black uppercase leading-[0.9] tracking-[-0.06em] text-black">
                   Exercise Snack
