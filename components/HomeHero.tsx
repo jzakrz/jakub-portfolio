@@ -20,8 +20,7 @@ export default function HomeHero() {
 
           <p className="mt-8 max-w-xl text-[1.1rem] leading-[1.45] text-black/75 lg:mt-10 lg:text-[1.35rem]">
             I&apos;m a Product Designer focused on turning complex ideas into
-            clear, scalable digital products. I work best in fast-moving
-            environments.
+            clear, scalable digital products.
           </p>
 
           <div className="mt-8 h-[280px] w-full overflow-hidden rounded-[2.5rem] bg-[#f1cc00] sm:h-[320px] md:hidden">
