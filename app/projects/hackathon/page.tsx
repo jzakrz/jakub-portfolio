@@ -331,6 +331,43 @@ export default function HackathonPage() {
             </div>
           </div>
         </section>
+
+        <section className="bg-[#f8f7f5] px-6 pb-16 pt-8 lg:px-10 lg:pb-24 lg:pt-12">
+          <div className="mx-auto max-w-6xl border-t border-black/10 pt-8 lg:pt-10">
+            <Link
+              href="/projects/exercise-snack"
+              className="group grid gap-6 rounded-[1.6rem] p-1 text-black transition-colors hover:bg-black/[0.03] sm:grid-cols-[minmax(0,1fr)_auto] sm:items-center sm:p-5"
+            >
+              <div>
+                <h2 className="text-[clamp(2rem,4vw,3.8rem)] font-black uppercase leading-[0.9] tracking-[-0.06em] text-black">
+                  Exercise Snack
+                </h2>
+                <p className="mt-3 max-w-xl text-[1rem] leading-[1.45] text-black/55 lg:text-[1.08rem]">
+                  A mobile concept for building healthier movement habits during
+                  sedentary workdays.
+                </p>
+              </div>
+
+              <div className="flex items-center gap-3 text-[0.85rem] font-semibold uppercase tracking-[0.12em] text-black/65 transition-colors group-hover:text-black sm:justify-end">
+                View case study
+                <span className="flex h-11 w-11 items-center justify-center rounded-full border border-black/15 transition-transform group-hover:translate-x-1">
+                  <svg
+                    viewBox="0 0 24 24"
+                    aria-hidden="true"
+                    className="h-4 w-4 stroke-current"
+                    fill="none"
+                    strokeWidth="2.3"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <path d="M5 12h14" />
+                    <path d="m13 5 7 7-7 7" />
+                  </svg>
+                </span>
+              </div>
+            </Link>
+          </div>
+        </section>
       </main>
 
       {isPrototypeOpen && (
