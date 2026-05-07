@@ -336,61 +336,37 @@ export default function HackathonPage() {
           <div className="mx-auto max-w-6xl">
             <Link
               href="/projects/exercise-snack"
-              className="group block overflow-hidden rounded-[2.6rem] border border-black/10 bg-black p-6 text-white transition-transform hover:-translate-y-1 lg:p-8"
+              className="group block max-w-[360px] rounded-[1.8rem] border border-black/10 bg-[#191614] p-7 text-white shadow-[0_18px_45px_rgba(0,0,0,0.08)] transition-transform hover:-translate-y-1 sm:p-8"
             >
-              <div className="grid gap-8 lg:grid-cols-[1fr_0.72fr] lg:items-end">
-                <div>
-                  <p className="text-[0.78rem] font-semibold uppercase tracking-[0.18em] text-white/55">
-                    Next project
-                  </p>
-
-                  <div className="mt-5 flex flex-wrap gap-2">
-                    <span className="rounded-full bg-white/10 px-4 py-2 text-[11px] font-medium uppercase tracking-[0.14em] text-white/80">
-                      Student Project
-                    </span>
-                    <span className="rounded-full bg-white/10 px-4 py-2 text-[11px] font-medium uppercase tracking-[0.14em] text-white/80">
-                      Mobile App
-                    </span>
-                  </div>
-
-                  <h2 className="mt-6 text-[clamp(2.8rem,7vw,6rem)] font-black uppercase leading-[0.88] tracking-[-0.06em] text-white">
-                    Exercise Snack
-                  </h2>
-
-                  <p className="mt-6 max-w-3xl text-[1.02rem] leading-[1.45] text-white/75 lg:text-[1.18rem]">
-                    See how short, structured activity breaks became a gamified
-                    mobile experience for people with sedentary workdays.
-                  </p>
-                </div>
-
-                <div className="rounded-[2rem] bg-[#f1cc00] p-5 text-black lg:p-6">
-                  <div className="flex items-center justify-between gap-5">
-                    <div>
-                      <p className="text-[0.78rem] font-semibold uppercase tracking-[0.16em] text-black/55">
-                        Open case study
-                      </p>
-                      <p className="mt-3 text-[1.05rem] font-semibold leading-[1.25] tracking-[-0.03em] text-black lg:text-[1.35rem]">
-                        Continue to the workout flow and prototype screens.
-                      </p>
-                    </div>
-
-                    <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-black text-white transition-transform group-hover:translate-x-1 group-hover:-translate-y-1">
-                      <svg
-                        viewBox="0 0 24 24"
-                        aria-hidden="true"
-                        className="h-5 w-5 stroke-current"
-                        fill="none"
-                        strokeWidth="2.3"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      >
-                        <path d="M5 19 19 5" />
-                        <path d="M9 5h10v10" />
-                      </svg>
-                    </span>
+              <div className="flex items-center justify-between gap-5">
+                <div className="flex min-w-0 items-center gap-3">
+                  <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-[#f1cc00] text-[0.68rem] font-black uppercase tracking-[-0.04em] text-black">
+                    Es
+                  </span>
+                  <div className="flex min-w-0 items-center gap-2 text-[0.9rem] font-semibold text-white/90">
+                    <span className="truncate">Exercise Snack</span>
+                    <span className="h-1 w-1 shrink-0 rounded-full bg-white/25" />
+                    <span className="shrink-0 text-white/45">Next</span>
                   </div>
                 </div>
+
+                <svg
+                  viewBox="0 0 24 24"
+                  aria-hidden="true"
+                  className="h-5 w-5 shrink-0 stroke-current text-white transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                  fill="none"
+                  strokeWidth="2.3"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <path d="M5 19 19 5" />
+                  <path d="M9 5h10v10" />
+                </svg>
               </div>
+
+              <h2 className="mt-7 max-w-[280px] text-[1.45rem] font-black leading-[1.08] tracking-[-0.055em] text-white sm:text-[1.6rem]">
+                Designing healthier breaks for sedentary workdays
+              </h2>
             </Link>
           </div>
         </section>
