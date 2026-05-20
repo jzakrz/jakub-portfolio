@@ -8,5 +8,5 @@ export const portfolioImages = {
 
 export const contactInfo = {
   email: "zakrzewski_j@yahoo.com",
-  linkedin: "https://www.linkedin.com/in/jakub-zakrzewski/",
+  linkedin: "https://www.linkedin.com/in/jakub-zakrzewski-ab4a80172/",
 };
