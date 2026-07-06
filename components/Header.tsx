@@ -42,7 +42,7 @@ export default function Header() {
             <div className="relative min-h-[2.2rem]">
               <div className="transition-opacity duration-150 group-hover:opacity-0">
                 <p className="text-base font-bold leading-none text-black">
-                  Product Designer
+                  Jakub Zakrzewski
                 </p>
                 <p className="mt-1 flex items-center gap-1 text-base font-medium leading-none text-black/45">
                   <svg
@@ -53,7 +53,7 @@ export default function Header() {
                   >
                     <path d="M12 2a7 7 0 0 0-7 7c0 4.9 5.7 11.7 6 12a1.3 1.3 0 0 0 2 0c.3-.3 6-7.1 6-12a7 7 0 0 0-7-7Zm0 9.5A2.5 2.5 0 1 1 12 6a2.5 2.5 0 0 1 0 5.5Z" />
                   </svg>
-                  <span>Based in Warsaw</span>
+                  <span>Product Designer · Warsaw</span>
                 </p>
               </div>
 
