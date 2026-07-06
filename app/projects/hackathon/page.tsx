@@ -290,7 +290,7 @@ export default function HackathonPage() {
             <div className="mt-10 space-y-10">
               <div>
                 <Image
-                  src="https://i.postimg.cc/y65CDD27/Event-page.png"
+                  src="/assets/images/event-page.webp.webp"
                   alt="Hackathon event page screen with sign-up and event details."
                   width={1600}
                   height={900}
@@ -305,7 +305,7 @@ export default function HackathonPage() {
 
               <div>
                 <Image
-                  src="https://i.postimg.cc/ZYvFVP0W/onboarding.png"
+                  src="/assets/images/onboarding.webp.webp"
                   alt="Onboarding screen with matchmaking flow for hackathon participants."
                   width={1600}
                   height={900}
@@ -318,7 +318,7 @@ export default function HackathonPage() {
 
               <div>
                 <Image
-                  src="https://i.postimg.cc/FFkgDb1d/user-profile.png"
+                  src="/assets/images/user-profile.webp.webp"
                   alt="User profile view from the hackathon platform prototype."
                   width={1600}
                   height={900}

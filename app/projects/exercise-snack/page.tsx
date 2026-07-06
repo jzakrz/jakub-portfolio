@@ -197,27 +197,27 @@ export default function ExerciseSnackPage() {
             {[
               {
                 caption: "A proposed exercise set tailored to the user",
-                src: "https://i.postimg.cc/brJzhYqc/Pre-workout-screen.png",
+                src: "/assets/images/pre-workout-screen.webp.webp",
               },
               {
                 caption: "A simple and clear workout session flow",
-                src: "https://i.postimg.cc/x8C02j9r/Cwiczenie-nr-1-Intro.png",
+                src: "/assets/images/exercise-intro.webp.webp",
               },
               {
                 caption: "Workout editing with manual controls",
-                src: "https://i.postimg.cc/vTWCkp60/EDYCJA-GODZINY-PRZERWY.png",
+                src: "/assets/images/break-time-edit.webp.webp",
               },
               {
                 caption: "Chatbot guidance for workout changes",
-                src: "https://i.postimg.cc/RhFMBC42/Chatbot-prototype.png",
+                src: "/assets/images/chatbot-prototype.webp.webp",
               },
               {
                 caption: "After-session summary",
-                src: "https://i.postimg.cc/x8C02jnF/After-session.png",
+                src: "/assets/images/after-session.webp.webp",
               },
               {
                 caption: "Statistics supporting long-term consistency",
-                src: "https://i.postimg.cc/kG4nmMq1/Stats.png",
+                src: "/assets/images/stats.webp.webp",
               },
             ].map((screen) => (
               <div key={screen.caption} className="mx-auto w-full max-w-[290px]">
