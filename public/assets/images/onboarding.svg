@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">Hackathon onboarding</title>
+  <desc id="desc">Local portfolio asset served from the public assets directory.</desc>
+  <rect width="1600" height="900" rx="50" fill="#f4f4f4"/>
+  <rect x="96" y="54" width="1408" height="792" rx="40" fill="none" stroke="#111111" stroke-opacity="0.16" stroke-width="7"/>
+  <circle cx="288" cy="162" r="50" fill="#111111" fill-opacity="0.14"/>
+  <path d="M 224 648 C 512 522, 768 738, 1056 594 S 1376 630, 1440 504" fill="none" stroke="#111111" stroke-opacity="0.22" stroke-width="16" stroke-linecap="round"/>
+  <text x="50%" y="48%" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="64" font-weight="800" fill="#111111">Hackathon onboarding</text>
+  <text x="50%" y="55%" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="21" font-weight="600" letter-spacing="2" fill="#111111" fill-opacity="0.55">LOCAL PUBLIC ASSET</text>
+</svg>
