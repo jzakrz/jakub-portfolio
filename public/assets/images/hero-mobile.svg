@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="1400" viewBox="0 0 900 1400" role="img" aria-labelledby="title desc">
+  <title id="title">Jakub portfolio</title>
+  <desc id="desc">Local portfolio asset served from the public assets directory.</desc>
+  <rect width="900" height="1400" rx="50" fill="#f4f4f4"/>
+  <rect x="54" y="84" width="792" height="1232" rx="40" fill="none" stroke="#111111" stroke-opacity="0.16" stroke-width="7"/>
+  <circle cx="162" cy="252" r="50" fill="#111111" fill-opacity="0.14"/>
+  <path d="M 126 1008 C 288 812, 432 1148, 594 924 S 774 980, 810 784" fill="none" stroke="#111111" stroke-opacity="0.22" stroke-width="16" stroke-linecap="round"/>
+  <text x="50%" y="48%" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="64" font-weight="800" fill="#111111">Jakub portfolio</text>
+  <text x="50%" y="55%" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="21" font-weight="600" letter-spacing="2" fill="#111111" fill-opacity="0.55">LOCAL PUBLIC ASSET</text>
+</svg>
