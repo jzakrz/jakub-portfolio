@@ -2,10 +2,10 @@ import Link from "next/link";
 import { DarkBadge } from "@/components/Badge";
 
 const hackathonImage =
-  "https://i.postimg.cc/fL98nMRZ/hackathon-case-study-image.png";
+  "/assets/images/hackathon-case-study-image.svg";
 
 const exerciseSnackImage =
-  "https://i.postimg.cc/28Dzc634/exercise.png";
+  "/assets/images/exercise.svg";
 
 export default function ProjectGrid() {
   return (

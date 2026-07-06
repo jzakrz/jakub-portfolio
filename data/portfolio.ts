@@ -1,9 +1,9 @@
 export const navItems = ["Home", "Projects", "Resume", "Contact"];
 
 export const portfolioImages = {
-  heroMobile: "https://i.postimg.cc/bNBpLRWB/hero_mobile.png",
-  heroTablet: "https://i.postimg.cc/Yq4J2BDx/hero_tablet.png",
-  heroDesktop: "https://i.postimg.cc/13B0Lf0C/Hero_image.png",
+  heroMobile: "/assets/images/hero-mobile.svg",
+  heroTablet: "/assets/images/hero-tablet.svg",
+  heroDesktop: "/assets/images/hero-desktop.svg",
 };
 
 export const contactInfo = {
