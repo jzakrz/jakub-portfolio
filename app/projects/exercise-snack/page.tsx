@@ -243,6 +243,10 @@ export default function ExerciseSnackPage() {
 
       <section className="bg-[#f8f7f5] px-6 pb-16 pt-8 lg:px-10 lg:pb-24 lg:pt-12">
         <div className="mx-auto max-w-6xl border-t border-black/10 pt-8 lg:pt-10">
+          <p className="mb-5 inline-flex rounded-full border border-black/10 bg-white px-4 py-2 text-[0.78rem] font-semibold uppercase tracking-[0.14em] text-black/55">
+            View other projects
+          </p>
+
           <Link
             href="/projects/hackathon"
             className="group grid gap-6 rounded-[1.6rem] p-1 text-black transition-colors hover:bg-black/[0.03] sm:grid-cols-[minmax(0,1fr)_auto] sm:items-center sm:p-5"
