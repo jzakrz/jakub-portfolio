@@ -3,7 +3,7 @@ import { portfolioImages } from "@/data/portfolio";
 export default function HomeHero() {
   return (
     <section className="px-6 pb-16 pt-28 lg:px-10 lg:pb-24 lg:pt-32">
-      <div className="grid min-h-[calc(100svh-8rem)] items-center gap-6 md:gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(360px,0.72fr)] lg:gap-14">
+      <div className="grid min-h-[calc(100svh-8rem)] content-center items-center gap-6 md:gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(360px,0.72fr)] lg:gap-14">
         <div className="max-w-3xl">
           <h1 className="text-[clamp(3.2rem,9vw,7.8rem)] font-black leading-[0.9] tracking-[-0.07em] text-black">
             Hi, I&apos;m Jakub.
