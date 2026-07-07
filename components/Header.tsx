@@ -39,21 +39,10 @@ export default function Header() {
             aria-label="Go to home page"
             className="group min-w-0 rounded-xl px-2 py-1 pl-1 transition-colors hover:bg-gray-100"
           >
-            <div className="relative min-h-[2.2rem]">
+            <div className="relative min-h-[1.5rem]">
               <div className="transition-opacity duration-150 group-hover:opacity-0">
                 <p className="text-base font-bold leading-none text-black">
-                  Jakub Zakrzewski
-                </p>
-                <p className="mt-1 flex items-center gap-1 text-base font-medium leading-none text-black/45">
-                  <svg
-                    aria-hidden="true"
-                    viewBox="0 0 24 24"
-                    className="h-3.5 w-3.5"
-                    fill="currentColor"
-                  >
-                    <path d="M12 2a7 7 0 0 0-7 7c0 4.9 5.7 11.7 6 12a1.3 1.3 0 0 0 2 0c.3-.3 6-7.1 6-12a7 7 0 0 0-7-7Zm0 9.5A2.5 2.5 0 1 1 12 6a2.5 2.5 0 0 1 0 5.5Z" />
-                  </svg>
-                  <span>Product Designer · Warsaw</span>
+                  Hi, I&apos;m Jakub
                 </p>
               </div>
 

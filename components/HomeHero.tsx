@@ -5,12 +5,8 @@ export default function HomeHero() {
     <section className="px-6 pb-16 pt-28 lg:px-10 lg:pb-24 lg:pt-32">
       <div className="grid min-h-[calc(100svh-8rem)] items-center gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(360px,0.72fr)] lg:gap-14">
         <div className="max-w-3xl">
-          <p className="mb-5 text-sm font-semibold uppercase tracking-[0.22em] text-black/55">
-            Jakub Zakrzewski — Product Designer
-          </p>
-
           <h1 className="text-[clamp(3.2rem,9vw,7.8rem)] font-black leading-[0.9] tracking-[-0.07em] text-black">
-            Designing clear digital products for complex problems.
+            Hi, I&apos;m Jakub.
           </h1>
 
           <p className="mt-8 max-w-2xl text-[1.1rem] leading-[1.5] text-black/75 lg:mt-10 lg:text-[1.35rem]">
