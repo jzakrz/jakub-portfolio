@@ -39,10 +39,13 @@ export default function Header() {
             aria-label="Go to home page"
             className="group min-w-0 rounded-xl px-2 py-1 pl-1 transition-colors hover:bg-gray-100"
           >
-            <div className="relative min-h-[1.5rem]">
+            <div className="relative min-h-[2.2rem]">
               <div className="transition-opacity duration-150 group-hover:opacity-0">
                 <p className="text-base font-bold leading-none text-black">
-                  Hi, I&apos;m Jakub
+                  Jakub Zakrzewski
+                </p>
+                <p className="mt-1 text-base font-medium leading-none text-black/45">
+                  Product Designer
                 </p>
               </div>
 
