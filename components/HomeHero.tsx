@@ -10,7 +10,7 @@ export default function HomeHero() {
           </h1>
 
           <p className="mt-8 max-w-2xl text-[1.1rem] leading-[1.5] text-black/75 lg:mt-10 lg:text-[1.35rem]">
-            I&apos;m a Product Designer with 3+ years of experience, designing
+            I&apos;m a Product Designer with 4 years of experience, designing
             complex digital products. Strong in translating business
             requirements, technical constraints, and stakeholder needs into
             user-friendly, production-ready solutions. Experienced in end-to-end
