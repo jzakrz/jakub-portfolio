@@ -125,13 +125,19 @@ export default function Header() {
                     }}
                   >
                     {navItems.map((item) => {
+                      const isHomeItem = item === "Home";
+                      const isProjectsItem = item === "Projects";
                       const isResumeItem = item === "Resume";
                       const isContactItem = item === "Contact";
                       const itemHref = isResumeItem
                         ? resumeLink
                         : isContactItem
                           ? "/get-in-touch"
-                          : `/#${item.toLowerCase()}`;
+                          : isProjectsItem
+                            ? "/projects"
+                            : isHomeItem
+                              ? "/"
+                              : "/";
 
                       return (
                         <motion.a
