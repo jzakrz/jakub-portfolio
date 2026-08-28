@@ -19,7 +19,7 @@ const projects: Project[] = [
     number: "01",
     type: "Case study",
     year: "2023–25",
-    title: "Rebuilding the hackathon experience.",
+    title: "Hackathon Platform Redesign",
     disciplines: "Product design / Platform",
     summary:
       "A connected journey for discovering events, joining teams and submitting projects.",
@@ -32,7 +32,7 @@ const projects: Project[] = [
     number: "02",
     type: "Student project",
     year: "2022",
-    title: "Making movement easier to start.",
+    title: "Exercise Snack",
     disciplines: "Product design / Wellness",
     summary:
       "Short exercise recommendations shaped around busy days and a personal video library.",
@@ -45,7 +45,7 @@ const projects: Project[] = [
     number: "03",
     type: "Case study",
     year: "2025–26",
-    title: "Turning compliance into a clear workflow.",
+    title: "Compliance Workspace",
     disciplines: "Product strategy / AI / Compliance",
     summary:
       "A workspace for navigating sustainability requirements and the evidence behind them.",
@@ -54,7 +54,7 @@ const projects: Project[] = [
     number: "04",
     type: "In progress",
     year: "2026",
-    title: "Making a complex library easier to navigate.",
+    title: "BUW Library Redesign",
     disciplines: "Service design / Public space",
     summary:
       "Reframing the library journey as a legible and welcoming service experience.",
