@@ -124,7 +124,7 @@ html {
   grid-template-columns: minmax(0, 3fr) minmax(0, 1.92857fr);
   gap: var(--board-gap);
   min-height: 0;
-  transition: grid-template-columns 440ms cubic-bezier(0.22, 1, 0.36, 1);
+  transition: grid-template-columns 420ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .navigation-column {
@@ -133,7 +133,7 @@ html {
   gap: var(--board-gap);
   min-width: 0;
   min-height: 0;
-  transition: grid-template-rows 440ms cubic-bezier(0.22, 1, 0.36, 1);
+  transition: grid-template-rows 420ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .secondary-routes {
@@ -141,7 +141,7 @@ html {
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: var(--board-gap);
   min-height: 0;
-  transition: grid-template-columns 440ms cubic-bezier(0.22, 1, 0.36, 1);
+  transition: grid-template-columns 420ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .navigation-card {
@@ -152,10 +152,6 @@ html {
   border-radius: var(--board-radius);
   color: inherit;
   text-decoration: none;
-  transition:
-    box-shadow 300ms ease,
-    transform 440ms cubic-bezier(0.22, 1, 0.36, 1),
-    opacity 300ms ease;
 }
 
 .navigation-card:focus-visible {
@@ -417,49 +413,42 @@ html {
 @media (hover: hover) and (pointer: fine) and (min-width: 1051px) {
   .navigation-grid:has(.navigation-column--left .navigation-card:hover),
   .navigation-grid:has(.navigation-column--left .navigation-card:focus-visible) {
-    grid-template-columns: minmax(0, 7fr) minmax(0, 3fr);
+    grid-template-columns: minmax(0, 1.733fr) minmax(0, 1fr);
   }
 
   .navigation-grid:has(.navigation-column--right .navigation-card:hover),
   .navigation-grid:has(.navigation-column--right .navigation-card:focus-visible) {
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
   }
 
   .navigation-column--left:has(.route-card--works:hover),
   .navigation-column--left:has(.route-card--works:focus-visible) {
-    grid-template-rows: minmax(0, 3fr) minmax(0, 1fr);
+    grid-template-rows: minmax(0, 2.339fr) minmax(0, 1fr);
   }
 
   .navigation-column--left:has(.secondary-routes .navigation-card:hover),
   .navigation-column--left:has(.secondary-routes .navigation-card:focus-visible) {
-    grid-template-rows: minmax(0, 1.25fr) minmax(0, 1fr);
+    grid-template-rows: minmax(0, 1.667fr) minmax(0, 1fr);
   }
 
   .secondary-routes:has(.route-card--about:hover),
   .secondary-routes:has(.route-card--about:focus-visible) {
-    grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+    grid-template-columns: minmax(0, 1.187fr) minmax(0, 1fr);
   }
 
   .secondary-routes:has(.route-card--resume:hover),
   .secondary-routes:has(.route-card--resume:focus-visible) {
-    grid-template-columns: minmax(0, 2fr) minmax(0, 3fr);
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.187fr);
   }
 
   .navigation-column--right:has(.portrait-card:hover),
   .navigation-column--right:has(.portrait-card:focus-visible) {
-    grid-template-rows: minmax(0, 3fr) minmax(0, 1fr);
+    grid-template-rows: minmax(0, 2.339fr) minmax(0, 1fr);
   }
 
   .navigation-column--right:has(.route-card--contact:hover),
   .navigation-column--right:has(.route-card--contact:focus-visible) {
-    grid-template-rows: minmax(0, 1.15fr) minmax(0, 1fr);
-  }
-
-  .navigation-card:hover,
-  .navigation-card:focus-visible {
-    z-index: 4;
-    box-shadow: 0 22px 55px rgb(12 13 15 / 12%);
-    transform: scale(1.006);
+    grid-template-rows: minmax(0, 1.667fr) minmax(0, 1fr);
   }
 }
 
@@ -703,8 +692,16 @@ html {
 .project-card__copy {
   display: flex;
   flex-direction: column;
+  align-self: stretch;
   min-width: 0;
   min-height: 240px;
+}
+
+.project-card__body {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 32px;
 }
 
 .project-card__meta,
@@ -723,7 +720,6 @@ html {
 
 .project-card h2 {
   max-width: 333px;
-  margin-top: 32px;
   font-size: 36px;
   font-weight: 500;
   line-height: 0.9;
@@ -732,7 +728,6 @@ html {
 
 .project-card__summary {
   max-width: 312px;
-  margin-top: 12px;
   font-size: 16px;
   font-weight: 400;
   line-height: 1.38;
@@ -741,6 +736,7 @@ html {
 
 .project-card__disciplines {
   margin-top: auto;
+  padding-top: 24px;
   color: var(--index-muted);
   font-size: 12px;
   line-height: 1.35;
@@ -893,14 +889,16 @@ html {
     font-size: 10px;
   }
 
-  .project-card h2 {
+  .project-card__body {
     margin-top: 28px;
+  }
+
+  .project-card h2 {
     font-size: clamp(32px, 10vw, 42px);
     line-height: 0.94;
   }
 
   .project-card__summary {
-    margin-top: 12px;
     font-size: 16px;
   }
 

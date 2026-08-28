@@ -97,8 +97,10 @@ function ProjectCardContent({ project }: { project: Project }) {
         <p className="project-card__meta">
           {project.number} / {project.type} / {project.year}
         </p>
-        <h2>{project.title}</h2>
-        <p className="project-card__summary">{project.summary}</p>
+        <div className="project-card__body">
+          <h2>{project.title}</h2>
+          <p className="project-card__summary">{project.summary}</p>
+        </div>
         <p className="project-card__disciplines">{project.disciplines}</p>
       </div>
       <ProjectPreview project={project} />
