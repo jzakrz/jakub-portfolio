@@ -51,6 +51,7 @@ html {
   --board-paper: #e0e0e0;
   --board-muted: #4d4d4d;
   --board-coral: #ea5145;
+  --board-works: #ec757d;
   --board-teal: #1cafa7;
   --board-yellow: #ffcf53;
   --board-pink: #ff0a8a;
@@ -167,7 +168,7 @@ html {
 
 .route-card--works {
   padding: 24px;
-  background: var(--board-coral);
+  background: var(--board-works);
 }
 
 .route-card--about {
