@@ -89,7 +89,14 @@ function GameCover({
 
 export default function SteamGameCarousel({ games }: SteamGameCarouselProps) {
   const [isPaused, setIsPaused] = useState(false);
-  const duration = Math.max(34, games.length * 4.2);
+  const loopGames = Array.from(
+    { length: Math.max(6, games.length) },
+    (_, index) => ({
+      game: games[index % games.length],
+      isVisualRepeat: index >= games.length,
+    }),
+  );
+  const duration = Math.max(34, loopGames.length * 4.2);
   const trackStyle = {
     "--steam-carousel-duration": `${duration}s`,
   } as CSSProperties;
@@ -116,17 +123,22 @@ export default function SteamGameCarousel({ games }: SteamGameCarouselProps) {
       <div className="steam-carousel__viewport">
         <div className="steam-carousel__track" style={trackStyle}>
           <div className="steam-carousel__group">
-            {games.map((game, index) => (
+            {loopGames.map(({ game, isVisualRepeat }, index) => (
               <GameCover
-                key={game.appid}
+                key={`${game.appid}-${index}`}
                 game={game}
-                priority={index < 2}
+                duplicate={isVisualRepeat}
+                priority={!isVisualRepeat && index < 2}
               />
             ))}
           </div>
           <div className="steam-carousel__group" aria-hidden="true">
-            {games.map((game) => (
-              <GameCover key={`duplicate-${game.appid}`} game={game} duplicate />
+            {loopGames.map(({ game }, index) => (
+              <GameCover
+                key={`duplicate-${game.appid}-${index}`}
+                game={game}
+                duplicate
+              />
             ))}
           </div>
         </div>
