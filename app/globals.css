@@ -1016,6 +1016,142 @@ html {
   text-transform: uppercase;
 }
 
+.steam-carousel__header > div,
+.steam-carousel__note {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+}
+
+.steam-carousel__header button {
+  padding: 7px 11px;
+  border: 1px solid var(--about-ink);
+  border-radius: 999px;
+  color: inherit;
+  background: transparent;
+  font: inherit;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: color 180ms ease, background-color 180ms ease;
+}
+
+.steam-carousel__header button:hover,
+.steam-carousel__header button:focus-visible,
+.steam-carousel__header button[aria-pressed="true"] {
+  color: var(--about-card);
+  background: var(--about-ink);
+}
+
+.steam-carousel__viewport {
+  overflow: hidden;
+  padding-block: 18px;
+  mask-image: linear-gradient(
+    to right,
+    transparent,
+    black 4%,
+    black 96%,
+    transparent
+  );
+}
+
+.steam-carousel__track {
+  display: flex;
+  width: max-content;
+  animation: steam-carousel-loop var(--steam-carousel-duration) linear infinite;
+  will-change: transform;
+}
+
+.steam-carousel:hover .steam-carousel__track,
+.steam-carousel:focus-within .steam-carousel__track,
+.steam-carousel.is-paused .steam-carousel__track {
+  animation-play-state: paused;
+}
+
+.steam-carousel__group {
+  display: flex;
+  flex: none;
+  gap: 12px;
+  padding-inline: 6px;
+}
+
+.steam-game-card {
+  position: relative;
+  display: block;
+  flex: 0 0 clamp(142px, 13vw, 176px);
+  width: clamp(142px, 13vw, 176px);
+  aspect-ratio: 2 / 3;
+  overflow: hidden;
+  border: 1px solid var(--about-ink);
+  border-radius: 10px;
+  color: white;
+  background: #c8c8c8;
+  text-decoration: none;
+  transform: translateY(0);
+  transition: transform 220ms ease;
+}
+
+.steam-game-card img {
+  object-fit: cover;
+  filter: grayscale(1) contrast(0.94);
+  transform: scale(1.01);
+  transition: filter 260ms ease, transform 320ms ease;
+}
+
+.steam-game-card__scrim {
+  position: absolute;
+  inset: 36% 0 0;
+  background: linear-gradient(to bottom, transparent, rgb(0 0 0 / 88%));
+}
+
+.steam-game-card__copy {
+  position: absolute;
+  right: 12px;
+  bottom: 12px;
+  left: 12px;
+  display: grid;
+  gap: 5px;
+}
+
+.steam-game-card__copy strong {
+  overflow: hidden;
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 1.05;
+  letter-spacing: -0.025em;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.steam-game-card__copy small {
+  font-family: var(--font-ibm-plex-mono), monospace;
+  font-size: 8px;
+  letter-spacing: 0.35px;
+  text-transform: uppercase;
+}
+
+.steam-game-card:hover,
+.steam-game-card:focus-visible {
+  z-index: 1;
+  transform: translateY(-6px);
+}
+
+.steam-game-card:hover img,
+.steam-game-card:focus-visible img {
+  filter: grayscale(1) contrast(1.04);
+  transform: scale(1.045);
+}
+
+.steam-carousel__note {
+  min-height: 46px;
+}
+
+@keyframes steam-carousel-loop {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
 .about-kicker {
   font-size: 11px;
   line-height: 1.2;
@@ -1604,6 +1740,28 @@ html {
     font-size: 25px;
   }
 
+  .steam-carousel__viewport {
+    padding-block: 12px;
+  }
+
+  .steam-carousel__header {
+    min-height: 58px;
+    padding-inline: 14px;
+  }
+
+  .steam-carousel__header > div {
+    gap: 8px;
+  }
+
+  .steam-carousel__header button {
+    padding: 6px 9px;
+  }
+
+  .steam-game-card {
+    flex-basis: 138px;
+    width: 138px;
+  }
+
   .about-footer {
     min-height: 500px;
     padding: 20px;
@@ -1627,5 +1785,14 @@ html {
   .about-footer__links a,
   .steam-shelf__list article {
     transition: none;
+  }
+
+  .steam-carousel__track {
+    animation: none;
+    transform: none;
+  }
+
+  .steam-carousel__group[aria-hidden="true"] {
+    display: none;
   }
 }
