@@ -11,6 +11,10 @@ type SteamResponse = {
   };
 };
 
+type SteamResult =
+  | { games: SteamGame[]; diagnostic: null }
+  | { games: null; diagnostic: string };
+
 const gamingPreferences = [
   { label: "Long-form worlds", genre: "RPG" },
   { label: "Systems & trade-offs", genre: "Strategy" },
@@ -22,12 +26,22 @@ function formatPlaytime(minutes: number) {
   return `${Math.round(minutes / 60)} hrs`;
 }
 
-async function getRecentGames() {
+async function getRecentGames(): Promise<SteamResult> {
   const apiKey =
     process.env.STEAM_API_KEY ?? process.env.STEAM_WEB_API_KEY;
   const steamId = process.env.STEAM_ID;
 
-  if (!apiKey || !steamId) return null;
+  const missingVariables = [
+    !apiKey ? "STEAM_API_KEY" : null,
+    !steamId ? "STEAM_ID" : null,
+  ].filter(Boolean);
+
+  if (!apiKey || !steamId) {
+    return {
+      games: null,
+      diagnostic: `Preview diagnostic: missing ${missingVariables.join(" and ")}.`,
+    };
+  }
 
   const params = new URLSearchParams({
     key: apiKey,
@@ -42,17 +56,36 @@ async function getRecentGames() {
       { next: { revalidate: 21600 } },
     );
 
-    if (!response.ok) return null;
+    if (!response.ok) {
+      return {
+        games: null,
+        diagnostic: `Preview diagnostic: Steam API returned ${response.status}.`,
+      };
+    }
 
     const data = (await response.json()) as SteamResponse;
-    return data.response?.games?.slice(0, 3) ?? null;
+    const games = data.response?.games?.slice(0, 3);
+
+    if (!games?.length) {
+      return {
+        games: null,
+        diagnostic: "Preview diagnostic: Steam returned no recently played games.",
+      };
+    }
+
+    return { games, diagnostic: null };
   } catch {
-    return null;
+    return {
+      games: null,
+      diagnostic: "Preview diagnostic: Steam could not be reached during deployment.",
+    };
   }
 }
 
 export default async function SteamRecentGames() {
-  const games = await getRecentGames();
+  const { games, diagnostic } = await getRecentGames();
+  const previewDiagnostic =
+    process.env.VERCEL_ENV === "preview" ? diagnostic : null;
 
   if (!games?.length) {
     return (
@@ -74,7 +107,7 @@ export default async function SteamRecentGames() {
           ))}
         </div>
         <p className="steam-shelf__note">
-          Three kinds of play I keep returning to.
+          {previewDiagnostic ?? "Three kinds of play I keep returning to."}
         </p>
       </div>
     );
