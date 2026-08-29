@@ -1046,6 +1046,13 @@ html {
 .steam-carousel__viewport {
   overflow: hidden;
   padding-block: 18px;
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent,
+    black 4%,
+    black 96%,
+    transparent
+  );
   mask-image: linear-gradient(
     to right,
     transparent,
