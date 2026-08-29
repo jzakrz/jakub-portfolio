@@ -45,10 +45,14 @@ const projects: Project[] = [
     number: "03",
     type: "Case study",
     year: "2025–26",
-    title: "Compliance Workspace",
+    title: "Net Zero Build",
     disciplines: "Product strategy / AI / Compliance",
     summary:
       "A workspace for navigating sustainability requirements and the evidence behind them.",
+    href: "/projects/net-zero-build",
+    image: "/assets/images/net-zero-portfolio-dashboard.png",
+    imageAlt: "Net Zero Build organization portfolio dashboard",
+    imageFit: "contain",
   },
   {
     number: "04",

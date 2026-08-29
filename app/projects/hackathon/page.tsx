@@ -98,7 +98,7 @@ export default function HackathonPage() {
       <header className="hackathon-case__header">
         <Link href="/projects">← Works</Link>
         <p>Case 01 / Hackathon platform</p>
-        <Link href="/projects">Next / Net Zero Build →</Link>
+        <Link href="/projects/net-zero-build">Next / Net Zero Build →</Link>
       </header>
 
       <section className="hackathon-case__section hackathon-case__hero">
@@ -297,7 +297,7 @@ export default function HackathonPage() {
         <div className="hackathon-case__content"><EditorialRows items={lessons} /></div>
       </section>
 
-      <Link className="hackathon-next" href="/projects">
+      <Link className="hackathon-next" href="/projects/net-zero-build">
         <div><p className="hackathon-case__eyebrow">Next case study</p><h2>Net Zero Build</h2></div>
         <div><p>AI-powered compliance MVP</p><span>View project →</span></div>
       </Link>
