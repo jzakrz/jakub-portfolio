@@ -6,6 +6,7 @@ import { useState, type CSSProperties } from "react";
 export type SteamGamePreview = {
   appid: number;
   name: string;
+  img_icon_url?: string;
   playtime_2weeks?: number;
   playtime_forever: number;
 };
@@ -29,8 +30,13 @@ function getCoverUrl(appid: number) {
   return `https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/${appid}/library_600x900.jpg`;
 }
 
-function getFallbackUrl(appid: number) {
+function getHeaderUrl(appid: number) {
   return `https://shared.fastly.steamstatic.com/store_item_assets/steam/apps/${appid}/header.jpg`;
+}
+
+function getIconUrl(game: SteamGamePreview) {
+  if (!game.img_icon_url) return null;
+  return `https://media.steampowered.com/steamcommunity/public/images/apps/${game.appid}/${game.img_icon_url}.jpg`;
 }
 
 function GameCover({
@@ -42,22 +48,34 @@ function GameCover({
   duplicate?: boolean;
   priority?: boolean;
 }) {
+  const imageSources = [
+    getCoverUrl(game.appid),
+    getHeaderUrl(game.appid),
+    getIconUrl(game),
+  ].filter((source): source is string => Boolean(source));
+  const [imageIndex, setImageIndex] = useState(0);
+  const imageSource = imageSources[imageIndex];
+  const isIcon = imageSource === getIconUrl(game);
+
   const content = (
     <>
-      <Image
-        src={getCoverUrl(game.appid)}
-        alt={duplicate ? "" : `${game.name} cover`}
-        fill
-        sizes="(max-width: 760px) 138px, 176px"
-        priority={priority}
-        unoptimized
-        onError={(event) => {
-          const image = event.currentTarget;
-          if (image.dataset.fallbackApplied) return;
-          image.dataset.fallbackApplied = "true";
-          image.src = getFallbackUrl(game.appid);
-        }}
-      />
+      {imageSource ? (
+        <Image
+          key={imageSource}
+          className={isIcon ? "steam-game-card__image--icon" : undefined}
+          src={imageSource}
+          alt={duplicate ? "" : `${game.name} cover`}
+          fill
+          sizes="(max-width: 760px) 138px, 176px"
+          priority={priority && imageIndex === 0}
+          unoptimized
+          onError={() => setImageIndex((index) => index + 1)}
+        />
+      ) : (
+        <span className="steam-game-card__placeholder" aria-hidden="true">
+          {game.name.slice(0, 2)}
+        </span>
+      )}
       <span className="steam-game-card__scrim" aria-hidden="true" />
       <span className="steam-game-card__copy">
         <strong>{game.name}</strong>
@@ -88,7 +106,6 @@ function GameCover({
 }
 
 export default function SteamGameCarousel({ games }: SteamGameCarouselProps) {
-  const [isPaused, setIsPaused] = useState(false);
   const loopGames = Array.from(
     { length: Math.max(6, games.length) },
     (_, index) => ({
@@ -103,21 +120,12 @@ export default function SteamGameCarousel({ games }: SteamGameCarouselProps) {
 
   return (
     <section
-      className={`steam-shelf steam-carousel${isPaused ? " is-paused" : ""}`}
+      className="steam-shelf steam-carousel"
       aria-label="Recently played Steam games"
     >
       <div className="steam-shelf__header steam-carousel__header">
         <p>Recent rotation</p>
-        <div>
-          <span>{String(games.length).padStart(2, "0")} games</span>
-          <button
-            type="button"
-            onClick={() => setIsPaused((paused) => !paused)}
-            aria-pressed={isPaused}
-          >
-            {isPaused ? "Play" : "Pause"}
-          </button>
-        </div>
+        <span>{String(games.length).padStart(2, "0")} games</span>
       </div>
 
       <div className="steam-carousel__viewport">
