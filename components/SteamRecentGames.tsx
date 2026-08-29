@@ -1,3 +1,5 @@
+import SteamGameCarousel from "@/components/SteamGameCarousel";
+
 type SteamGame = {
   appid: number;
   name: string;
@@ -21,11 +23,6 @@ const gamingPreferences = [
   { label: "Shared problem-solving", genre: "Co-op" },
 ];
 
-function formatPlaytime(minutes: number) {
-  if (minutes < 60) return `${minutes} min`;
-  return `${Math.round(minutes / 60)} hrs`;
-}
-
 async function getRecentGames(): Promise<SteamResult> {
   const apiKey =
     process.env.STEAM_API_KEY ?? process.env.STEAM_WEB_API_KEY;
@@ -46,7 +43,7 @@ async function getRecentGames(): Promise<SteamResult> {
   const params = new URLSearchParams({
     key: apiKey,
     steamid: steamId,
-    count: "3",
+    count: "10",
     format: "json",
   });
 
@@ -64,7 +61,7 @@ async function getRecentGames(): Promise<SteamResult> {
     }
 
     const data = (await response.json()) as SteamResponse;
-    const games = data.response?.games?.slice(0, 3);
+    const games = data.response?.games?.slice(0, 10);
 
     if (!games?.length) {
       return {
@@ -113,36 +110,5 @@ export default async function SteamRecentGames() {
     );
   }
 
-  return (
-    <div className="steam-shelf">
-      <div className="steam-shelf__header">
-        <p>Recently played</p>
-        <span>Live from Steam</span>
-      </div>
-      <div className="steam-shelf__list">
-        {games.map((game, index) => (
-          <article key={game.appid}>
-            <span>0{index + 1}</span>
-            <div>
-              <p>{game.name}</p>
-              <strong>
-                {game.playtime_2weeks
-                  ? `${formatPlaytime(game.playtime_2weeks)} recently`
-                  : `${formatPlaytime(game.playtime_forever)} total`}
-              </strong>
-            </div>
-            <a
-              href={`https://store.steampowered.com/app/${game.appid}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label={`Open ${game.name} on Steam`}
-            >
-              ↗
-            </a>
-          </article>
-        ))}
-      </div>
-      <p className="steam-shelf__note">Updated every six hours.</p>
-    </div>
-  );
+  return <SteamGameCarousel games={games} />;
 }
