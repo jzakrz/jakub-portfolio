@@ -3,6 +3,7 @@ import SteamGameCarousel from "@/components/SteamGameCarousel";
 type SteamGame = {
   appid: number;
   name: string;
+  img_icon_url?: string;
   playtime_2weeks?: number;
   playtime_forever: number;
 };
