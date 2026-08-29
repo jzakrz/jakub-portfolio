@@ -23,7 +23,8 @@ function formatPlaytime(minutes: number) {
 }
 
 async function getRecentGames() {
-  const apiKey =\n    process.env.STEAM_API_KEY ?? process.env.STEAM_WEB_API_KEY;
+  const apiKey =
+    process.env.STEAM_API_KEY ?? process.env.STEAM_WEB_API_KEY;
   const steamId = process.env.STEAM_ID;
 
   if (!apiKey || !steamId) return null;
