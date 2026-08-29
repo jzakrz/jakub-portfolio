@@ -2626,3 +2626,246 @@ html {
     transition: none;
   }
 }
+
+/* Exercise Snack case study */
+.exercise-case {
+  --case-paper: #ffffff;
+  --case-ink: #0e0e0e;
+  --case-muted: #5f5f5f;
+  --case-line: rgb(14 14 14 / 18%);
+  background: var(--case-paper);
+}
+
+.exercise-case .hackathon-case__header {
+  background: rgb(255 255 255 / 94%);
+}
+
+.exercise-case .hackathon-case__hero {
+  min-height: 900px;
+}
+
+.exercise-case .hackathon-case__hero h1 {
+  max-width: 480px;
+  font-size: clamp(54px, 4vw, 58px);
+  line-height: 1.04;
+}
+
+.exercise-case__hero-image {
+  background: #d5d5d5;
+}
+
+.exercise-case__hero-image img {
+  object-position: center;
+}
+
+.exercise-research__metric strong {
+  letter-spacing: -0.07em;
+}
+
+.exercise-framing {
+  min-height: 900px;
+}
+
+.exercise-framing__label {
+  margin-top: 34px !important;
+}
+
+.exercise-framing__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin-top: 22px;
+  border-top: 1px solid var(--case-ink);
+  border-left: 1px solid var(--case-line);
+}
+
+.exercise-framing__grid article {
+  display: grid;
+  grid-template-columns: 42px 92px 1fr;
+  align-items: center;
+  min-height: 104px;
+  padding: 18px 20px;
+  border-right: 1px solid var(--case-line);
+  border-bottom: 1px solid var(--case-line);
+}
+
+.exercise-framing__grid h3 {
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.exercise-framing__grid article > p:last-child {
+  color: var(--case-muted);
+  font-size: 15px;
+  line-height: 1.45;
+}
+
+.exercise-direction__rail {
+  gap: 24px;
+}
+
+.exercise-direction__principle {
+  position: static;
+  margin-top: 0 !important;
+}
+
+.exercise-habit-loop {
+  min-height: 760px;
+  padding: 32px 40px 40px;
+  overflow: hidden;
+  border-radius: 12px;
+  color: #f8f8f8;
+  background: #151515;
+}
+
+.exercise-habit-loop > .hackathon-case__eyebrow {
+  color: #f8f8f8;
+}
+
+.exercise-habit-loop__steps {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 360px));
+  gap: 132px 40px;
+  margin-top: 34px;
+}
+
+.exercise-habit-loop__steps::before,
+.exercise-habit-loop__steps::after {
+  position: absolute;
+  left: 50%;
+  width: 1px;
+  height: 132px;
+  content: "";
+  background: rgb(255 255 255 / 38%);
+}
+
+.exercise-habit-loop__steps::before {
+  top: 108px;
+}
+
+.exercise-habit-loop__steps::after {
+  bottom: 108px;
+}
+
+.exercise-habit-loop__steps article {
+  display: grid;
+  grid-template-columns: 135px 1fr;
+  grid-template-rows: 26px auto;
+  min-height: 156px;
+  padding: 20px 22px;
+  border-radius: 10px;
+  color: var(--case-ink);
+  background: #ededed;
+}
+
+.exercise-habit-loop__steps article:nth-child(even) {
+  transform: translateY(132px);
+}
+
+.exercise-habit-loop__steps article .hackathon-case__eyebrow {
+  grid-column: 1 / -1;
+}
+
+.exercise-habit-loop__steps article h3 {
+  align-self: start;
+  font-size: 30px;
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: -0.04em;
+}
+
+.exercise-habit-loop__steps article > p:last-child {
+  align-self: start;
+  color: var(--case-muted);
+  font-size: 14px;
+  line-height: 1.45;
+}
+
+.exercise-collaboration {
+  min-height: 640px;
+}
+
+.exercise-collaboration__columns article {
+  gap: 16px;
+}
+
+.exercise-gallery .hackathon-gallery__primary,
+.exercise-gallery .hackathon-gallery__previews button {
+  background: #ededed;
+}
+
+.exercise-gallery .hackathon-gallery__primary img,
+.exercise-gallery .hackathon-gallery__previews img {
+  object-fit: contain;
+  object-position: center;
+  padding: 28px;
+}
+
+.exercise-gallery .hackathon-gallery__previews img {
+  padding: 16px;
+}
+
+.exercise-lessons {
+  min-height: 960px;
+}
+
+.exercise-lessons .hackathon-editorial-row {
+  min-height: 220px;
+}
+
+@media (max-width: 900px) {
+  .exercise-case .hackathon-case__hero {
+    min-height: 0;
+  }
+
+  .exercise-case .hackathon-case__hero h1 {
+    font-size: clamp(54px, 10vw, 72px);
+  }
+
+  .exercise-direction__principle {
+    margin-top: 0 !important;
+  }
+
+  .exercise-habit-loop {
+    min-height: 650px;
+  }
+}
+
+@media (max-width: 620px) {
+  .exercise-framing__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .exercise-framing__grid article {
+    grid-template-columns: 34px 72px 1fr;
+    padding-inline: 14px;
+  }
+
+  .exercise-habit-loop {
+    min-height: 0;
+    padding: 24px 18px;
+  }
+
+  .exercise-habit-loop__steps {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .exercise-habit-loop__steps::before,
+  .exercise-habit-loop__steps::after {
+    display: none;
+  }
+
+  .exercise-habit-loop__steps article,
+  .exercise-habit-loop__steps article:nth-child(even) {
+    transform: none;
+  }
+
+  .exercise-gallery .hackathon-gallery__primary img {
+    padding: 18px;
+  }
+
+  .exercise-gallery .hackathon-gallery__previews img {
+    padding: 10px;
+  }
+}

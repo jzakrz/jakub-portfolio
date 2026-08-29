@@ -1,414 +1,338 @@
-"use client";
-
-import Header from "@/components/Header";
+import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import ExerciseSnackGallery from "@/components/ExerciseSnackGallery";
+
+export const metadata: Metadata = {
+  title: "Exercise Snack — Jakub Zakrzewski",
+  description:
+    "A product design case study about fitting short, personalized movement breaks into the workday and facilitating shared creative ownership in a five-person team.",
+};
+
+const habitSteps = [
+  ["01", "Notice", "Find a realistic gap between meetings."],
+  ["02", "Plan", "Add a short break without losing control."],
+  ["03", "Move", "Follow a simple, personalized set."],
+  ["04", "Return", "See continuity and make the habit visible."],
+];
+
+const framingSteps = [
+  ["01", "Notice", "Find a gap between meetings"],
+  ["02", "Plan", "Add an active break"],
+  ["03", "Start", "Use simple no-equipment movement"],
+  ["04", "Adapt", "Edit or ask the trainer"],
+  ["05", "Finish", "Record the completed break"],
+  ["06", "Return", "See continuity and progress"],
+];
+
+const decisions = [
+  {
+    title: "Calendar-aware, not calendar-controlled.",
+    body: "Suggest realistic breaks around meetings while preserving snooze, skip and manual planning.",
+  },
+  {
+    title: "Recommendation with direct control.",
+    body: "Let the virtual trainer shape a set, but keep a direct edit and browse path for people who do not want a conversation.",
+  },
+  {
+    title: "Progress without pressure.",
+    body: "Use completed breaks, days in a row and visible progress to support continuity—not to turn every movement into a competition.",
+  },
+];
+
+const lessons = [
+  {
+    title: "Leadership is facilitation.",
+    body: "Being the only experienced designer did not grant unilateral authority. My role was to frame the question, make reasoning visible and help five people commit together.",
+  },
+  {
+    title: "Evidence resolves opinion.",
+    body: "When strong creative preferences conflicted, interview patterns and usability evidence gave the team a shared reference—not a winner by seniority.",
+  },
+  {
+    title: "Delegation protects quality.",
+    body: "The deadline made solo execution impossible. Giving each designer real ownership let us work in parallel and improve the whole concept.",
+  },
+  {
+    title: "Control builds trust.",
+    body: "Personalized recommendations worked best when people could inspect, edit or bypass them. The clearest UI fix was only one expression of that larger principle.",
+  },
+];
+
+function SectionIntro({
+  label,
+  title,
+  note,
+}: {
+  label: string;
+  title: string;
+  note?: string;
+}) {
+  return (
+    <div className="hackathon-case__rail">
+      <p className="hackathon-case__eyebrow">{label}</p>
+      <h2>{title}</h2>
+      {note ? <p className="hackathon-case__rail-note">{note}</p> : null}
+    </div>
+  );
+}
+
+function EditorialRows({
+  items,
+}: {
+  items: Array<{ title: string; body: string }>;
+}) {
+  return (
+    <div className="hackathon-editorial-rows">
+      {items.map((item, index) => (
+        <article className="hackathon-editorial-row" key={item.title}>
+          <p className="hackathon-editorial-row__number">
+            {String(index + 1).padStart(2, "0")}
+          </p>
+          <div>
+            <h3>{item.title}</h3>
+            <p>{item.body}</p>
+          </div>
+        </article>
+      ))}
+    </div>
+  );
+}
 
 export default function ExerciseSnackPage() {
-  const [isPrototypeOpen, setIsPrototypeOpen] = useState(false);
-  const [isPrototypeLoading, setIsPrototypeLoading] = useState(false);
-
-  useEffect(() => {
-    if (!isPrototypeOpen) return;
-
-    const originalBodyOverflow = document.body.style.overflow;
-    const originalHtmlOverflow = document.documentElement.style.overflow;
-
-    document.body.style.overflow = "hidden";
-    document.documentElement.style.overflow = "hidden";
-
-    return () => {
-      document.body.style.overflow = originalBodyOverflow;
-      document.documentElement.style.overflow = originalHtmlOverflow;
-    };
-  }, [isPrototypeOpen]);
-
   return (
-    <>
-      <main className="min-h-screen overflow-x-clip bg-white text-black">
-      <Header />
+    <main className="hackathon-case exercise-case">
+      <header className="hackathon-case__header">
+        <Link href="/projects">← Works</Link>
+        <p>Case 02 / Exercise Snack</p>
+        <Link href="/projects/hackathon">Next / Hackathon platform →</Link>
+      </header>
 
-      <section className="bg-black px-6 pb-16 pt-24 text-white lg:px-10 lg:pb-24 lg:pt-32">
-        <div className="mx-auto max-w-6xl">
-          <Link
-            href="/"
-            className="mb-8 inline-flex cursor-pointer items-center gap-2 rounded-full border border-white/20 bg-[#1f1f1f] px-5 py-2.5 text-[0.88rem] font-semibold uppercase tracking-[0.08em] text-white transition-colors hover:bg-[#2a2a2a] lg:mb-10"
-          >
-            <svg
-              viewBox="0 0 24 24"
-              aria-hidden="true"
-              className="h-4 w-4 stroke-current"
-              fill="none"
-              strokeWidth="2.3"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            >
-              <path d="M19 12H5" />
-              <path d="m12 19-7-7 7-7" />
-            </svg>
-            Back to Portfolio
-          </Link>
-
-          <div className="max-w-5xl">
-            <div className="mb-6 flex flex-wrap gap-2 lg:mb-8">
-              <span className="rounded-full bg-white/10 px-4 py-2 text-[11px] font-medium uppercase tracking-[0.14em] text-white/80">
-                Student Project
-              </span>
-              <span className="rounded-full bg-white/10 px-4 py-2 text-[11px] font-medium uppercase tracking-[0.14em] text-white/80">
-                Mobile App
-              </span>
-            </div>
-
-            <h1 className="text-[clamp(3.6rem,9vw,7.2rem)] font-black uppercase leading-[0.88] tracking-[-0.06em] text-white">
-              Exercise Snack
-            </h1>
-
-            <p className="mt-8 max-w-4xl text-[1.1rem] leading-[1.4] text-white/85 lg:mt-10 lg:text-[1.4rem]">
-              A team project developed during postgraduate studies in UX Design /
-              Product Design at SWPS University. The app supports people with a
-              sedentary workday by introducing short, structured activity breaks.
-              Gamification was used to build consistency and make movement habits
-              easier to maintain.
+      <section className="hackathon-case__section hackathon-case__hero">
+        <div className="hackathon-case__hero-rail">
+          <div>
+            <p className="hackathon-case__eyebrow">Case study 02</p>
+            <h1>Exercise Snack.</h1>
+            <p className="hackathon-case__thesis">
+              Short movement, shaped around the workday.
             </p>
           </div>
+          <dl className="hackathon-case__hero-meta">
+            <div><dt>Role</dt><dd>Product design &amp; facilitation</dd></div>
+            <div><dt>Team</dt><dd>Five designers</dd></div>
+            <div><dt>Tools</dt><dd>Figma, FigJam, NotebookLM</dd></div>
+          </dl>
+        </div>
 
-          <div className="mt-12 lg:mt-16 lg:w-[52.5%]">
-            <div className="rounded-[2.4rem] border border-white/15 bg-[#262626] p-8 lg:p-10">
-              <p className="text-[0.85rem] font-medium uppercase tracking-[0.16em] text-white/70">
-                Project Snapshot
-              </p>
-
-              <div className="mt-8 grid gap-8">
-                <div>
-                  <p className="text-[0.85rem] font-medium uppercase tracking-[0.16em] text-white/65">
-                    My role
-                  </p>
-                  <p className="mt-3 text-[1.05rem] leading-[1.45] text-white/94">
-                    I worked across the full design process with the team —
-                    research, concept shaping, prototyping, and testing. My
-                    strongest focus was refining the workout flow and designing
-                    interface screens, then iterating based on test feedback.
-                  </p>
-                </div>
-
-                <div>
-                  <p className="text-[0.85rem] font-medium uppercase tracking-[0.16em] text-white/65">
-                    Tools
-                  </p>
-                  <div className="mt-3 flex flex-wrap gap-2">
-                    {["Figma", "FigJam", "Google Meet (Testing)"].map((tool) => (
-                      <span
-                        key={tool}
-                        className="rounded-full bg-white/12 px-4 py-2 text-[11px] font-medium uppercase tracking-[0.14em] text-white/90"
-                      >
-                        {tool}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-
-                <div>
-                  <p className="text-[0.85rem] font-medium uppercase tracking-[0.16em] text-white/65">
-                    Outcome
-                  </p>
-                  <p className="mt-3 text-[1.05rem] leading-[1.45] text-white/94">
-                    The final concept focused on a complete workout journey: from
-                    a suggested exercise set, through the active session, to a
-                    closing summary. Users could accept the recommendation,
-                    adjust it manually, or use AI-coach support to modify it.
-                  </p>
-                </div>
-              </div>
-            </div>
+        <div className="hackathon-case__hero-content">
+          <div className="hackathon-case__hero-image exercise-case__hero-image">
+            <Image
+              src="/assets/images/exercise-snack-hero.png"
+              alt="Exercise Snack mobile experience used alongside a fitness watch"
+              fill
+              priority
+              sizes="(max-width: 900px) 100vw, 58vw"
+            />
+          </div>
+          <div className="hackathon-case__caption">
+            <p className="hackathon-case__eyebrow">Description</p>
+            <p>
+              A mobile habit product that turns gaps between meetings into short,
+              personalized movement breaks—without asking people to leave the
+              rhythm of work.
+            </p>
           </div>
         </div>
       </section>
 
-      <section className="bg-[#f8f7f5] px-6 py-4 lg:px-10 lg:py-6">
-        <div className="mx-auto grid max-w-6xl gap-5 lg:grid-cols-[1.05fr_0.95fr]">
-          <div className="rounded-[2.6rem] bg-[#f1cc00] p-8 lg:p-10">
-            <h2 className="mt-5 text-[clamp(2.6rem,4vw,4.5rem)] font-black uppercase leading-[0.92] tracking-[-0.06em] text-black">
-              Lessons Learned
-            </h2>
-
-            <p className="mt-6 max-w-[720px] text-[1.05rem] leading-[1.5] tracking-[-0.02em] text-black/85 lg:text-[1.18rem]">
-              One icon in the workout editor created confusion. We initially used
-              a two-arrow symbol, and participants read it as reordering
-              exercises instead of editing or replacing one. Switching to a
-              pencil icon made the action immediately clearer.
-            </p>
-          </div>
-
-          <div className="rounded-[2.6rem] border border-black/10 bg-[#f2f1ee] p-8 text-black lg:p-10">
-            <p className="text-[0.85rem] font-medium uppercase tracking-[0.16em] text-black/50">
-              Why it mattered
-            </p>
-
-            <div className="mt-8 space-y-5">
-              <div className="rounded-[1.6rem] border border-black/10 bg-[#ebe9e4] p-5">
-                <p className="text-[0.8rem] uppercase tracking-[0.16em] text-black/50">
-                  Before
-                </p>
-                <p className="mt-2 text-[1.02rem] leading-[1.45] text-black/80">
-                  Participants interpreted the icon as a way to change exercise
-                  order.
-                </p>
-              </div>
-
-              <div className="rounded-[1.6rem] border border-black/10 bg-[#ebe9e4] p-5">
-                <p className="text-[0.8rem] uppercase tracking-[0.16em] text-black/50">
-                  After
-                </p>
-                <p className="mt-2 text-[1.02rem] leading-[1.45] text-black/80">
-                  The pencil icon signaled edit intent clearly and reduced
-                  hesitation in the flow.
-                </p>
-              </div>
-            </div>
+      <section className="hackathon-case__section">
+        <SectionIntro
+          label="Project summary"
+          title="Project snapshot"
+          note="The opportunity, my role, and how five designers shared ownership."
+        />
+        <div className="hackathon-case__content hackathon-summary">
+          <p className="hackathon-case__lead">
+            A student product concept for helping sedentary workers build a
+            repeatable habit of active breaks.
+          </p>
+          <div className="hackathon-three-columns hackathon-summary__columns">
+            <article>
+              <p className="hackathon-case__eyebrow">Context</p>
+              <p>13 interviews showed that desk workers valued movement, but meetings, time pressure and inconsistency shaped whether a break actually happened.</p>
+            </article>
+            <article>
+              <p className="hackathon-case__eyebrow">My role</p>
+              <p>I worked across research, strategy, interaction and prototyping while facilitating decisions in a five-person team with four early-career designers.</p>
+            </article>
+            <article>
+              <p className="hackathon-case__eyebrow">Scope</p>
+              <p>Mobile habit design, calendar-aware planning, personalized exercise guidance, progress, gamification and usability testing.</p>
+            </article>
           </div>
         </div>
       </section>
 
-      <section className="bg-[#f8f7f5] px-6 py-12 lg:px-10 lg:py-16">
-        <div className="mx-auto max-w-6xl">
-          <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
+      <section className="hackathon-case__section">
+        <SectionIntro
+          label="01 / Research"
+          title="The workday"
+          note="Work breaks were shaped by meetings and basic needs—not exercise plans."
+        />
+        <div className="hackathon-case__content">
+          <p className="hackathon-case__lead hackathon-case__lead--large">
+            The problem was not knowing movement mattered. It was making movement possible in a day already ruled by meetings.
+          </p>
+          <div className="hackathon-activation__metric exercise-research__metric">
+            <strong>13</strong>
             <div>
-              <h2 className="text-[clamp(2.8rem,5vw,5rem)] font-black uppercase leading-[0.92] tracking-[-0.06em] text-black">
-                Selected Screens
-              </h2>
-            </div>
-
-            <div className="flex flex-wrap items-center gap-2">
-              <button
-                type="button"
-                onClick={() => {
-                  setIsPrototypeLoading(true);
-                  setIsPrototypeOpen(true);
-                }}
-                className="hidden cursor-pointer items-center justify-center rounded-full bg-black px-5 py-2.5 text-[0.88rem] font-semibold uppercase tracking-[0.08em] text-white transition-transform hover:scale-[1.03] sm:inline-flex"
-              >
-                Open Prototype
-              </button>
+              <p className="hackathon-case__eyebrow">Discovery interviews</p>
+              <p>7 women / 6 men / mostly hybrid workers</p>
             </div>
           </div>
+          <div className="hackathon-two-columns">
+            <article>
+              <p className="hackathon-case__eyebrow">The pattern</p>
+              <p>Participants spent long hours at a desk. Coffee, toilets and meetings created breaks; active recovery rarely did.</p>
+            </article>
+            <article>
+              <p className="hackathon-case__eyebrow">The design response</p>
+              <p>Make movement short, safe and flexible enough to fit the workday—rather than asking the workday to fit a workout.</p>
+            </article>
+          </div>
+        </div>
+      </section>
 
-          <div className="mt-10 grid gap-8 sm:grid-cols-2 xl:grid-cols-3">
-            {[
-              {
-                caption: "A proposed exercise set tailored to the user",
-                src: "/assets/images/pre-workout-screen.webp.webp",
-              },
-              {
-                caption: "A simple and clear workout session flow",
-                src: "/assets/images/exercise-intro.webp.webp",
-              },
-              {
-                caption: "Workout editing with manual controls",
-                src: "/assets/images/break-time-edit.webp.webp",
-              },
-              {
-                caption: "Chatbot guidance for workout changes",
-                src: "/assets/images/chatbot-prototype.webp.webp",
-              },
-              {
-                caption: "After-session summary",
-                src: "/assets/images/after-session.webp.webp",
-              },
-              {
-                caption: "Statistics supporting long-term consistency",
-                src: "/assets/images/stats.webp.webp",
-              },
-            ].map((screen) => (
-              <div key={screen.caption} className="mx-auto w-full max-w-[290px]">
-                <div className="rounded-[2.1rem] border border-black/15 bg-[#1c1c1c] p-2.5 shadow-[0_18px_34px_rgba(0,0,0,0.12)]">
-                  <div className="rounded-[1.6rem] bg-black p-1.5">
-                    <Image
-                      src={screen.src}
-                      alt={screen.caption}
-                      width={430}
-                      height={932}
-                      className="h-auto w-full rounded-[1.2rem] border border-white/10 bg-white"
-                    />
-                  </div>
-                </div>
-                <p className="mt-4 px-1 text-center text-[0.76rem] font-medium uppercase tracking-[0.16em] text-black/45">
-                  {screen.caption}
-                </p>
-              </div>
+      <section className="hackathon-case__section exercise-framing">
+        <SectionIntro
+          label="02 / Product framing"
+          title="The break"
+          note="Movement only works when the interruption feels smaller than the resistance."
+        />
+        <div className="hackathon-case__content">
+          <p className="hackathon-case__lead">
+            Exercise Snack reframed fitness as a sequence of tiny, repeatable actions inside the workday.
+          </p>
+          <p className="hackathon-case__body-copy">
+            The product had to notice a realistic moment, recommend something useful, preserve control and make returning feel worthwhile.
+          </p>
+          <p className="hackathon-case__eyebrow exercise-framing__label">What the habit needed to do</p>
+          <div className="exercise-framing__grid">
+            {framingSteps.map(([number, title, body]) => (
+              <article key={number}>
+                <p className="hackathon-case__eyebrow">{number}</p>
+                <h3>{title}</h3>
+                <p>{body}</p>
+              </article>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="bg-[#f8f7f5] px-6 pb-16 pt-8 lg:px-10 lg:pb-24 lg:pt-12">
-        <div className="mx-auto max-w-6xl border-t border-black/10 pt-8 lg:pt-10">
-          <p className="mb-5 inline-flex rounded-full border border-black/10 bg-white px-4 py-2 text-[0.78rem] font-semibold uppercase tracking-[0.14em] text-black/55">
-            View other projects
+      <section className="hackathon-case__section hackathon-case__section--direction">
+        <div className="hackathon-case__rail exercise-direction__rail">
+          <p className="hackathon-case__eyebrow">03 / Product direction</p>
+          <h2>Fit the workday</h2>
+          <p className="hackathon-case__rail-note">
+            Calendar-aware planning, short no-equipment movement and personalized guidance make an active break feel possible between meetings—not like another task to manage.
           </p>
-
-          <Link
-            href="/projects/hackathon"
-            className="group grid gap-6 rounded-[1.6rem] p-1 text-black transition-colors hover:bg-black/[0.03] sm:grid-cols-[minmax(0,1fr)_auto] sm:items-center sm:p-5"
-          >
-            <div>
-              <h2 className="text-[clamp(2rem,4vw,3.8rem)] font-black uppercase leading-[0.9] tracking-[-0.06em] text-black">
-                Hackathon Platform
-              </h2>
-              <p className="mt-3 max-w-xl text-[1rem] leading-[1.45] text-black/55 lg:text-[1.08rem]">
-                A redesigned event platform that brings sign-up, team joining,
-                and participant activities into one clear experience.
-              </p>
-            </div>
-
-            <div className="flex items-center gap-3 text-[0.85rem] font-semibold uppercase tracking-[0.12em] text-black/65 transition-colors group-hover:text-black sm:justify-end">
-              View case study
-              <span className="flex h-11 w-11 items-center justify-center rounded-full border border-black/15 transition-transform group-hover:translate-x-1">
-                <svg
-                  viewBox="0 0 24 24"
-                  aria-hidden="true"
-                  className="h-4 w-4 stroke-current"
-                  fill="none"
-                  strokeWidth="2.3"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                >
-                  <path d="M5 12h14" />
-                  <path d="m13 5 7 7-7 7" />
-                </svg>
-              </span>
-            </div>
-          </Link>
+          <p className="hackathon-direction__principle exercise-direction__principle"><span>Design principle</span>Any movement is better than none.</p>
         </div>
-      </section>
-    </main>
-
-      {isPrototypeOpen && (
-        <div
-          className="fixed inset-0 z-[100] flex items-center justify-center bg-black/70 p-2"
-          onClick={() => setIsPrototypeOpen(false)}
-        >
-          <div
-            className="relative mx-auto w-full max-w-[1320px]"
-            onClick={(event) => event.stopPropagation()}
-          >
-            <button
-              type="button"
-              onClick={() => setIsPrototypeOpen(false)}
-              aria-label="Close prototype modal"
-              className="absolute -right-2 -top-2 z-20 flex h-10 w-10 items-center justify-center rounded-full bg-white text-black shadow-[0_10px_30px_rgba(0,0,0,0.2)] transition hover:scale-95"
-            >
-              <svg
-                viewBox="0 0 24 24"
-                aria-hidden="true"
-                className="h-5 w-5 stroke-current"
-                fill="none"
-                strokeWidth="2.2"
-                strokeLinecap="round"
-              >
-                <path d="M6 6l12 12" />
-                <path d="M18 6 6 18" />
-              </svg>
-            </button>
-
-            <div className="overflow-hidden rounded-[1.8rem] border border-black/10 bg-[#f6f6f7] shadow-[0_35px_90px_rgba(0,0,0,0.18)]">
-              <div className="border-b border-black/10 bg-[#ececef] px-5 py-4">
-                <div className="flex items-center justify-between gap-4">
-                  <div className="flex items-center gap-2">
-                    <span className="h-3 w-3 rounded-full bg-[#ff5f57]" />
-                    <span className="h-3 w-3 rounded-full bg-[#febc2e]" />
-                    <span className="h-3 w-3 rounded-full bg-[#28c840]" />
-                  </div>
-
-                  <div className="flex-1">
-                    <div className="mx-auto flex h-10 max-w-[520px] items-center rounded-full border border-black/10 bg-white px-4 text-sm text-black/45">
-                      exercise-snack-prototype.fig
-                    </div>
-                  </div>
-
-                  <div className="w-[72px]" />
-                </div>
-              </div>
-
-              <div className="bg-white p-3">
-                <div className="relative overflow-hidden rounded-[1rem] border border-black/10 bg-white">
-                  {isPrototypeLoading && (
-                    <div className="pointer-events-none absolute inset-0 z-10">
-                      <div className="absolute left-1/2 top-6 flex -translate-x-1/2 flex-col items-center gap-3">
-                        <div className="flex h-12 w-12 animate-bounce items-center justify-center rounded-full border border-black/10 bg-white shadow-[0_10px_30px_rgba(0,0,0,0.08)]">
-                          <svg
-                            viewBox="0 0 24 24"
-                            aria-hidden="true"
-                            className="h-5 w-5 stroke-current text-black"
-                            fill="none"
-                            strokeWidth="2.2"
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                          >
-                            <path d="M12 19V5" />
-                            <path d="M6 11l6-6 6 6" />
-                          </svg>
-                        </div>
-
-                        <div className="figma-loader">Loading</div>
-                      </div>
-                    </div>
-                  )}
-
-                  <iframe
-                    style={{ border: "none" }}
-                    width="100%"
-                    height="900"
-                    src="https://embed.figma.com/proto/x0n44iyTYL4Yj1dFpHNB4h/Exercise-Snack--Student-Project-?node-id=1491-21114&p=f&viewport=-4411%2C-42%2C0.13&scaling=scale-down&content-scaling=fixed&starting-point-node-id=1491%3A21356&page-id=5%3A2&embed-host=share"
-                    allowFullScreen
-                    onLoad={() => {
-                      setTimeout(() => {
-                        setIsPrototypeLoading(false);
-                      }, 4000);
-                    }}
-                  />
-                </div>
-              </div>
+        <div className="hackathon-case__content hackathon-direction">
+          <div className="exercise-habit-loop">
+            <p className="hackathon-case__eyebrow">The active-break loop</p>
+            <div className="exercise-habit-loop__steps">
+              {habitSteps.map(([number, title, body]) => (
+                <article key={number}>
+                  <p className="hackathon-case__eyebrow">{number}</p>
+                  <h3>{title}</h3>
+                  <p>{body}</p>
+                </article>
+              ))}
             </div>
           </div>
+          <p className="hackathon-direction__caption">Exercise Snack direction — a small interruption with enough flexibility to become a habit.</p>
         </div>
-      )}
-      <style jsx>{`
-        .figma-loader {
-          width: fit-content;
-          font-size: 40px;
-          line-height: 1.5;
-          font-family: system-ui, sans-serif;
-          font-weight: 700;
-          text-transform: uppercase;
-          color: transparent;
-          -webkit-text-stroke: 1px #000;
-          background:
-            radial-gradient(
-                1.13em at 50% 1.6em,
-                #000 99%,
-                transparent 101%
-              )
-              calc(50% - 1.6em) 0 / 3.2em 100% text,
-            radial-gradient(
-                1.13em at 50% -0.8em,
-                transparent 99%,
-                #000 101%
-              )
-              50% 0.8em / 3.2em 100% repeat-x text;
-          -webkit-background-clip: text;
-          background-clip: text;
-          animation: figmaLoaderWave 2s linear infinite;
-        }
+      </section>
 
-        @keyframes figmaLoaderWave {
-          to {
-            background-position:
-              calc(50% + 1.6em) 0,
-              calc(50% + 3.2em) 0.8em;
-          }
-        }
-      `}</style>
-    </>
+      <section className="hackathon-case__section">
+        <SectionIntro
+          label="04 / Product decisions"
+          title="Three choices"
+          note="We reduced the concept to the decisions most likely to make an active break repeatable."
+        />
+        <div className="hackathon-case__content"><EditorialRows items={decisions} /></div>
+      </section>
+
+      <section className="hackathon-case__section exercise-collaboration">
+        <SectionIntro
+          label="05 / Collaboration"
+          title="Shared direction"
+          note="Being the only experienced designer did not make me the sole decision-maker."
+        />
+        <div className="hackathon-case__content">
+          <p className="hackathon-case__lead hackathon-case__lead--large">
+            For the first time, I worked with four early-career designers whose different skills, backgrounds and interests all shaped the creative direction.
+          </p>
+          <div className="hackathon-three-columns hackathon-measures exercise-collaboration__columns">
+            <article><p className="hackathon-case__eyebrow">Working model</p><h3>Frame the question</h3><p>Bring evidence into the discussion, then commit to a direction together.</p></article>
+            <article><p className="hackathon-case__eyebrow">The trade-off</p><h3>Discussion took time</h3><p>There were no unilateral creative decisions, even under a tight deadline.</p></article>
+            <article><p className="hackathon-case__eyebrow">What it enabled</p><h3>Distributed ownership</h3><p>We could work in parallel and defend the direction as one team.</p></article>
+          </div>
+        </div>
+      </section>
+
+      <section className="hackathon-case__section">
+        <SectionIntro
+          label="06 / Success criteria"
+          title="Measure the habit"
+          note="This was a tested student concept, so these are proposed product measures—not claimed business outcomes."
+        />
+        <div className="hackathon-case__content">
+          <p className="hackathon-case__lead hackathon-case__lead--large">
+            Success meant helping people complete active breaks repeatedly without making the workday feel more interruptive.
+          </p>
+          <div className="hackathon-three-columns hackathon-measures">
+            <article><p className="hackathon-case__eyebrow">Primary metric</p><h3>Planned-break completion</h3><p>Completed active breaks ÷ planned breaks</p></article>
+            <article><p className="hackathon-case__eyebrow">Supporting signal</p><h3>Repeat active days</h3><p>How often a person returns across the working week</p></article>
+            <article><p className="hackathon-case__eyebrow">Guardrail</p><h3>Interruption cost</h3><p>Snoozed or skipped breaks around meetings and deadlines</p></article>
+          </div>
+        </div>
+      </section>
+
+      <section className="hackathon-case__section">
+        <SectionIntro
+          label="07 / Usability testing"
+          title="Test the friction"
+          note="Ten desk-based workers completed task scenarios and thought aloud through the high-fidelity prototype."
+        />
+        <div className="hackathon-case__content">
+          <p className="hackathon-case__lead hackathon-case__lead--large">
+            Testing showed that the product idea was understandable, but control had to be more explicit than the first concept allowed.
+          </p>
+          <div className="hackathon-three-columns hackathon-validation">
+            <article><p className="hackathon-case__eyebrow">Critical issue 01</p><p>Exercise-swap arrows looked like reorder or selection controls. The action needed a clearer edit affordance.</p></article>
+            <article><p className="hackathon-case__eyebrow">Critical issue 02</p><p>Global break settings were difficult to find. People needed a more visible route to duration and notification controls.</p></article>
+            <article><p className="hackathon-case__eyebrow">The product signal</p><p>Some participants preferred a browsable exercise list over chat. The concept evolved toward recommendation plus a direct control path.</p></article>
+          </div>
+        </div>
+      </section>
+
+      <ExerciseSnackGallery />
+
+      <section className="hackathon-case__section exercise-lessons">
+        <SectionIntro
+          label="09 / Key takeaways"
+          title="What I learned"
+          note="The strongest lesson was not a UI change. It was learning how to lead creative work without owning every decision."
+        />
+        <div className="hackathon-case__content"><EditorialRows items={lessons} /></div>
+      </section>
+
+      <Link className="hackathon-next" href="/projects/hackathon">
+        <div><p className="hackathon-case__eyebrow">Next case study</p><h2>Hackathon platform</h2></div>
+        <div><p>From signup intent to active participation</p><span>View project →</span></div>
+      </Link>
+    </main>
   );
 }
