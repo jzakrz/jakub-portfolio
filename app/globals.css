@@ -1016,31 +1016,11 @@ html {
   text-transform: uppercase;
 }
 
-.steam-carousel__header > div,
 .steam-carousel__note {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 14px;
-}
-
-.steam-carousel__header button {
-  padding: 7px 11px;
-  border: 1px solid var(--about-ink);
-  border-radius: 999px;
-  color: inherit;
-  background: transparent;
-  font: inherit;
-  text-transform: uppercase;
-  cursor: pointer;
-  transition: color 180ms ease, background-color 180ms ease;
-}
-
-.steam-carousel__header button:hover,
-.steam-carousel__header button:focus-visible,
-.steam-carousel__header button[aria-pressed="true"] {
-  color: var(--about-card);
-  background: var(--about-ink);
 }
 
 .steam-carousel__viewport {
@@ -1070,8 +1050,7 @@ html {
 }
 
 .steam-carousel:hover .steam-carousel__track,
-.steam-carousel:focus-within .steam-carousel__track,
-.steam-carousel.is-paused .steam-carousel__track {
+.steam-carousel:focus-within .steam-carousel__track {
   animation-play-state: paused;
 }
 
@@ -1100,9 +1079,28 @@ html {
 
 .steam-game-card img {
   object-fit: cover;
-  filter: grayscale(1) contrast(0.94);
+  filter: saturate(0.98) contrast(0.98);
   transform: scale(1.01);
   transition: filter 260ms ease, transform 320ms ease;
+}
+
+.steam-game-card img.steam-game-card__image--icon {
+  padding: 35%;
+  object-fit: contain;
+  background: linear-gradient(145deg, #cacaca, #969696);
+}
+
+.steam-game-card__placeholder {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  color: rgb(11 11 12 / 42%);
+  background: linear-gradient(145deg, #d2d2d2, #a6a6a6);
+  font-size: 42px;
+  font-weight: 500;
+  letter-spacing: -0.06em;
+  text-transform: uppercase;
 }
 
 .steam-game-card__scrim {
@@ -1145,7 +1143,7 @@ html {
 
 .steam-game-card:hover img,
 .steam-game-card:focus-visible img {
-  filter: grayscale(1) contrast(1.04);
+  filter: saturate(1.08) contrast(1.03);
   transform: scale(1.045);
 }
 
@@ -1754,14 +1752,6 @@ html {
   .steam-carousel__header {
     min-height: 58px;
     padding-inline: 14px;
-  }
-
-  .steam-carousel__header > div {
-    gap: 8px;
-  }
-
-  .steam-carousel__header button {
-    padding: 6px 9px;
   }
 
   .steam-game-card {
