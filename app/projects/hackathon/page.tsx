@@ -1,505 +1,306 @@
-"use client";
-
-import Header from "@/components/Header";
+import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import HackathonGallery from "@/components/HackathonGallery";
+
+export const metadata: Metadata = {
+  title: "Hackathon Platform — Jakub Zakrzewski",
+  description:
+    "A product design case study about redefining hackathon participation, connecting the event journey and measuring meaningful activation.",
+};
+
+const journeySteps = [
+  ["01", "Discover", "Website"],
+  ["02", "Join", "Registration forms"],
+  ["03", "Meet", "Discord"],
+  ["04", "Watch", "Twitch"],
+  ["05", "Build", "Separate tools"],
+  ["06", "Submit", "External forms"],
+];
+
+const decisions = [
+  {
+    title: "Count completed registration—not signup intent.",
+    body: "Joining or creating a team became the activation event and the honest definition of an event-ready participant.",
+  },
+  {
+    title: "Make team formation the end of registration.",
+    body: "Onboarding led people toward a team instead of treating the initial signup click as the end of the journey.",
+  },
+  {
+    title: "Keep the remaining event journey connected.",
+    body: "Rules, schedule, stream and submission stayed close to the actions participants needed to complete.",
+  },
+];
+
+const lessons = [
+  {
+    title: "Define activation before optimizing it.",
+    body: "The 20% baseline showed that signup volume was not meaningful participation; the product needed a behavior-based definition.",
+  },
+  {
+    title: "Bring engineering into the model early.",
+    body: "Daily collaboration exposed constraints before they hardened into expensive interaction decisions.",
+  },
+  {
+    title: "Test uncertainty, not polish.",
+    body: "The most useful Maze rounds focused on where people hesitated and what they expected to happen next.",
+  },
+  {
+    title: "Pair behavioral data with moderated follow-up.",
+    body: "Instrument the journey, then use short interviews to understand the intent behind the numbers.",
+  },
+];
+
+function SectionIntro({
+  label,
+  title,
+  note,
+}: {
+  label: string;
+  title: string;
+  note?: string;
+}) {
+  return (
+    <div className="hackathon-case__rail">
+      <p className="hackathon-case__eyebrow">{label}</p>
+      <h2>{title}</h2>
+      {note ? <p className="hackathon-case__rail-note">{note}</p> : null}
+    </div>
+  );
+}
+
+function EditorialRows({
+  items,
+}: {
+  items: Array<{ title: string; body: string }>;
+}) {
+  return (
+    <div className="hackathon-editorial-rows">
+      {items.map((item, index) => (
+        <article className="hackathon-editorial-row" key={item.title}>
+          <p className="hackathon-editorial-row__number">
+            {String(index + 1).padStart(2, "0")}
+          </p>
+          <div>
+            <h3>{item.title}</h3>
+            <p>{item.body}</p>
+          </div>
+        </article>
+      ))}
+    </div>
+  );
+}
 
 export default function HackathonPage() {
-  const [isPrototypeOpen, setIsPrototypeOpen] = useState(false);
-  const [isPrototypeLoading, setIsPrototypeLoading] = useState(false);
-
-  useEffect(() => {
-    if (!isPrototypeOpen) return;
-
-    const originalBodyOverflow = document.body.style.overflow;
-    const originalHtmlOverflow = document.documentElement.style.overflow;
-
-    document.body.style.overflow = "hidden";
-    document.documentElement.style.overflow = "hidden";
-
-    return () => {
-      document.body.style.overflow = originalBodyOverflow;
-      document.documentElement.style.overflow = originalHtmlOverflow;
-    };
-  }, [isPrototypeOpen]);
-
   return (
-    <>
-      <main className="min-h-screen overflow-x-clip bg-white text-black">
-        <Header />
+    <main className="hackathon-case">
+      <header className="hackathon-case__header">
+        <Link href="/projects">← Works</Link>
+        <p>Case 01 / Hackathon platform</p>
+        <Link href="/projects/net-zero-build">Next / Net Zero Build →</Link>
+      </header>
 
-        <section className="bg-black px-6 pb-16 pt-24 text-white lg:px-10 lg:pb-24 lg:pt-32">
-          <div className="mx-auto max-w-6xl">
-            <Link
-              href="/"
-              className="mb-8 inline-flex cursor-pointer items-center gap-2 rounded-full border border-white/20 bg-[#1f1f1f] px-5 py-2.5 text-[0.88rem] font-semibold uppercase tracking-[0.08em] text-white transition-colors hover:bg-[#2a2a2a] lg:mb-10"
-            >
-              <svg
-                viewBox="0 0 24 24"
-                aria-hidden="true"
-                className="h-4 w-4 stroke-current"
-                fill="none"
-                strokeWidth="2.3"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <path d="M19 12H5" />
-                <path d="m12 19-7-7 7-7" />
-              </svg>
-              Back to Portfolio
-            </Link>
-
-            <div className="max-w-5xl">
-              <div className="mb-6 flex flex-wrap gap-2 lg:mb-8">
-                <span className="rounded-full bg-white/10 px-4 py-2 text-[11px] font-medium uppercase tracking-[0.14em] text-white/80">
-                  Commercial Project
-                </span>
-                <span className="rounded-full bg-white/10 px-4 py-2 text-[11px] font-medium uppercase tracking-[0.14em] text-white/80">
-                  Event Platform
-                </span>
-              </div>
-
-              <h1 className="text-[clamp(2.4rem,12.5vw,7.8rem)] font-black uppercase leading-[0.9] tracking-[-0.04em] text-white [overflow-wrap:anywhere] sm:[overflow-wrap:normal]">
-                Hackathon Platform
-                <br />
-                Redesign.
-              </h1>
-
-              <p className="mt-8 max-w-4xl text-[1.1rem] leading-[1.4] text-white/85 lg:mt-10 lg:text-[1.4rem]">
-                A web platform supporting hackathon participants before and during
-                the event. The goal of the redesign was to bring the most
-                important user activities into one place instead of redirecting
-                users to external tools such as Discord, Twitch, or Google Forms.
-                An important part of the project was also simplifying the event
-                sign-up and team-joining flow, as well as unifying the interface.
-              </p>
-            </div>
-
-            <div className="mt-12 w-full lg:mt-16 lg:max-w-[52.5%]">
-              <div className="rounded-[2.4rem] border border-white/15 bg-[#262626] p-8 lg:p-10">
-                <p className="text-[0.85rem] font-medium uppercase tracking-[0.16em] text-white/70">
-                  Project Snapshot
-                </p>
-
-                <div className="mt-8 grid max-w-3xl gap-8">
-                  <div className="space-y-8">
-                    <div>
-                      <p className="text-[0.85rem] font-medium uppercase tracking-[0.16em] text-white/65">
-                        My role
-                      </p>
-                      <p className="mt-3 text-[1.05rem] leading-[1.45] text-white/94">
-                        I was responsible for the entire design process — from
-                        research and information architecture, through flow and
-                        interface design, to prototyping, user testing, and
-                        collaboration with developers.
-                      </p>
-                    </div>
-
-                    <div>
-                      <p className="text-[0.85rem] font-medium uppercase tracking-[0.16em] text-white/65">
-                        Tools
-                      </p>
-                      <div className="mt-3 flex flex-wrap gap-2">
-                        <span className="rounded-full bg-white/12 px-4 py-2 text-[11px] font-medium uppercase tracking-[0.14em] text-white/90">
-                          Figma
-                        </span>
-                        <span className="rounded-full bg-white/12 px-4 py-2 text-[11px] font-medium uppercase tracking-[0.14em] text-white/90">
-                          FigJam
-                        </span>
-                        <span className="rounded-full bg-white/12 px-4 py-2 text-[11px] font-medium uppercase tracking-[0.14em] text-white/90">
-                          Maze
-                        </span>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div>
-                    <p className="text-[0.85rem] font-medium uppercase tracking-[0.16em] text-white/65">
-                      Outcome
-                    </p>
-                    <p className="mt-3 text-[1.05rem] leading-[1.45] text-white/94">
-                      Through iterative prototype testing, I was able to simplify
-                      the key user flow and make it more intuitive. In the final
-                      version, most participants were able to complete the happy
-                      path without getting lost.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section className="bg-[#f8f7f5] px-6 py-4 lg:px-10 lg:py-6">
-          <div className="mx-auto grid max-w-6xl gap-5 lg:grid-cols-[1.05fr_0.95fr]">
-            <div className="rounded-[2.6rem] bg-[#f1cc00] p-8 lg:p-10">
-              <h2 className="mt-5 text-[clamp(2.6rem,4vw,4.5rem)] font-black uppercase leading-[0.92] tracking-[-0.06em] text-black">
-                Lessons Learned
-              </h2>
-
-              <p className="mt-6 max-w-[720px] text-[1.05rem] leading-[1.5] tracking-[-0.02em] text-black/85 lg:text-[1.18rem]">
-                Some participants did not realize they had to join a team in order to
-                take part in the event. To solve this, I introduced a persistent
-                banner and the ability to join or create a team directly in
-                onboarding — before the user gets full access to the event space.
-              </p>
-            </div>
-
-            <div className="rounded-[2.6rem] border border-black/10 bg-[#f2f1ee] p-8 text-black lg:p-10">
-              <p className="text-[0.85rem] font-medium uppercase tracking-[0.16em] text-black/50">
-                Why it mattered
-              </p>
-
-              <div className="mt-8">
-                <div className="rounded-[1.6rem] border border-black/10 bg-[#ebe9e4] p-5">
-                  <p className="text-[0.8rem] uppercase tracking-[0.16em] text-black/50">
-                    Before
-                  </p>
-                  <p className="mt-2 text-[1.02rem] leading-[1.45] text-black/80">
-                    Team participation rules were easy to overlook during onboarding.
-                  </p>
-                </div>
-
-                <div className="mt-5 rounded-[1.6rem] border border-black/10 bg-[#ebe9e4] p-5">
-                  <p className="text-[0.8rem] uppercase tracking-[0.16em] text-black/50">
-                    After
-                  </p>
-                  <p className="mt-2 text-[1.02rem] leading-[1.45] text-black/80">
-                    Team prompts now appear during onboarding, so users join or create
-                    a team before getting full access to the event space.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section className="bg-[#f8f7f5] px-6 py-12 lg:px-10 lg:py-16">
-          <div className="mx-auto max-w-6xl">
-            <h2 className="text-[clamp(2.4rem,4.6vw,4.6rem)] font-black uppercase leading-[0.92] tracking-[-0.06em] text-black">
-              Pre-redesign user flow
-            </h2>
-
-            <p className="mt-5 max-w-3xl text-[1.03rem] leading-[1.55] text-black/75 lg:text-[1.1rem]">
-              Before the redesign, participants had to switch between multiple
-              tools to complete one event journey. This map shows where users
-              stayed on the platform versus where they were sent outside it.
+      <section className="hackathon-case__section hackathon-case__hero">
+        <div className="hackathon-case__hero-rail">
+          <div>
+            <p className="hackathon-case__eyebrow">Case study 01</p>
+            <h1>Rebuilding the hackathon experience.</h1>
+            <p className="hackathon-case__thesis">
+              From signup intent to active participation.
             </p>
-
-            <div className="mt-8 flex flex-wrap gap-3">
-              <span className="inline-flex items-center gap-2 rounded-full border border-black/10 bg-white px-4 py-2 text-[0.78rem] font-semibold uppercase tracking-[0.12em] text-black/75">
-                <span className="h-2.5 w-2.5 rounded-full bg-[#6b6b6b]" />
-                On-platform step
-              </span>
-              <span className="inline-flex items-center gap-2 rounded-full border border-[#cf4242]/30 bg-[#fff1f1] px-4 py-2 text-[0.78rem] font-semibold uppercase tracking-[0.12em] text-[#9d2020]">
-                <span className="h-2.5 w-2.5 rounded-full bg-[#d63f3f]" />
-                External tool step
-              </span>
-            </div>
-
-            <div className="mt-8 grid gap-4 lg:grid-cols-3">
-              {[
-                { label: "Event enrollment on event page", external: false },
-                { label: "Fill out Google Form", external: true },
-                { label: "Create or join team", external: false },
-                { label: "Go to Discord server (teammates)", external: true },
-                { label: "Watch opening ceremony on Twitch", external: true },
-                { label: "Submit project on platform", external: false },
-              ].map((step, index) => (
-                <div
-                  key={step.label}
-                  className={`rounded-[1.4rem] border p-5 ${
-                    step.external
-                      ? "border-[#cf4242]/35 bg-[#fff4f4]"
-                      : "border-black/10 bg-[#f1f1ef]"
-                  }`}
-                >
-                  <p
-                    className={`text-[0.74rem] font-semibold uppercase tracking-[0.14em] ${
-                      step.external ? "text-[#9d2020]/85" : "text-black/45"
-                    }`}
-                  >
-                    Step {index + 1}
-                  </p>
-                  <p
-                    className={`mt-2 text-[1rem] leading-[1.45] ${
-                      step.external ? "text-[#7d1f1f]" : "text-black/80"
-                    }`}
-                  >
-                    {step.label}
-                  </p>
-                </div>
-              ))}
-            </div>
-
-            <h2 className="mt-12 text-[clamp(2.2rem,4.2vw,4rem)] font-black uppercase leading-[0.94] tracking-[-0.05em] text-black">
-              Trade-offs
-            </h2>
-            <div className="mt-7 grid gap-4 lg:grid-cols-2">
-              <div className="rounded-[1.4rem] border border-black/10 bg-[#f1f1ef] p-5">
-                <p className="text-[0.78rem] font-semibold uppercase tracking-[0.14em] text-black/45">
-                  Faster launch vs full rebuild
-                </p>
-                <p className="mt-2 text-[1.02rem] leading-[1.5] text-black/80">
-                  To ship the MVP quickly, we attached the redesigned experience
-                  to the existing platform instead of rebuilding the entire event
-                  stack. The benefit was faster delivery; the trade-off is that
-                  users still begin on the legacy event page and enter the new
-                  experience after clicking enroll.
-                </p>
-              </div>
-              <div className="rounded-[1.4rem] border border-black/10 bg-[#f1f1ef] p-5">
-                <p className="text-[0.78rem] font-semibold uppercase tracking-[0.14em] text-black/45">
-                  Integrated experience vs engineering effort
-                </p>
-                <p className="mt-2 text-[1.02rem] leading-[1.5] text-black/80">
-                  Replacing Discord and Twitch would have created a more unified
-                  product, but it required too much engineering effort for this
-                  iteration. We chose to embed both tools, prioritizing feasibility
-                  and timeline over complete ownership of those interactions.
-                </p>
-              </div>
-            </div>
           </div>
-        </section>
-
-        <section className="bg-[#f8f7f5] px-6 py-12 lg:px-10 lg:py-16">
-          <div className="mx-auto max-w-6xl">
-            <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
-              <div>
-                <h2 className="text-[clamp(2.8rem,5vw,5rem)] font-black uppercase leading-[0.92] tracking-[-0.06em] text-black">
-                  Selected Screens
-                </h2>
-              </div>
-
-              <div className="flex flex-wrap items-center gap-2">
-                <button
-                  type="button"
-                  onClick={() => {
-                    setIsPrototypeLoading(true);
-                    setIsPrototypeOpen(true);
-                  }}
-                  className="hidden cursor-pointer items-center justify-center rounded-full bg-black px-5 py-2.5 text-[0.88rem] font-semibold uppercase tracking-[0.08em] text-white transition-transform hover:scale-[1.03] sm:inline-flex"
-                >
-                  Open Prototype
-                </button>
-              </div>
-            </div>
-
-            <div className="mt-10 space-y-10">
-              <div>
-                <Image
-                  src="/assets/images/event-page.webp.webp"
-                  alt="Hackathon event page screen with sign-up and event details."
-                  width={1600}
-                  height={900}
-                  className="h-auto w-full rounded-xl sm:rounded-[1.5rem] lg:rounded-[2rem]"
-                  unoptimized
-                  quality={100}
-                />
-                <p className="mt-4 px-1 text-[0.82rem] font-medium uppercase tracking-[0.16em] text-black/45">
-                  Event page
-                </p>
-              </div>
-
-              <div>
-                <Image
-                  src="/assets/images/onboarding.webp.webp"
-                  alt="Onboarding screen with matchmaking flow for hackathon participants."
-                  width={1600}
-                  height={900}
-                  className="h-auto w-full rounded-xl sm:rounded-[1.5rem] lg:rounded-[2rem]"
-                />
-                <p className="mt-4 px-1 text-[0.82rem] font-medium uppercase tracking-[0.16em] text-black/45">
-                  Onboarding
-                </p>
-              </div>
-
-              <div>
-                <Image
-                  src="/assets/images/user-profile.webp.webp"
-                  alt="User profile view from the hackathon platform prototype."
-                  width={1600}
-                  height={900}
-                  className="h-auto w-full rounded-xl sm:rounded-[1.5rem] lg:rounded-[2rem]"
-                />
-                <p className="mt-4 px-1 text-[0.82rem] font-medium uppercase tracking-[0.16em] text-black/45">
-                  User profile
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section className="bg-[#f8f7f5] px-6 pb-16 pt-8 lg:px-10 lg:pb-24 lg:pt-12">
-          <div className="mx-auto max-w-6xl border-t border-black/10 pt-8 lg:pt-10">
-            <p className="mb-5 inline-flex rounded-full border border-black/10 bg-white px-4 py-2 text-[0.78rem] font-semibold uppercase tracking-[0.14em] text-black/55">
-              View other projects
-            </p>
-
-            <Link
-              href="/projects/exercise-snack"
-              className="group grid gap-6 rounded-[1.6rem] p-1 text-black transition-colors hover:bg-black/[0.03] sm:grid-cols-[minmax(0,1fr)_auto] sm:items-center sm:p-5"
-            >
-              <div>
-                <h2 className="text-[clamp(2rem,4vw,3.8rem)] font-black uppercase leading-[0.9] tracking-[-0.06em] text-black">
-                  Exercise Snack
-                </h2>
-                <p className="mt-3 max-w-xl text-[1rem] leading-[1.45] text-black/55 lg:text-[1.08rem]">
-                  A mobile concept for building healthier movement habits during
-                  sedentary workdays.
-                </p>
-              </div>
-
-              <div className="flex items-center gap-3 text-[0.85rem] font-semibold uppercase tracking-[0.12em] text-black/65 transition-colors group-hover:text-black sm:justify-end">
-                View case study
-                <span className="flex h-11 w-11 items-center justify-center rounded-full border border-black/15 transition-transform group-hover:translate-x-1">
-                  <svg
-                    viewBox="0 0 24 24"
-                    aria-hidden="true"
-                    className="h-4 w-4 stroke-current"
-                    fill="none"
-                    strokeWidth="2.3"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  >
-                    <path d="M5 12h14" />
-                    <path d="m13 5 7 7-7 7" />
-                  </svg>
-                </span>
-              </div>
-            </Link>
-          </div>
-        </section>
-      </main>
-
-      {isPrototypeOpen && (
-  <div
-    className="fixed inset-0 z-[100] flex items-center justify-center bg-black/70 p-2"
-    onClick={() => setIsPrototypeOpen(false)}
-  >
-    <div
-      className="relative mx-auto w-full max-w-[1320px]"
-      onClick={(event) => event.stopPropagation()}
-    >
-      <button
-        type="button"
-        onClick={() => setIsPrototypeOpen(false)}
-        aria-label="Close prototype modal"
-        className="absolute -right-2 -top-2 z-20 flex h-10 w-10 items-center justify-center rounded-full bg-white text-black shadow-[0_10px_30px_rgba(0,0,0,0.2)] transition hover:scale-95"
-      >
-        <svg
-          viewBox="0 0 24 24"
-          aria-hidden="true"
-          className="h-5 w-5 stroke-current"
-          fill="none"
-          strokeWidth="2.2"
-          strokeLinecap="round"
-        >
-          <path d="M6 6l12 12" />
-          <path d="M18 6 6 18" />
-        </svg>
-      </button>
-
-      <div className="overflow-hidden rounded-[1.8rem] border border-black/10 bg-[#f6f6f7] shadow-[0_35px_90px_rgba(0,0,0,0.18)]">
-        <div className="border-b border-black/10 bg-[#ececef] px-5 py-4">
-          <div className="flex items-center justify-between gap-4">
-            <div className="flex items-center gap-2">
-              <span className="h-3 w-3 rounded-full bg-[#ff5f57]" />
-              <span className="h-3 w-3 rounded-full bg-[#febc2e]" />
-              <span className="h-3 w-3 rounded-full bg-[#28c840]" />
-            </div>
-
-            <div className="flex-1">
-              <div className="mx-auto flex h-10 max-w-[520px] items-center rounded-full border border-black/10 bg-white px-4 text-sm text-black/45">
-                hackathon-platform-prototype.fig
-              </div>
-            </div>
-
-            <div className="w-[72px]" />
-          </div>
+          <dl className="hackathon-case__hero-meta">
+            <div><dt>Role</dt><dd>Lead product design</dd></div>
+            <div><dt>Tools</dt><dd>Figma, FigJam, Maze</dd></div>
+            <div><dt>Timeline</dt><dd>June 2024</dd></div>
+          </dl>
         </div>
 
-        <div className="bg-white p-3">
-  <div className="relative overflow-hidden rounded-[1rem] border border-black/10 bg-white">
-    {isPrototypeLoading && (
-  <div className="pointer-events-none absolute inset-0 z-10">
-    <div className="absolute left-1/2 top-6 flex -translate-x-1/2 flex-col items-center gap-3">
-      <div className="flex h-12 w-12 items-center justify-center rounded-full border border-black/10 bg-white shadow-[0_10px_30px_rgba(0,0,0,0.08)] animate-bounce">
-        <svg
-          viewBox="0 0 24 24"
-          aria-hidden="true"
-          className="h-5 w-5 stroke-current text-black"
-          fill="none"
-          strokeWidth="2.2"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        >
-          <path d="M12 19V5" />
-          <path d="M6 11l6-6 6 6" />
-        </svg>
-      </div>
+        <div className="hackathon-case__hero-content">
+          <div className="hackathon-case__hero-image">
+            <Image
+              src="/assets/images/hackathon-case-study-image.webp.webp"
+              alt="Four hackathon participants collaborating around a laptop"
+              fill
+              priority
+              sizes="(max-width: 900px) 100vw, 58vw"
+            />
+          </div>
+          <div className="hackathon-case__caption">
+            <p className="hackathon-case__eyebrow">Description</p>
+            <p>
+              A web platform supporting hackathon participants before and during
+              events. The redesign brought the most important activities into one
+              product and aligned registration with a meaningful activation event:
+              joining or creating a team.
+            </p>
+          </div>
+        </div>
+      </section>
 
-      <div className="figma-loader">Loading</div>
-    </div>
-  </div>
-)}
+      <section className="hackathon-case__section">
+        <SectionIntro
+          label="Project summary"
+          title="Project snapshot"
+          note="What changed, what I owned, and which product signal guided the redesign."
+        />
+        <div className="hackathon-case__content hackathon-summary">
+          <p className="hackathon-case__lead">
+            A redesign that aligned completed registration with meaningful
+            participation: joining or creating a team.
+          </p>
+          <div className="hackathon-three-columns hackathon-summary__columns">
+            <article>
+              <p className="hackathon-case__eyebrow">Context</p>
+              <p>Only around 20% of signup starters completed registration by joining or creating a team.</p>
+            </article>
+            <article>
+              <p className="hackathon-case__eyebrow">My role</p>
+              <p>I led the end-to-end product direction, research synthesis, interaction design and component-system thinking.</p>
+            </article>
+            <article>
+              <p className="hackathon-case__eyebrow">Scope</p>
+              <p>Event discovery, onboarding, team formation, agenda, streaming, submissions and reusable interface patterns.</p>
+            </article>
+          </div>
+        </div>
+      </section>
 
-    <iframe
-      style={{ border: "none" }}
-      width="100%"
-      height="900"
-      src="https://embed.figma.com/proto/ZktGQu1JSiKVIstVvhbdU0/Hackathon-Platform-Redesign?page-id=5116%3A37624&node-id=5116-44646&p=f&viewport=1802%2C-3302%2C0.55&scaling=scale-down&content-scaling=fixed&starting-point-node-id=5116%3A44646&embed-host=share"
-      allowFullScreen
-      onLoad={() => {
-  setTimeout(() => {
-    setIsPrototypeLoading(false);
-  }, 4000);
-}}
-    />
-  </div>
-</div>
-      </div>
-    </div>
-  </div>
-)}
-<style jsx>{`
-  .figma-loader {
-    width: fit-content;
-    font-size: 40px;
-    line-height: 1.5;
-    font-family: system-ui, sans-serif;
-    font-weight: 700;
-    text-transform: uppercase;
-    color: transparent;
-    -webkit-text-stroke: 1px #000;
-    background:
-      radial-gradient(
-          1.13em at 50% 1.6em,
-          #000 99%,
-          transparent 101%
-        )
-        calc(50% - 1.6em) 0 / 3.2em 100% text,
-      radial-gradient(
-          1.13em at 50% -0.8em,
-          transparent 99%,
-          #000 101%
-        )
-        50% 0.8em / 3.2em 100% repeat-x text;
-    -webkit-background-clip: text;
-    background-clip: text;
-    animation: figmaLoaderWave 2s linear infinite;
-  }
+      <section className="hackathon-case__section">
+        <SectionIntro
+          label="01 / Activation gap"
+          title="Activation gap"
+          note="Signup intent was counted as participation, even though the journey was incomplete."
+        />
+        <div className="hackathon-case__content">
+          <p className="hackathon-case__lead hackathon-case__lead--large">
+            Only around 20% of people who started signup completed registration by joining or creating a team.
+          </p>
+          <div className="hackathon-activation__metric">
+            <strong>20%</strong>
+            <div>
+              <p className="hackathon-case__eyebrow">Registration completion</p>
+              <p>joined or created a team ÷ started signup</p>
+            </div>
+          </div>
+          <div className="hackathon-two-columns">
+            <article>
+              <p className="hackathon-case__eyebrow">The definition</p>
+              <p>Creating an account showed intent. A participant became meaningfully activated only after joining or creating a team.</p>
+            </article>
+            <article>
+              <p className="hackathon-case__eyebrow">The trade-off</p>
+              <p>The participant count became smaller on paper, but more honest, actionable and aligned with submission readiness.</p>
+            </article>
+          </div>
+        </div>
+      </section>
 
-  @keyframes figmaLoaderWave {
-    to {
-      background-position:
-        calc(50% + 1.6em) 0,
-        calc(50% + 3.2em) 0.8em;
-    }
-  }
-`}</style>
-    </>
+      <section className="hackathon-case__section">
+        <SectionIntro
+          label="02 / Journey gaps"
+          title="Journey gaps"
+          note="Six products were involved in completing one participation journey."
+        />
+        <div className="hackathon-case__content">
+          <p className="hackathon-case__lead">
+            Participants repeatedly lost event context while moving between registration, team formation, coordination, streaming and submission.
+          </p>
+          <p className="hackathon-case__body-copy">
+            Every switch added another place to lose progress, repeat information or wonder what happened next.
+          </p>
+          <p className="hackathon-case__eyebrow hackathon-journey__label">Where the experience broke apart</p>
+          <div className="hackathon-journey">
+            {journeySteps.map(([number, action, tool], index) => (
+              <div className="hackathon-journey__step" style={{ width: `${100 - index * 13}%` }} key={number}>
+                <span>{number}</span><strong>{action}</strong><span>/</span><span>{tool}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="hackathon-case__section hackathon-case__section--direction">
+        <SectionIntro
+          label="03 / The product direction"
+          title="One product"
+          note="Discovery, team formation, event context and submission stay connected—while community channels remain available only where they add real value."
+        />
+        <div className="hackathon-case__content hackathon-direction">
+          <div className="hackathon-direction__image">
+            <Image
+              src="/assets/images/event-page.webp.webp"
+              alt="Redesigned hackathon event overview keeping essential event actions in one interface"
+              fill
+              sizes="(max-width: 900px) 100vw, 58vw"
+            />
+          </div>
+          <p className="hackathon-direction__caption">New Native direction — connected actions, preserved community.</p>
+        </div>
+        <p className="hackathon-direction__principle"><span>Design principle</span>Keep context close to the action.</p>
+      </section>
+
+      <section className="hackathon-case__section">
+        <SectionIntro
+          label="04 / Product decisions"
+          title="Three decisions"
+          note="The work connected the participation metric to concrete changes in registration and the wider event journey."
+        />
+        <div className="hackathon-case__content"><EditorialRows items={decisions} /></div>
+      </section>
+
+      <section className="hackathon-case__section">
+        <SectionIntro
+          label="05 / Success criteria"
+          title="Measure activation"
+          note="The redesign was not shipped, so 20% remains the baseline—not a claimed outcome."
+        />
+        <div className="hackathon-case__content">
+          <p className="hackathon-case__lead hackathon-case__lead--large">
+            Success meant increasing completed registration without hiding abandonment behind signup volume.
+          </p>
+          <div className="hackathon-three-columns hackathon-measures">
+            <article><p className="hackathon-case__eyebrow">Primary metric</p><h3>Registration completion</h3><p>Joined or created a team ÷ signup started</p></article>
+            <article><p className="hackathon-case__eyebrow">Supporting signal</p><h3>Time to team</h3><p>How long completion took after signup began</p></article>
+            <article><p className="hackathon-case__eyebrow">Guardrail</p><h3>Signup abandonment</h3><p>Whether the new definition increased early drop-off</p></article>
+          </div>
+        </div>
+      </section>
+
+      <section className="hackathon-case__section">
+        <SectionIntro
+          label="06 / Validation"
+          title="Test completion"
+          note="Maze iterations focused on finding a team and understanding what participants expected after signup."
+        />
+        <div className="hackathon-case__content">
+          <p className="hackathon-case__lead hackathon-case__lead--large">
+            Testing examined whether team membership felt like the next meaningful outcome—not another external destination.
+          </p>
+          <div className="hackathon-three-columns hackathon-validation">
+            <article><p className="hackathon-case__eyebrow">Trace the funnel</p><p>Follow signup starters through join or create team and identify where completion broke.</p></article>
+            <article><p className="hackathon-case__eyebrow">Test the team path</p><p>Run focused Maze rounds on finding a team, understanding the choice and knowing what happened next.</p></article>
+            <article><p className="hackathon-case__eyebrow">Design with the build</p><p>Resolve constraints with engineering while the registration model was still flexible.</p></article>
+          </div>
+        </div>
+      </section>
+
+      <HackathonGallery />
+
+      <section className="hackathon-case__section">
+        <SectionIntro
+          label="08 / Key takeaways"
+          title="What I learned"
+          note="The project changed how I define activation, connect journeys and use behavioral evidence."
+        />
+        <div className="hackathon-case__content"><EditorialRows items={lessons} /></div>
+      </section>
+
+      <Link className="hackathon-next" href="/projects/net-zero-build">
+        <div><p className="hackathon-case__eyebrow">Next case study</p><h2>Net Zero Build</h2></div>
+        <div><p>AI-powered compliance MVP</p><span>View project →</span></div>
+      </Link>
+    </main>
   );
 }
