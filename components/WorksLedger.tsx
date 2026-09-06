@@ -8,6 +8,7 @@ type Project = {
   title: string;
   disciplines: string;
   summary: string;
+  status?: "coming-soon";
   href?: string;
   image?: string;
   imageAlt?: string;
@@ -45,27 +46,50 @@ const projects: Project[] = [
     number: "03",
     type: "Case study",
     year: "2025–26",
-    title: "Net Zero Build",
+    title: "Green Building Compliance Platform",
     disciplines: "Product strategy / AI / Compliance",
     summary:
       "A workspace for navigating sustainability requirements and the evidence behind them.",
-    href: "/projects/net-zero-build",
+    status: "coming-soon",
     image: "/assets/images/net-zero-portfolio-dashboard.png",
     imageAlt: "Net Zero Build organization portfolio dashboard",
     imageFit: "contain",
   },
   {
     number: "04",
-    type: "In progress",
+    type: "Case study",
     year: "2026",
-    title: "BUW Library Redesign",
-    disciplines: "Service design / Public space",
+    title: "University Library Mobile App",
+    disciplines: "UX research / Mobile / Public service",
     summary:
-      "Reframing the library journey as a legible and welcoming service experience.",
+      "Modernising my first UX project into a clearer mobile journey through the University of Warsaw Library.",
+    status: "coming-soon",
+  },
+  {
+    number: "05",
+    type: "Design challenge",
+    year: "2026",
+    title: "Financial Planning Assistant",
+    disciplines: "Product design / Fintech / AI",
+    summary:
+      "A monthly planning assistant that helps people understand whether a purchase still fits their financial plan.",
+    status: "coming-soon",
+  },
+  {
+    number: "06",
+    type: "Product concept",
+    year: "2026",
+    title: "Nonlinear AI Chat Workspace",
+    disciplines: "Product concept / AI / Collaboration",
+    summary:
+      "A node-based workspace for branching conversations, coordinating agents and preserving context.",
+    status: "coming-soon",
   },
 ];
 
 function ProjectPreview({ project }: { project: Project }) {
+  const isComingSoon = project.status === "coming-soon";
+
   if (project.image) {
     return (
       <div
@@ -79,17 +103,21 @@ function ProjectPreview({ project }: { project: Project }) {
           fill
           sizes="(max-width: 700px) calc(100vw - 64px), (max-width: 1100px) calc(100vw - 104px), 720px"
         />
-        <span className="project-card__open" aria-hidden="true">
-          Open ↗
-        </span>
+        {isComingSoon ? (
+          <span className="project-card__status">Coming soon</span>
+        ) : (
+          <span className="project-card__open" aria-hidden="true">
+            Open ↗
+          </span>
+        )}
       </div>
     );
   }
 
   return (
     <div className="project-card__media project-card__media--pending">
-      <span>Preview in progress</span>
-      <span>{project.number} / 04</span>
+      <span>Coming soon</span>
+      <span>{project.number} / {String(projects.length).padStart(2, "0")}</span>
     </div>
   );
 }
@@ -113,7 +141,7 @@ function ProjectCardContent({ project }: { project: Project }) {
 }
 
 function ProjectCard({ project }: { project: Project }) {
-  if (project.href) {
+  if (project.href && project.status !== "coming-soon") {
     return (
       <Link href={project.href} className="project-card project-card--linked">
         <ProjectCardContent project={project} />
@@ -122,7 +150,7 @@ function ProjectCard({ project }: { project: Project }) {
   }
 
   return (
-    <article className="project-card project-card--pending">
+    <article className="project-card project-card--coming-soon">
       <ProjectCardContent project={project} />
     </article>
   );
@@ -134,7 +162,7 @@ export default function WorksLedger() {
       <div className="project-index__shell">
         <header className="project-index__header">
           <Link href="/">← Home</Link>
-          <p>Works / 04</p>
+          <p>Works / {String(projects.length).padStart(2, "0")}</p>
           <p>Jakub Zakrzewski</p>
         </header>
 
