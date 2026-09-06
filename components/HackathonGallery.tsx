@@ -69,7 +69,25 @@ export default function HackathonGallery() {
             onClick={() => setIsViewerOpen(true)}
             aria-label={`Open ${activeSlide.title} in image viewer`}
           >
-            <Image key={activeSlide.src} src={activeSlide.src} alt={activeSlide.alt} fill sizes="(max-width: 900px) 100vw, 58vw" />
+            {activeSlide.fit === "contain" ? (
+              <Image
+                key={activeSlide.src}
+                className="hackathon-gallery__screen"
+                src={activeSlide.src}
+                alt={activeSlide.alt}
+                width={activeSlide.width}
+                height={activeSlide.height}
+                sizes="(max-width: 900px) 100vw, 58vw"
+              />
+            ) : (
+              <Image
+                key={activeSlide.src}
+                src={activeSlide.src}
+                alt={activeSlide.alt}
+                fill
+                sizes="(max-width: 900px) 100vw, 58vw"
+              />
+            )}
           </button>
         </div>
       </section>
