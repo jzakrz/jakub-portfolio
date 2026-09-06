@@ -2126,12 +2126,6 @@ html {
   object-fit: contain;
 }
 
-.hackathon-case__hero-image img,
-.hackathon-direction__image img,
-.hackathon-gallery img {
-  filter: grayscale(1);
-}
-
 .hackathon-case__caption {
   display: grid;
   gap: 12px;
@@ -2585,7 +2579,6 @@ html {
   object-fit: contain;
   border: 1px solid rgb(20 20 20 / 18%);
   border-radius: 20px;
-  filter: grayscale(1);
   box-shadow: 0 18px 40px rgb(0 0 0 / 12%);
   animation: image-viewer-media-in 240ms ease both;
 }
