@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import CaseStudyHeader from "@/components/CaseStudyHeader";
 import NetZeroViewerImage from "@/components/NetZeroImageViewer";
 
 export const metadata: Metadata = {
@@ -122,11 +123,7 @@ function EvidenceFigure({
 export default function NetZeroBuildPage() {
   return (
     <main className="hackathon-case net-zero-case">
-      <header className="hackathon-case__header">
-        <Link href="/projects">← Works</Link>
-        <p>Case 03 / Net Zero Build</p>
-        <Link href="/projects/exercise-snack">Next / Exercise Snack →</Link>
-      </header>
+      <CaseStudyHeader label="Case 03 / Net Zero Build" />
 
       <section className="hackathon-case__section hackathon-case__hero net-zero-hero">
         <div className="hackathon-case__hero-rail">
