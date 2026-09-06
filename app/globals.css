@@ -2440,6 +2440,19 @@ html {
   cursor: zoom-in;
 }
 
+.hackathon-gallery__primary--contain {
+  height: auto;
+  padding: clamp(20px, 2.2vw, 32px);
+}
+
+.hackathon-gallery__primary--contain .hackathon-gallery__screen {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 9px;
+}
+
 .hackathon-gallery__primary img {
   animation: hackathon-gallery-reveal 320ms ease both;
 }
@@ -2905,6 +2918,12 @@ html {
   .hackathon-gallery__primary {
     height: 72vw;
     min-height: 300px;
+  }
+
+  .hackathon-gallery__primary--contain {
+    height: auto;
+    min-height: 0;
+    padding: 18px;
   }
 
   .hackathon-prototype {
