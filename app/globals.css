@@ -2288,8 +2288,15 @@ html {
 }
 
 .hackathon-gallery__primary {
+  display: block;
+  width: 100%;
   height: 660px;
   margin-top: 16px;
+  padding: 0;
+  border: 0;
+  color: inherit;
+  font: inherit;
+  cursor: zoom-in;
 }
 
 .hackathon-gallery__primary img {
@@ -2325,6 +2332,197 @@ html {
 
 .hackathon-gallery__previews img {
   transition: transform 220ms ease;
+}
+
+/* Shared case-study image viewer */
+.image-viewer {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: grid;
+  place-items: center;
+  box-sizing: border-box;
+  min-width: 0;
+  padding: 48px clamp(96px, 12vw, 180px) 58px;
+  color: #0d0d0d;
+  background: #f3f1ed;
+  font-family: var(--font-archivo), Arial, sans-serif;
+  animation: image-viewer-backdrop-in 180ms ease both;
+}
+
+.image-viewer__figure {
+  display: flex;
+  max-width: 100%;
+  max-height: 100%;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 26px;
+  margin: 0;
+}
+
+.image-viewer__image {
+  display: block;
+  width: auto;
+  max-width: calc(100vw - 260px);
+  height: min(calc(100dvh - 180px), 720px);
+  max-height: 100%;
+  object-fit: contain;
+  border: 1px solid rgb(20 20 20 / 18%);
+  border-radius: 20px;
+  filter: grayscale(1);
+  box-shadow: 0 18px 40px rgb(0 0 0 / 12%);
+  animation: image-viewer-media-in 240ms ease both;
+}
+
+.image-viewer__figure--portrait .image-viewer__image {
+  height: min(calc(100dvh - 150px), 750px);
+}
+
+.image-viewer__caption {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  min-height: 18px;
+  white-space: nowrap;
+}
+
+.image-viewer__caption span {
+  color: rgb(61 61 61 / 52%);
+  font-family: var(--font-ibm-plex-mono), monospace;
+  font-size: 10px;
+  font-weight: 500;
+  line-height: 14px;
+  letter-spacing: 0.1px;
+}
+
+.image-viewer__caption strong {
+  color: rgb(13 13 13 / 88%);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 18px;
+  letter-spacing: -0.01em;
+}
+
+.image-viewer__close,
+.image-viewer__arrow {
+  position: fixed;
+  z-index: 1;
+  display: block;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  transition: transform 180ms ease;
+}
+
+.image-viewer__close {
+  top: 16px;
+  right: 32px;
+  width: 48px;
+  height: 48px;
+}
+
+.image-viewer__arrow {
+  top: 50%;
+  width: 56px;
+  height: 56px;
+  transform: translateY(-50%);
+}
+
+.image-viewer__arrow--previous {
+  left: 24px;
+}
+
+.image-viewer__arrow--next {
+  right: 24px;
+}
+
+.image-viewer__close img,
+.image-viewer__arrow img {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.image-viewer__close:hover,
+.image-viewer__close:focus-visible {
+  transform: scale(1.08);
+}
+
+.image-viewer__arrow:hover,
+.image-viewer__arrow:focus-visible {
+  transform: translateY(-50%) scale(1.08);
+}
+
+.image-viewer__close:focus-visible,
+.image-viewer__arrow:focus-visible {
+  outline: 2px solid #0d0d0d;
+  outline-offset: 4px;
+}
+
+@keyframes image-viewer-backdrop-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes image-viewer-media-in {
+  from { opacity: 0; transform: scale(0.992); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@media (max-width: 700px) {
+  .image-viewer {
+    padding: 16px 16px 78px;
+  }
+
+  .image-viewer__figure {
+    width: 100%;
+    gap: 18px;
+  }
+
+  .image-viewer__image {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    max-height: calc(100dvh - 170px);
+  }
+
+  .image-viewer__figure--portrait {
+    width: auto;
+  }
+
+  .image-viewer__figure--portrait .image-viewer__image {
+    width: auto;
+    max-width: calc(100vw - 32px);
+    height: min(calc(100dvh - 170px), 680px);
+  }
+
+  .image-viewer__close {
+    top: 10px;
+    right: 10px;
+  }
+
+  .image-viewer__arrow {
+    top: auto;
+    bottom: 12px;
+    width: 48px;
+    height: 48px;
+    transform: none;
+  }
+
+  .image-viewer__arrow--previous {
+    left: 16px;
+  }
+
+  .image-viewer__arrow--next {
+    right: 16px;
+  }
+
+  .image-viewer__arrow:hover,
+  .image-viewer__arrow:focus-visible {
+    transform: scale(1.08);
+  }
 }
 
 .hackathon-prototype {
@@ -2623,6 +2821,16 @@ html {
   .hackathon-gallery__previews img,
   .hackathon-gallery__prototype,
   .hackathon-gallery__arrows button {
+    transition: none;
+  }
+
+  .image-viewer,
+  .image-viewer__image {
+    animation: none;
+  }
+
+  .image-viewer__close,
+  .image-viewer__arrow {
     transition: none;
   }
 }
@@ -2977,6 +3185,21 @@ html {
   display: block;
   width: 100%;
   height: auto;
+}
+
+.net-zero-viewer-trigger {
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  color: inherit;
+  background: transparent;
+  cursor: zoom-in;
+}
+
+.net-zero-viewer-trigger:focus-visible {
+  outline: 2px solid var(--case-ink);
+  outline-offset: -5px;
 }
 
 .net-zero-hero__caption {

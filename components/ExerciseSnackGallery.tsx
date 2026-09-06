@@ -2,22 +2,29 @@
 
 import Image from "next/image";
 import { useEffect, useState } from "react";
+import ImageViewer, { type ImageViewerSlide } from "@/components/ImageViewer";
 
-const slides = [
+const slides: ImageViewerSlide[] = [
   {
     title: "A five-minute movement break",
     src: "/assets/images/exercise-intro.webp.webp",
     alt: "Exercise Snack active movement session",
+    width: 390,
+    height: 844,
   },
   {
     title: "A personalized exercise set",
     src: "/assets/images/pre-workout-screen.webp.webp",
     alt: "Recommended exercise set with direct edit controls",
+    width: 390,
+    height: 844,
   },
   {
     title: "Progress without pressure",
     src: "/assets/images/stats.webp.webp",
     alt: "Exercise Snack progress screen with active days and points",
+    width: 390,
+    height: 844,
   },
 ];
 
@@ -26,6 +33,7 @@ const prototypeUrl =
 
 export default function ExerciseSnackGallery() {
   const [activeIndex, setActiveIndex] = useState(0);
+  const [isViewerOpen, setIsViewerOpen] = useState(false);
   const [isPrototypeOpen, setIsPrototypeOpen] = useState(false);
   const activeSlide = slides[activeIndex];
   const previewSlides = [1, 2].map(
@@ -82,9 +90,14 @@ export default function ExerciseSnackGallery() {
             </div>
           </div>
 
-          <div className="hackathon-gallery__primary">
+          <button
+            className="hackathon-gallery__primary"
+            type="button"
+            onClick={() => setIsViewerOpen(true)}
+            aria-label={`Open ${activeSlide.title} in image viewer`}
+          >
             <Image key={activeSlide.src} src={activeSlide.src} alt={activeSlide.alt} fill sizes="(max-width: 900px) 100vw, 58vw" />
-          </div>
+          </button>
 
           <div className="hackathon-gallery__previews">
             {previewSlides.map((slide, previewIndex) => (
@@ -109,6 +122,14 @@ export default function ExerciseSnackGallery() {
           </div>
         </div>
       ) : null}
+
+      <ImageViewer
+        slides={slides}
+        activeIndex={activeIndex}
+        isOpen={isViewerOpen}
+        onClose={() => setIsViewerOpen(false)}
+        onIndexChange={setActiveIndex}
+      />
     </>
   );
 }

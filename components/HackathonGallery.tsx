@@ -2,18 +2,20 @@
 
 import Image from "next/image";
 import { useEffect, useState } from "react";
+import ImageViewer, { type ImageViewerSlide } from "@/components/ImageViewer";
 
-const slides = [
-  { title: "Team formation", src: "/assets/images/onboarding.webp.webp", alt: "Team formation interface with search, filters and team cards" },
-  { title: "Event context", src: "/assets/images/event-page.webp.webp", alt: "Hackathon overview with navigation, event information and team prompt" },
-  { title: "Participant profile", src: "/assets/images/user-profile.webp.webp", alt: "Participant profile with skills, experience and invite action" },
-  { title: "Connected journey", src: "/assets/images/hackathon-case-study-image.webp.webp", alt: "Hackathon participants collaborating around a laptop" },
+const slides: ImageViewerSlide[] = [
+  { title: "Team formation", src: "/assets/images/onboarding.webp.webp", alt: "Team formation interface with search, filters and team cards", width: 1280, height: 832 },
+  { title: "Event context", src: "/assets/images/event-page.webp.webp", alt: "Hackathon overview with navigation, event information and team prompt", width: 5120, height: 3328 },
+  { title: "Participant profile", src: "/assets/images/user-profile.webp.webp", alt: "Participant profile with skills, experience and invite action", width: 1280, height: 875 },
+  { title: "Connected journey", src: "/assets/images/hackathon-case-study-image.webp.webp", alt: "Hackathon participants collaborating around a laptop", width: 1536, height: 1024 },
 ];
 
 const prototypeUrl = "https://embed.figma.com/proto/ZktGQu1JSiKVIstVvhbdU0/Hackathon-Platform-Redesign?page-id=5116%3A37624&node-id=5116-44646&p=f&viewport=1802%2C-3302%2C0.55&scaling=scale-down&content-scaling=fixed&starting-point-node-id=5116%3A44646&embed-host=share";
 
 export default function HackathonGallery() {
   const [activeIndex, setActiveIndex] = useState(0);
+  const [isViewerOpen, setIsViewerOpen] = useState(false);
   const [isPrototypeOpen, setIsPrototypeOpen] = useState(false);
   const activeSlide = slides[activeIndex];
   const previewSlides = [1, 2].map((offset) => slides[(activeIndex + offset) % slides.length]);
@@ -60,9 +62,14 @@ export default function HackathonGallery() {
             </div>
           </div>
 
-          <div className="hackathon-gallery__primary">
+          <button
+            className="hackathon-gallery__primary"
+            type="button"
+            onClick={() => setIsViewerOpen(true)}
+            aria-label={`Open ${activeSlide.title} in image viewer`}
+          >
             <Image key={activeSlide.src} src={activeSlide.src} alt={activeSlide.alt} fill sizes="(max-width: 900px) 100vw, 58vw" />
-          </div>
+          </button>
           <div className="hackathon-gallery__previews">
             {previewSlides.map((slide, previewIndex) => (
               <button type="button" key={`${slide.src}-${previewIndex}`} onClick={() => move(previewIndex + 1)} aria-label={`Show ${slide.title}`}>
@@ -86,6 +93,14 @@ export default function HackathonGallery() {
           </div>
         </div>
       ) : null}
+
+      <ImageViewer
+        slides={slides}
+        activeIndex={activeIndex}
+        isOpen={isViewerOpen}
+        onClose={() => setIsViewerOpen(false)}
+        onIndexChange={setActiveIndex}
+      />
     </>
   );
 }

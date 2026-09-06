@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
+import NetZeroViewerImage from "@/components/NetZeroImageViewer";
 
 export const metadata: Metadata = {
   title: "Net Zero Build — Jakub Zakrzewski",
@@ -98,24 +98,18 @@ function EditorialRows({
 }
 
 function EvidenceFigure({
-  src,
-  alt,
+  index,
   label,
   caption,
-  width,
-  height,
 }: {
-  src: string;
-  alt: string;
+  index: number;
   label: string;
   caption: string;
-  width: number;
-  height: number;
 }) {
   return (
     <figure className="net-zero-evidence">
       <div className="net-zero-evidence__image">
-        <Image src={src} alt={alt} width={width} height={height} sizes="(max-width: 900px) 100vw, 60vw" />
+        <NetZeroViewerImage index={index} sizes="(max-width: 900px) 100vw, 60vw" />
       </div>
       <figcaption>
         <span>{label}</span>
@@ -151,14 +145,7 @@ export default function NetZeroBuildPage() {
 
         <div className="hackathon-case__hero-content">
           <div className="net-zero-hero__visual">
-            <Image
-              src="/assets/images/net-zero-portfolio-dashboard.png"
-              alt="Net Zero Build organization portfolio dashboard"
-              width={854}
-              height={666}
-              priority
-              sizes="(max-width: 900px) 100vw, 60vw"
-            />
+            <NetZeroViewerImage index={0} priority sizes="(max-width: 900px) 100vw, 60vw" />
           </div>
           <p className="net-zero-hero__caption">
             Organization portfolio dashboard · projects, requirements, risk and performance
@@ -248,10 +235,7 @@ export default function NetZeroBuildPage() {
             Persistent organization and project cues made the hierarchy visible while each dashboard surfaced the risks, targets and progress relevant to that level.
           </p>
           <EvidenceFigure
-            src="/assets/images/net-zero-project-dashboard.png"
-            alt="Project dashboard showing progress, risks, certification stages and local requirements"
-            width={854}
-            height={590}
+            index={1}
             label="Project overview"
             caption="Risks · progress · LEED stage compliance · local requirements"
           />
@@ -274,10 +258,7 @@ export default function NetZeroBuildPage() {
             ))}
           </div>
           <EvidenceFigure
-            src="/assets/images/net-zero-credit-model.png"
-            alt="LEED-led scorecard and credit evidence model"
-            width={854}
-            height={610}
+            index={2}
             label="LEED-led model"
             caption="Designed to retain SBC 1001 and project-specific requirements alongside the main scorecard."
           />
@@ -314,10 +295,7 @@ export default function NetZeroBuildPage() {
             The assistant concept stayed inside the compliance workflow: generate a LEED-aligned credit template, reference approved submissions and offer to pull related project data instead of starting with an empty chat.
           </p>
           <EvidenceFigure
-            src="/assets/images/net-zero-ai-assistant.png"
-            alt="Contextual AI assistant working inside a project credit"
-            width={854}
-            height={590}
+            index={3}
             label="Context used"
             caption="Project context → credit guidance → evidence retrieval"
           />
@@ -335,10 +313,7 @@ export default function NetZeroBuildPage() {
             The reporting centre turns structured project and scorecard data into repeatable compliance outputs, including certification, PIF and category-performance reports.
           </p>
           <EvidenceFigure
-            src="/assets/images/net-zero-report-centre.png"
-            alt="Report centre with templates, generation status and download history"
-            width={854}
-            height={570}
+            index={4}
             label="Report centre"
             caption="Templates · generation status · downloadable history"
           />
