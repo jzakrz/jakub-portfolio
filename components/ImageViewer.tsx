@@ -34,13 +34,17 @@ export default function ImageViewer({
   useEffect(() => {
     if (!isOpen) return;
 
-    const previousOverflow = document.documentElement.style.overflow;
+    const root = document.documentElement;
+    const previousOverflow = root.style.overflow;
+    const previousScrollbarGutter = root.style.scrollbarGutter;
     const previouslyFocused = document.activeElement as HTMLElement | null;
-    document.documentElement.style.overflow = "hidden";
+    root.style.overflow = "hidden";
+    root.style.scrollbarGutter = "auto";
     closeButtonRef.current?.focus();
 
     return () => {
-      document.documentElement.style.overflow = previousOverflow;
+      root.style.overflow = previousOverflow;
+      root.style.scrollbarGutter = previousScrollbarGutter;
       previouslyFocused?.focus();
     };
   }, [isOpen]);
