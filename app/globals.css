@@ -813,7 +813,17 @@ html {
   background: rgb(224 224 224 / 90%);
   font-size: 10px;
   line-height: 1;
+  opacity: 0;
+  transform: translateY(5px);
+  transition:
+    opacity 180ms ease,
+    transform 240ms ease;
   backdrop-filter: blur(8px);
+}
+
+.project-card--coming-soon:hover .project-card__status {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .project-card__media--pending {
@@ -930,14 +940,16 @@ html {
     border-radius: 10px;
   }
 
-  .project-card__open {
+  .project-card__open,
+  .project-card__status {
     opacity: 1;
     transform: none;
   }
 }
 
 @media (hover: none) {
-  .project-card__open {
+  .project-card__open,
+  .project-card__status {
     opacity: 1;
     transform: none;
   }

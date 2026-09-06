@@ -116,8 +116,9 @@ function ProjectPreview({ project }: { project: Project }) {
 
   return (
     <div className="project-card__media project-card__media--pending">
-      <span>Coming soon</span>
+      <span>Preview in progress</span>
       <span>{project.number} / {String(projects.length).padStart(2, "0")}</span>
+      <span className="project-card__status">Coming soon</span>
     </div>
   );
 }
