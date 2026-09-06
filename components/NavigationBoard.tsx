@@ -183,27 +183,30 @@ export default function NavigationBoard() {
               className="navigation-card route-card route-card--works"
             >
               <div className="route-meta">
-                <span>01 / My work</span>
-                <span>04 case studies</span>
+                <span>01 / Selected work</span>
               </div>
 
               <div className="works-content">
-                <h1>
-                  Commercial
-                  <br />
-                  projects &amp;
-                  <br />
-                  personal
-                  <br />
-                  experiments
-                </h1>
-
-                <div className="works-summary">
-                  <p>
-                    Product strategy, systems thinking and interface design for
-                    products where the problem is still taking shape.
-                  </p>
+                <div className="works-copy">
+                  <div className="works-heading">
+                    <h1>Case Studies</h1>
+                    <p>
+                      Selected product design work showing how I turn ambiguous
+                      problems into clear product direction, scalable systems,
+                      and usable interfaces.
+                    </p>
+                  </div>
                   <CardAction>Browse projects</CardAction>
+                </div>
+
+                <div className="works-preview">
+                  <Image
+                    src="/assets/images/case-study-list-preview.png"
+                    alt="Preview of the case study list"
+                    width={460}
+                    height={319}
+                    sizes="(max-width: 760px) calc(100vw - 64px), 460px"
+                  />
                 </div>
               </div>
             </Link>
@@ -213,13 +216,9 @@ export default function NavigationBoard() {
                 href="/about"
                 className="navigation-card route-card route-card--about"
               >
-                <p className="route-meta route-meta--single">02 / About me</p>
+                <p className="route-meta route-meta--single">02 / Profile</p>
                 <div className="about-copy">
-                  <h2>Hi, I&apos;m Jakub, a Product Designer</h2>
-                  <p>
-                    Based in Warsaw, working across strategy, systems and
-                    interface craft.
-                  </p>
+                  <h2>About</h2>
                 </div>
                 <CardAction>Read profile</CardAction>
               </Link>
@@ -230,7 +229,7 @@ export default function NavigationBoard() {
                 rel="noopener noreferrer"
                 className="navigation-card route-card route-card--resume"
               >
-                <p className="route-meta route-meta--single">03 / Resume</p>
+                <p className="route-meta route-meta--single">03 / Experience</p>
                 <h2>Resume</h2>
                 <CardAction icon="↓">Download</CardAction>
               </a>
@@ -260,11 +259,8 @@ export default function NavigationBoard() {
               className="navigation-card route-card route-card--contact"
             >
               <p className="route-meta route-meta--single">05 / Contact</p>
-              <h2>Let&apos;s talk.</h2>
-              <div className="contact-bottom">
-                <p>Email / LinkedIn</p>
-                <CardAction>Get in touch</CardAction>
-              </div>
+              <h2>Let&apos;s talk</h2>
+              <CardAction>Get in touch</CardAction>
             </Link>
           </div>
         </section>
