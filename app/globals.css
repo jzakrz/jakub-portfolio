@@ -1972,8 +1972,7 @@ html {
 
 .hackathon-case__hero-image,
 .hackathon-direction__image,
-.hackathon-gallery__primary,
-.hackathon-gallery__previews button {
+.hackathon-gallery__primary {
   position: relative;
   overflow: hidden;
   border-radius: 12px;
@@ -2306,32 +2305,6 @@ html {
 @keyframes hackathon-gallery-reveal {
   from { opacity: 0; transform: scale(0.992); }
   to { opacity: 1; transform: scale(1); }
-}
-
-.hackathon-gallery__previews {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 16px;
-  height: 250px;
-  margin-top: 16px;
-}
-
-.hackathon-gallery__previews button {
-  display: block;
-  width: 100%;
-  height: 250px;
-  padding: 0;
-  border: 0;
-  cursor: pointer;
-}
-
-.hackathon-gallery__previews button:hover img,
-.hackathon-gallery__previews button:focus-visible img {
-  transform: scale(1.025);
-}
-
-.hackathon-gallery__previews img {
-  transition: transform 220ms ease;
 }
 
 /* Shared case-study image viewer */
@@ -2789,12 +2762,6 @@ html {
     min-height: 300px;
   }
 
-  .hackathon-gallery__previews,
-  .hackathon-gallery__previews button {
-    height: 34vw;
-    min-height: 150px;
-  }
-
   .hackathon-prototype {
     padding: 8px;
   }
@@ -2818,7 +2785,6 @@ html {
   }
 
   .hackathon-gallery__progress span,
-  .hackathon-gallery__previews img,
   .hackathon-gallery__prototype,
   .hackathon-gallery__arrows button {
     transition: none;
@@ -2997,20 +2963,14 @@ html {
   gap: 16px;
 }
 
-.exercise-gallery .hackathon-gallery__primary,
-.exercise-gallery .hackathon-gallery__previews button {
+.exercise-gallery .hackathon-gallery__primary {
   background: #ededed;
 }
 
-.exercise-gallery .hackathon-gallery__primary img,
-.exercise-gallery .hackathon-gallery__previews img {
+.exercise-gallery .hackathon-gallery__primary img {
   object-fit: contain;
   object-position: center;
   padding: 28px;
-}
-
-.exercise-gallery .hackathon-gallery__previews img {
-  padding: 16px;
 }
 
 .exercise-lessons {
@@ -3073,9 +3033,6 @@ html {
     padding: 18px;
   }
 
-  .exercise-gallery .hackathon-gallery__previews img {
-    padding: 10px;
-  }
 }
 
 /* Net Zero Build case study */

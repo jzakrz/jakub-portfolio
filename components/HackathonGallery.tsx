@@ -18,7 +18,6 @@ export default function HackathonGallery() {
   const [isViewerOpen, setIsViewerOpen] = useState(false);
   const [isPrototypeOpen, setIsPrototypeOpen] = useState(false);
   const activeSlide = slides[activeIndex];
-  const previewSlides = [1, 2].map((offset) => slides[(activeIndex + offset) % slides.length]);
 
   useEffect(() => {
     if (!isPrototypeOpen) return;
@@ -70,13 +69,6 @@ export default function HackathonGallery() {
           >
             <Image key={activeSlide.src} src={activeSlide.src} alt={activeSlide.alt} fill sizes="(max-width: 900px) 100vw, 58vw" />
           </button>
-          <div className="hackathon-gallery__previews">
-            {previewSlides.map((slide, previewIndex) => (
-              <button type="button" key={`${slide.src}-${previewIndex}`} onClick={() => move(previewIndex + 1)} aria-label={`Show ${slide.title}`}>
-                <Image src={slide.src} alt="" fill sizes="(max-width: 900px) 50vw, 29vw" />
-              </button>
-            ))}
-          </div>
         </div>
       </section>
 
