@@ -43,7 +43,7 @@ export default function HackathonGallery() {
     <>
       <section className="hackathon-case__section hackathon-gallery">
         <div className="hackathon-case__rail">
-          <p className="hackathon-case__eyebrow">07 / Product walkthrough</p>
+          <p className="hackathon-case__eyebrow">06 / Product walkthrough</p>
           <h2>Explore the product</h2>
           <button className="hackathon-gallery__prototype" type="button" onClick={() => setIsPrototypeOpen(true)}>
             View prototype →

@@ -12,11 +12,11 @@ export const metadata: Metadata = {
 
 const journeySteps = [
   ["01", "Discover", "Website"],
-  ["02", "Join", "Registration forms"],
+  ["02", "Join", "External registration forms"],
   ["03", "Meet", "Discord"],
   ["04", "Watch", "Twitch"],
   ["05", "Build", "Separate tools"],
-  ["06", "Submit", "External forms"],
+  ["06", "Submit", "Website"],
 ];
 
 const decisions = [
@@ -36,20 +36,16 @@ const decisions = [
 
 const lessons = [
   {
-    title: "Define activation before optimizing it.",
-    body: "The 20% baseline showed that signup volume was not meaningful participation; the product needed a behavior-based definition.",
+    title: "Signup is not participation",
+    body: "Registration looked like the end of the funnel, but the project showed me that real activation happened when participants moved toward joining or creating a team.",
   },
   {
-    title: "Bring engineering into the model early.",
-    body: "Daily collaboration exposed constraints before they hardened into expensive interaction decisions.",
+    title: "Make the next step hard to miss",
+    body: "When team formation was separated from signup, it was easy to overlook. Bringing it into onboarding—and keeping it visible afterward—made the intended journey explicit.",
   },
   {
-    title: "Test uncertainty, not polish.",
-    body: "The most useful Maze rounds focused on where people hesitated and what they expected to happen next.",
-  },
-  {
-    title: "Pair behavioral data with moderated follow-up.",
-    body: "Instrument the journey, then use short interviews to understand the intent behind the numbers.",
+    title: "Unmoderated tests need more context",
+    body: "Maze testing taught me that when I wasn’t there to clarify the scenario, task wording became part of the experience being tested. Later rounds improved both the product flow and the way the task was communicated.",
   },
 ];
 
@@ -167,21 +163,14 @@ export default function HackathonPage() {
       <section className="hackathon-case__section">
         <SectionIntro
           label="01 / Activation gap"
-          title="Activation gap"
+          title="Registration Completion"
           note="Signup intent was counted as participation, even though the journey was incomplete."
         />
         <div className="hackathon-case__content">
-          <p className="hackathon-case__lead hackathon-case__lead--large">
+          <p className="hackathon-case__lead hackathon-case__lead--compact">
             Only around 20% of people who started signup completed registration by joining or creating a team.
           </p>
-          <div className="hackathon-activation__metric">
-            <strong>20%</strong>
-            <div>
-              <p className="hackathon-case__eyebrow">Registration completion</p>
-              <p>joined or created a team ÷ started signup</p>
-            </div>
-          </div>
-          <div className="hackathon-two-columns">
+          <div className="hackathon-two-columns hackathon-activation__details">
             <article>
               <p className="hackathon-case__eyebrow">The definition</p>
               <p>Creating an account showed intent. A participant became meaningfully activated only after joining or creating a team.</p>
@@ -198,7 +187,7 @@ export default function HackathonPage() {
         <SectionIntro
           label="02 / Journey gaps"
           title="Journey gaps"
-          note="Six products were involved in completing one participation journey."
+          note="At least five products were involved in completing one participation journey."
         />
         <div className="hackathon-case__content">
           <p className="hackathon-case__lead">
@@ -227,15 +216,13 @@ export default function HackathonPage() {
         <div className="hackathon-case__content hackathon-direction">
           <div className="hackathon-direction__image">
             <Image
-              src="/assets/images/event-page.webp.webp"
-              alt="Redesigned hackathon event overview keeping essential event actions in one interface"
+              src="/assets/images/hackathon-case-study-image.webp.webp"
+              alt="Hackathon participants collaborating around laptops"
               fill
               sizes="(max-width: 900px) 100vw, 58vw"
             />
           </div>
-          <p className="hackathon-direction__caption">New Native direction — connected actions, preserved community.</p>
         </div>
-        <p className="hackathon-direction__principle"><span>Design principle</span>Keep context close to the action.</p>
       </section>
 
       <section className="hackathon-case__section">
@@ -247,38 +234,38 @@ export default function HackathonPage() {
         <div className="hackathon-case__content"><EditorialRows items={decisions} /></div>
       </section>
 
-      <section className="hackathon-case__section">
-        <SectionIntro
-          label="05 / Success criteria"
-          title="Measure activation"
-          note="The redesign was not shipped, so 20% remains the baseline—not a claimed outcome."
-        />
-        <div className="hackathon-case__content">
-          <p className="hackathon-case__lead hackathon-case__lead--large">
-            Success meant increasing completed registration without hiding abandonment behind signup volume.
-          </p>
-          <div className="hackathon-three-columns hackathon-measures">
-            <article><p className="hackathon-case__eyebrow">Primary metric</p><h3>Registration completion</h3><p>Joined or created a team ÷ signup started</p></article>
-            <article><p className="hackathon-case__eyebrow">Supporting signal</p><h3>Time to team</h3><p>How long completion took after signup began</p></article>
-            <article><p className="hackathon-case__eyebrow">Guardrail</p><h3>Signup abandonment</h3><p>Whether the new definition increased early drop-off</p></article>
+      <section className="hackathon-case__section hackathon-validation-section">
+        <div className="hackathon-case__rail hackathon-validation__rail">
+          <div className="hackathon-validation__intro">
+            <p className="hackathon-case__eyebrow">05 / Validation</p>
+            <h2>Testing the path to a team</h2>
+            <p className="hackathon-case__rail-note">
+              The key question was whether participants understood team membership as the natural next step after signing up—and whether they knew how to get there.
+            </p>
+          </div>
+          <div className="hackathon-validation__note">
+            <p className="hackathon-case__eyebrow">About the testing</p>
+            <p>The study was run remotely in Maze. Some early rounds also helped refine the task wording so participants could understand the scenario without a moderator.</p>
           </div>
         </div>
-      </section>
-
-      <section className="hackathon-case__section">
-        <SectionIntro
-          label="06 / Validation"
-          title="Test completion"
-          note="Maze iterations focused on finding a team and understanding what participants expected after signup."
-        />
-        <div className="hackathon-case__content">
-          <p className="hackathon-case__lead hackathon-case__lead--large">
-            Testing examined whether team membership felt like the next meaningful outcome—not another external destination.
+        <div className="hackathon-case__content hackathon-validation__content">
+          <p className="hackathon-case__lead hackathon-case__lead--compact">
+            The first prototype included the planned MVP experience, from event discovery and signup to team participation and submission. Unmoderated Maze testing showed one important problem: signing up did not naturally lead participants to joining a team.
           </p>
-          <div className="hackathon-three-columns hackathon-validation">
-            <article><p className="hackathon-case__eyebrow">Trace the funnel</p><p>Follow signup starters through join or create team and identify where completion broke.</p></article>
-            <article><p className="hackathon-case__eyebrow">Test the team path</p><p>Run focused Maze rounds on finding a team, understanding the choice and knowing what happened next.</p></article>
-            <article><p className="hackathon-case__eyebrow">Design with the build</p><p>Resolve constraints with engineering while the registration model was still flexible.</p></article>
+          <p className="hackathon-validation__bridge">
+            That led to the second iteration. I introduced team formation directly into onboarding, giving participants a clear choice to join or create a team, and added a persistent prompt after signup so the action remained visible if they chose to continue without one.
+          </p>
+          <div className="hackathon-validation__iterations">
+            <article>
+              <p className="hackathon-case__eyebrow">01 / Initial MVP</p>
+              <p>Full redesigned platform tested as one end-to-end experience.</p>
+              <p><strong>Finding:</strong> participants could register, but team formation was easy to miss.</p>
+            </article>
+            <article>
+              <p className="hackathon-case__eyebrow">02 / Team-first onboarding</p>
+              <p>Added join/create-team choices during onboarding and a persistent team prompt afterward.</p>
+              <p><strong>Outcome:</strong> team formation became an explicit part of the event journey rather than a separate action users had to discover.</p>
+            </article>
           </div>
         </div>
       </section>
@@ -287,9 +274,9 @@ export default function HackathonPage() {
 
       <section className="hackathon-case__section">
         <SectionIntro
-          label="08 / Key takeaways"
+          label="07 / Key takeaways"
           title="What I learned"
-          note="The project changed how I define activation, connect journeys and use behavioral evidence."
+          note="Three lessons from designing the journey from event signup to active participation."
         />
         <div className="hackathon-case__content"><EditorialRows items={lessons} /></div>
       </section>

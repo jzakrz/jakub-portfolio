@@ -1913,7 +1913,7 @@ html {
 
 /* Hackathon Platform case study */
 .hackathon-case {
-  --case-paper: #e0e0e0;
+  --case-paper: #f3f3f3;
   --case-ink: #0e0e0e;
   --case-muted: #595959;
   --case-line: rgb(14 14 14 / 18%);
@@ -1954,7 +1954,7 @@ html {
   padding: 0 18px;
   border: 1px solid var(--case-ink);
   border-radius: 12px;
-  background: rgb(224 224 224 / 94%);
+  background: rgb(243 243 243 / 94%);
   font-family: var(--font-ibm-plex-mono), monospace;
   font-size: 11px;
   font-weight: 500;
@@ -2156,6 +2156,12 @@ html {
   line-height: 1.2;
 }
 
+.hackathon-case__lead--compact {
+  font-size: 24px;
+  line-height: 1.25;
+  letter-spacing: -0.025em;
+}
+
 .hackathon-summary__columns,
 .hackathon-measures,
 .hackathon-validation {
@@ -2219,6 +2225,11 @@ html {
   padding-top: 28px;
 }
 
+.hackathon-activation__details {
+  margin-top: 28px;
+  border-top: 1px solid var(--case-ink);
+}
+
 .hackathon-case__body-copy {
   max-width: 760px;
   margin-top: 30px !important;
@@ -2258,10 +2269,11 @@ html {
 
 .hackathon-direction__image {
   height: auto;
-  aspect-ratio: 5120 / 3328;
+  aspect-ratio: 840 / 760;
 }
 
 .hackathon-direction__image img {
+  object-fit: cover;
   object-position: center;
 }
 
@@ -2329,6 +2341,71 @@ html {
   color: var(--case-muted);
   font-size: 17px;
   line-height: 1.55;
+}
+
+.hackathon-validation__rail {
+  min-height: 469px;
+  justify-content: space-between;
+}
+
+.hackathon-validation__intro {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.hackathon-validation__note {
+  display: flex;
+  max-width: 404px;
+  flex-direction: column;
+  gap: 12px;
+  color: var(--case-muted);
+}
+
+.hackathon-validation__note > p:last-child {
+  font-size: 14px;
+  font-style: italic;
+  line-height: 1.7;
+}
+
+.hackathon-validation__content {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.hackathon-validation__bridge {
+  max-width: 900px;
+  padding-top: 26px;
+  border-top: 1px solid var(--case-ink);
+  color: var(--case-muted);
+  font-size: 18px;
+  line-height: 1.45;
+}
+
+.hackathon-validation__iterations {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 32px;
+  color: var(--case-muted);
+}
+
+.hackathon-validation__iterations article {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.hackathon-validation__iterations article > p:not(.hackathon-case__eyebrow) {
+  max-width: 440px;
+  font-size: 18px;
+  line-height: 1.35;
+}
+
+.hackathon-validation__iterations strong {
+  color: var(--case-ink);
+  font-weight: 600;
 }
 
 .hackathon-measures h3 {
@@ -2803,6 +2880,14 @@ html {
     min-height: 0;
   }
 
+  .hackathon-validation__rail {
+    min-height: 0;
+  }
+
+  .hackathon-validation__note {
+    margin-top: 20px;
+  }
+
   .hackathon-case__caption > p:last-child {
     max-width: 700px;
   }
@@ -2859,7 +2944,8 @@ html {
   }
 
   .hackathon-three-columns,
-  .hackathon-two-columns {
+  .hackathon-two-columns,
+  .hackathon-validation__iterations {
     grid-template-columns: 1fr;
   }
 
