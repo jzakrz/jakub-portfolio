@@ -2257,6 +2257,32 @@ html {
   font-weight: 500;
 }
 
+.hackathon-journey__step:nth-child(1),
+.hackathon-journey__step:nth-child(6) {
+  color: #fff;
+  background: #171717;
+}
+
+.hackathon-journey__step:nth-child(2) {
+  color: #171717;
+  background: #d9a441;
+}
+
+.hackathon-journey__step:nth-child(3) {
+  color: #fff;
+  background: #6874c9;
+}
+
+.hackathon-journey__step:nth-child(4) {
+  color: #fff;
+  background: #8555a8;
+}
+
+.hackathon-journey__step:nth-child(5) {
+  color: #fff;
+  background: #777b78;
+}
+
 .hackathon-case__section--direction {
   min-height: 980px;
 }
