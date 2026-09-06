@@ -292,7 +292,7 @@ html {
 
 .navigation-card:hover .board-action > span:first-child::after,
 .navigation-card:focus-visible .board-action > span:first-child::after {
-  animation: board-zigzag-travel 420ms linear infinite;
+  animation: board-zigzag-travel 800ms linear infinite;
   opacity: 1;
   transform: translateY(0) scaleX(1);
 }
