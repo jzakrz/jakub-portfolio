@@ -246,14 +246,39 @@ html {
   align-items: center;
   gap: 9px;
   width: fit-content;
-  border-bottom: 1px solid transparent;
   font-family: var(--font-ibm-plex-mono), monospace;
   font-size: 11px;
   font-weight: 500;
   line-height: 1.25;
   letter-spacing: 0.3px;
   text-transform: uppercase;
-  transition: border-color 160ms ease, gap 160ms ease;
+  transition: gap 160ms ease;
+}
+
+.board-action > span:first-child {
+  position: relative;
+}
+
+.board-action > span:first-child::after {
+  position: absolute;
+  right: 0;
+  bottom: -7px;
+  left: 0;
+  height: 5px;
+  background: currentColor;
+  content: "";
+  opacity: 0;
+  transform: translateY(2px) scaleX(0.45);
+  transform-origin: left center;
+  transition: opacity 180ms ease, transform 260ms cubic-bezier(0.22, 1, 0.36, 1);
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='5' viewBox='0 0 12 5'%3E%3Cpath d='M0 4 3 1l3 3 3-3 3 3' fill='none' stroke='black' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  -webkit-mask-position: 0 0;
+  -webkit-mask-repeat: repeat-x;
+  -webkit-mask-size: 12px 5px;
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='5' viewBox='0 0 12 5'%3E%3Cpath d='M0 4 3 1l3 3 3-3 3 3' fill='none' stroke='black' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  mask-position: 0 0;
+  mask-repeat: repeat-x;
+  mask-size: 12px 5px;
 }
 
 .route-card--works .board-action {
@@ -263,12 +288,25 @@ html {
 .navigation-card:hover .board-action,
 .navigation-card:focus-visible .board-action {
   gap: 14px;
-  border-color: currentColor;
+}
+
+.navigation-card:hover .board-action > span:first-child::after,
+.navigation-card:focus-visible .board-action > span:first-child::after {
+  animation: board-zigzag-travel 420ms linear infinite;
+  opacity: 1;
+  transform: translateY(0) scaleX(1);
 }
 
 .board-action__icon {
   display: inline-block;
   font-family: var(--font-ibm-plex-mono), monospace;
+}
+
+@keyframes board-zigzag-travel {
+  to {
+    -webkit-mask-position: 12px 0;
+    mask-position: 12px 0;
+  }
 }
 
 .route-card--about,
@@ -584,6 +622,11 @@ html {
   .portrait-card:focus-visible .portrait-doodle {
     animation: none;
     opacity: 1;
+  }
+
+  .navigation-card:hover .board-action > span:first-child::after,
+  .navigation-card:focus-visible .board-action > span:first-child::after {
+    animation: none;
   }
 }
 
