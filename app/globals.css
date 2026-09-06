@@ -2111,9 +2111,18 @@ html {
 }
 
 .hackathon-case__hero-image img,
+.hackathon-gallery__primary--cover img {
+  object-fit: cover;
+}
+
+.hackathon-direction__image img,
+.hackathon-gallery__primary--contain img {
+  object-fit: contain;
+}
+
+.hackathon-case__hero-image img,
 .hackathon-direction__image img,
 .hackathon-gallery img {
-  object-fit: cover;
   filter: grayscale(1);
 }
 
@@ -2242,11 +2251,17 @@ html {
 }
 
 .hackathon-direction__image {
-  height: 760px;
+  height: auto;
+  aspect-ratio: 5120 / 3328;
 }
 
 .hackathon-direction__image img {
   object-position: center;
+}
+
+.hackathon-direction__image,
+.hackathon-gallery__primary--contain {
+  background: #d8d8d4;
 }
 
 .hackathon-direction__caption {
@@ -2754,10 +2769,14 @@ html {
     font-size: clamp(55px, 11vw, 82px);
   }
 
-  .hackathon-case__hero-image,
-  .hackathon-direction__image {
+  .hackathon-case__hero-image {
     height: min(720px, 78vw);
     min-height: 430px;
+  }
+
+  .hackathon-direction__image {
+    height: auto;
+    min-height: 0;
   }
 
   .hackathon-case__caption > p:last-child {
@@ -2810,8 +2829,7 @@ html {
     font-size: 22px;
   }
 
-  .hackathon-case__hero-image,
-  .hackathon-direction__image {
+  .hackathon-case__hero-image {
     min-height: 310px;
   }
 
