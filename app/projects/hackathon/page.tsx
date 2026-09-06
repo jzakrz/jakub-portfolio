@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import CaseStudyHeader from "@/components/CaseStudyHeader";
 import HackathonGallery from "@/components/HackathonGallery";
 
 export const metadata: Metadata = {
@@ -95,11 +96,7 @@ function EditorialRows({
 export default function HackathonPage() {
   return (
     <main className="hackathon-case">
-      <header className="hackathon-case__header">
-        <Link href="/projects">← Works</Link>
-        <p>Case 01 / Hackathon platform</p>
-        <Link href="/projects/net-zero-build">Next / Net Zero Build →</Link>
-      </header>
+      <CaseStudyHeader label="Case 01 / Hackathon platform" />
 
       <section className="hackathon-case__section hackathon-case__hero">
         <div className="hackathon-case__hero-rail">
