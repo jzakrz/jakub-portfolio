@@ -2316,6 +2316,10 @@ html {
   border-top: 1px solid var(--case-line);
 }
 
+.hackathon-editorial-rows > .hackathon-editorial-row:first-child {
+  border-top: 0;
+}
+
 .hackathon-editorial-row__number {
   font-size: 80px;
   font-weight: 500;
