@@ -1995,11 +1995,11 @@ html {
 .hackathon-case__section {
   position: relative;
   display: grid;
-  grid-template-columns: minmax(0, 480px) minmax(0, 840px);
+  grid-template-columns: minmax(0, 480px) minmax(0, 1040px);
   justify-content: center;
   gap: 40px;
   min-height: 620px;
-  padding: 40px;
+  padding: 40px max(20px, calc((100vw - 1560px) / 2));
   border-top: 1px solid var(--case-line);
 }
 
@@ -2708,11 +2708,11 @@ html {
 
 .hackathon-next {
   display: grid;
-  grid-template-columns: minmax(0, 480px) minmax(0, 840px);
+  grid-template-columns: minmax(0, 480px) minmax(0, 1040px);
   justify-content: center;
   gap: 40px;
   min-height: 260px;
-  padding: 40px;
+  padding: 40px max(20px, calc((100vw - 1560px) / 2));
   color: var(--case-paper);
   background: #292929;
   text-decoration: none;
@@ -3221,9 +3221,9 @@ html {
 
 .net-zero-case .hackathon-case__section,
 .net-zero-case .hackathon-next {
-  grid-template-columns: minmax(0, 410px) minmax(0, 854px);
+  grid-template-columns: minmax(0, 410px) minmax(0, 1086px);
   gap: 64px;
-  padding: 72px max(56px, calc((100vw - 1328px) / 2));
+  padding: 72px max(20px, calc((100vw - 1560px) / 2));
 }
 
 .net-zero-case .hackathon-case__rail {
