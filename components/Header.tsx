@@ -37,7 +37,7 @@ export default function Header() {
           <Link
             href="/"
             aria-label="Go to home page"
-            className="group min-w-0 rounded-xl px-2 py-1 pl-1 transition-colors hover:bg-gray-100"
+            className="group inline-flex min-h-12 min-w-0 items-center rounded-xl px-2 py-1 pl-1 transition-colors hover:bg-gray-100"
           >
             <div className="relative min-h-[2.2rem]">
               <div className="transition-opacity duration-150 group-hover:opacity-0">
